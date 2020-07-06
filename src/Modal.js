@@ -23,20 +23,22 @@ const Form = () => {
         <div className= {styles.modal}>
             <h2>Dodaj nowe wydarzenie w Trójmieście!</h2>
             <p>
-                Podziel się nowym wydarzeniem w Trójmiscie. Uzupełnij wymagane dane, aby
+                Podziel się nowym wydarzeniem w Trójmiscie. Uzupełnij wymagane dane, aby poinformować o nadchodządym nowym wydarzeniu!
             </p>
             <div className={styles.form}>
-            <input className={styles.formInput} type="text" id="title" name="title"/>
-            <select id="town" name="town">
-                <option value="Gdansk">Gdańsk</option>
-                <option value="Gdynia">Gdynia</option>
-                <option value="Sopot">Sopot</option>
-            </select>
-            <input type="date" id="date"/>
-            <input type="text" id="pirce" name="price"/>
-            <input type='text' id="description" name='description'/>
-            <input type="file" />
-            <input type="submit" value="Submit"/>
+                <input className={styles.formInput} type="text" id="title" name="title"/>
+                <select className={styles.formInput} id="town" name="town">
+                    <option value="Gdansk">Gdańsk</option>
+                    <option value="Gdynia">Gdynia</option>
+                    <option value="Sopot">Sopot</option>
+                </select>
+                <input className={styles.formInput}  type="date" id="date"/>
+                <input className={styles.formInput}  type="text" id="pirce" name="price"/>
+                
+                <textarea className={styles.formInput} name="message" rows="10" cols="30">Dodaj krótki opis wydarzenia.</textarea>
+
+                <input className={styles.formInput}  type="file" />
+                <button  type="submit" value="Submit" className={styles.button}> Dodaj </button>
 
             </div>
         </div>
@@ -46,8 +48,8 @@ const Form = () => {
 
     return (
         <div>
-          <button type="button" onClick={handleOpen}>
-            Open Modal
+          <button type="button" onClick={handleOpen} className={styles.button}>
+            Dodaj nowe wydarzenie
           </button>
           <Modal
             open={open}
