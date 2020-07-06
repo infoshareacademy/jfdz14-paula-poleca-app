@@ -25,8 +25,8 @@ const Form = () => {
             <p>
                 Podziel się nowym wydarzeniem w Trójmiscie. Uzupełnij wymagane dane, aby
             </p>
-            <div>
-            <input type="text" id="title" name="title"/>
+            <div className={styles.form}>
+            <input className={styles.formInput} type="text" id="title" name="title"/>
             <select id="town" name="town">
                 <option value="Gdansk">Gdańsk</option>
                 <option value="Gdynia">Gdynia</option>
