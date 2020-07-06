@@ -21,10 +21,24 @@ const Form = () => {
 
     const body = (
         <div className= {styles.modal}>
-            <h2>Text in a modal</h2>
+            <h2>Dodaj nowe wydarzenie w Trójmieście!</h2>
             <p>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                Podziel się nowym wydarzeniem w Trójmiscie. Uzupełnij wymagane dane, aby
             </p>
+            <div>
+            <input type="text" id="title" name="title"/>
+            <select id="town" name="town">
+                <option value="Gdansk">Gdańsk</option>
+                <option value="Gdynia">Gdynia</option>
+                <option value="Sopot">Sopot</option>
+            </select>
+            <input type="date" id="date"/>
+            <input type="text" id="pirce" name="price"/>
+            <input type='text' id="description" name='description'/>
+            <input type="file" />
+            <input type="submit" value="Submit"/>
+
+            </div>
         </div>
         );
 
