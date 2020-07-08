@@ -7,8 +7,10 @@ import './App.css';
 
 function App() {
   return (
-    <Container maxWidth="m">
+    <Container maxWidth="md">
+      <Menu />
       <Sidebar></Sidebar>
+      
     
     </Container>
   );
