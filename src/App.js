@@ -10,7 +10,6 @@ function App() {
   return (
     <Container maxWidth="m">
       <Sidebar></Sidebar>
-      <Form></Form>
     
     </Container>
   );

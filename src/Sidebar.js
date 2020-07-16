@@ -5,6 +5,10 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import Form from './Modal'
+import styles from './Modal.module.css'
+
+
 
 
 const Sidebar = () => {
@@ -49,10 +53,12 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: 'flex',
-    height: 224,
+    height: 350,
   },
   tabs: {
     borderRight: `1px solid ${theme.palette.divider}`,
+    width: 300
+
   },
 }));
 
@@ -74,7 +80,7 @@ export default function VerticalTabs() {
         aria-label="Vertical tabs example"
         className={classes.tabs}
       >
-        <Tab label="Item One" {...a11yProps(0)} />
+        <Tab label="Dodaj wydarzenie" {...a11yProps(0)} />
         <Tab label="Item Two" {...a11yProps(1)} />
         <Tab label="Item Three" {...a11yProps(2)} />
         <Tab label="Item Four" {...a11yProps(3)} />
@@ -83,7 +89,11 @@ export default function VerticalTabs() {
         <Tab label="Item Seven" {...a11yProps(6)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        Item One
+        
+        
+        <p>Znasz informacje o nowym nadchodzącym wydarzeniu w Trójmiescie? Dodaj wydarzenie do listy aby kady zainteresowany mógł się o nim dowiedzieć.</p>
+        <Form></Form>
+        
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
@@ -101,7 +111,6 @@ export default function VerticalTabs() {
         Item Six
       </TabPanel>
       <TabPanel value={value} index={6}>
-        Item Seven
       </TabPanel>
     </div>
   );
