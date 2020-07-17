@@ -26,14 +26,18 @@ const Form = () => {
                 Podziel się nowym wydarzeniem w Trójmiscie. Uzupełnij wymagane dane, aby poinformować o nadchodządym nowym wydarzeniu!
             </p>
             <div className={styles.form}>
-                <input className={styles.formInput} type="text" id="title" name="title"/>
+                <input className={styles.formInput} type="text" id="title" name="title" defaultValue="Tytuł"/>
+                <div>
+                  <p>Podaj cene wydarzenia w PLN: </p>
+                  <input className={styles.formInput}  type="number" id="pirce" name="price"/>                
+                </div>
                 <select className={styles.formInput} id="town" name="town">
                     <option value="Gdansk">Gdańsk</option>
                     <option value="Gdynia">Gdynia</option>
                     <option value="Sopot">Sopot</option>
                 </select>
                 <input className={styles.formInput}  type="date" id="date"/>
-                <input className={styles.formInput}  type="text" id="pirce" name="price"/>
+     
                 
                 <textarea className={styles.formInput} name="message" rows="10" cols="30">Dodaj krótki opis wydarzenia.</textarea>
 
