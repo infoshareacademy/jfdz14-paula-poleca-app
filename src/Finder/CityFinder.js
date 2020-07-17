@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import style from './Finder.module.css'
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -35,10 +36,8 @@ export default function ControlledOpenSelect() {
   };
 
   return (
-    <div>
-      <Button className={classes.button} onClick={handleOpen}>
-        choose your city
-      </Button>
+    <div className = {style.box}>
+     
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-controlled-open-select-label">City</InputLabel>
         <Select
