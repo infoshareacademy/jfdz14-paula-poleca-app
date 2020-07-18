@@ -1,17 +1,34 @@
 import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
-import {PieChart, Pie, Sector, Cell
-} from 'recharts';
+import {PieChart, Pie, Sector, Cell, Legend} from 'recharts';
 import styles from './Recharts.module.css';
 
-// const { PieChart, Pie, Sector, Cell } = Recharts;
-const data = [{name: 'Group A', value: 100}, {name: 'Group B', value: 300},
-                  {name: 'Group C', value: 300}, {name: 'Group D', value: 200}, {name: 'Group E', value: 200}];
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red'];
+const data = [
+  { name: 'Teatr', value: 400 },
+  { name: 'Sztuka', value: 300 },
+  { name: 'Muzyka', value: 300 },
+  { name: 'Nauka', value: 200 },
+  { name: 'Literatura', value: 350 },
+  { name: 'Rozrywka', value: 100 },
+  { name: 'Rekreacja', value: 150 },
+  { name: 'Kino', value: 80 },
+  { name: 'Inne', value: 120 },
+];
+const COLORS = [
+  '#0088FE',
+  '#00C49F',
+  '#FFBB28',
+  '#FFFF00',
+  '#845EC2',
+  '#F1681F',
+  '#3BCF15',
+  '#37EEF3',
+  '#949999'
+  ];
 
 const RADIAN = Math.PI / 180;                    
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
- 	const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+ 	const radius = innerRadius + (outerRadius - innerRadius) * 0.7;
   const x  = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy  + radius * Math.sin(-midAngle * RADIAN);
  
@@ -23,22 +40,22 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 };
 
 const SimplePieChart = () => {
-	// render () 
   	return (
-    	<PieChart width={800} height={400} className={styles.pieChart} >
-        <Pie 
+    	<PieChart width={600} height={400} className={styles.pieChart}>
+        <Pie
           data={data} 
           cx={300} 
-          cy={200} 
+          cy={175} 
           labelLine={false}
           label={renderCustomizedLabel}
-          outerRadius={80} 
+          outerRadius={170} 
           fill="#8884d8"
         >
         	{
           	data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
           }
         </Pie>
+        <Legend/>
       </PieChart>
     );
   }

@@ -7,6 +7,8 @@ import PieChart from './components/Charts/PieChart';
 import Example from './components/Charts/PieChart';
 import Pie from './components/Charts/PieChart';
 import SimplePieChart from './components/Charts/PieChart';
+import SameDataComposedChart from './components/Charts/ComposedChart';
+import SimpleBarChart from './components/Charts/BarChartNoPadding';
 
 
 import './App.css';
@@ -16,11 +18,16 @@ function App() {
     <Container maxWidth="m">
       <Sidebar></Sidebar>
       <Form />
-      {/* <PieChart/> */}
+      <div align="center">PieChart
       <SimplePieChart />
-      {/* <Pie/> */}
-        {/* <Pie width={400} height={400} style={{background: "blue" }}/>
-        <Example width={400} height={400} style={{background: "yellow" }}/> */}
+      </div>
+      <div align="center">BarChart
+      <SimpleBarChart />
+      </div>
+      <div align="center">ComposedChart
+      <SameDataComposedChart />
+      </div>
+      
     </Container>
   );
 }
