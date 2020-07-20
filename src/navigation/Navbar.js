@@ -15,14 +15,12 @@ const AppNavbar = () => {
                     <NavLink to="/events">Events</NavLink>
                 </Nav.Link>
                 <Nav.Link>
+                    <NavLink to="/addEvent">Dodaj event</NavLink>
+                </Nav.Link>
+                <Nav.Link>
                     <NavLink to="/favourite">Favourite</NavLink>
                 </Nav.Link>
-                <Nav.Link href="#features">wolne</Nav.Link>
             </Nav>
-        {/* <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-info">Search</Button>
-        </Form> */}
   </Navbar>
         );    
 }
