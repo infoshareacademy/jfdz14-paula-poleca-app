@@ -4,10 +4,6 @@ import Modal from "@material-ui/core/Modal";
 import styles from './Modal.module.css'
 
 
-
-
-
-
 const Form = () => {
     const [open, setOpen] = React.useState(false);
 
