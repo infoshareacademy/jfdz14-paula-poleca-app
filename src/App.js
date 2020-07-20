@@ -16,14 +16,31 @@ class App extends Component {
     events: []
   }
 
+  addFavourite = (id) => {
+    console.log('addFavourite', id);
+
+    this.setState({
+      events: this.state.events.map(event => {
+        if(event.id === id) {
+          event.favourite = true;
+        }
+        return event;
+      })
+    })
+  }
+
   componentDidMount() {
       fetch(' https://isa.mateuszmarzecki.pl/v1/proxy?url=https://planerkulturalny.pl/api/rest/events.json ')
           .then(response => response.json())
           .then(events => {
               console.log(events);
-
+              const newEvents = events.map(event => {
+                event.favourite = false;
+                // console.log(event);
+                return event;
+              });
               this.setState({
-                  events: events
+                  events: newEvents,
               });
           });
   }
@@ -56,9 +73,10 @@ class App extends Component {
               <div className="col-9">
 
                 {/* NavBar up */}
-                <Route path="/events"><Events events={this.state.events}/></Route>
+                <Route path="/events">
+                  <Events events={this.state.events} addFavourite={this.addFavourite} /></Route>
                 <Route path="/addEvent"><Form /></Route>
-                <Route path="/favourite"><Favourites /></Route>
+                <Route path="/favourite"><Favourites events={this.state.events} /></Route>
 
                 {/* SideBar */}
                 <Route path="/statistics"><h2>Statystyki</h2></Route>

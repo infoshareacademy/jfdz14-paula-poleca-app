@@ -4,3 +4,6 @@
 .movie-card .descLong {
     font-size: 12px;
 }
+.addFavourite {
+    cursor: pointer;
+}
