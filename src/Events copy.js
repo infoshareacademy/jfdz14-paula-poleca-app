@@ -1,12 +1,21 @@
 import React from 'react'
 import ListGroup from 'react-bootstrap/ListGroup';
-import './Events.css';
+// import './Events.css';
+import Finder from './components/Finders/Finder'
+
 
 
 class Events extends React.Component {
     
     state = {
-        events: []
+        events: [],
+        filter: ''
+    }
+
+    handleOnFormChange = (textFilter) => {
+        this.setState({
+            filter: textFilter
+        })
     }
 
     componentDidMount() {
@@ -23,22 +32,32 @@ class Events extends React.Component {
 
     render() {
             return(
+                <>
+                <Finder 
+                    onFormChange={this.handleOnFormChange}
+                    filterValue = {this.state.filter}
+                    />
                 <ListGroup>
-                <h2>Events</h2>
+                <h2>Evets</h2>
+                
                 {
                     this.state.events
+                    .filter((event) => {
+                        return event.place.name.toLocaleLowerCase()
+                        .includes(this.state.filter.toLocaleLowerCase())
+                    })
                     .map((event) => {
-
-                        console.log(event.name);
-                        console.log(event.place.name);
-                        console.log(event.attachments[0]);
-                        if(event.attachments[0] !== undefined)
-                            console.warn(event.attachments[0].fileName);
-                        console.log(event.urls.www);
-                        console.log(event.descLong);
                         
-                        console.log('-----------------------');
-
+                        // console.log(event.name);
+                        // console.log(event.place.name);
+                        // console.log(event.attachments[0]);
+                        // if(event.attachments[0] !== undefined)
+                        //     console.warn(event.attachments[0].fileName);
+                        // console.log(event.urls.www);
+                        // console.log(event.descLong);
+                        
+                        // console.log('-----------------------');
+                        
                         return <ListGroup.Item key = {event.id}>
                             <div className="movie-card">
             
@@ -69,6 +88,7 @@ class Events extends React.Component {
                     })
                 }
                 </ListGroup>
+                </>
         ); 
     }
 }

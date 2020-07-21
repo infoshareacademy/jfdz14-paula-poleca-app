@@ -6,7 +6,7 @@ import Sidebar from './navigation/Sidebar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import Events from './components/Events';
+import Events from './Events copy';
 import Form from './Modal';
 import Favourites from './components/Favourites';
 import Finder from './components/Finders/Finder';
@@ -14,21 +14,21 @@ import { Modal } from 'react-bootstrap';
 
 class App extends Component {
 
-  state = {
-    events: []
-  }
+  // state = {
+  //   events: []
+  // }
 
-  componentDidMount() {
-      fetch(' https://isa.mateuszmarzecki.pl/v1/proxy?url=https://planerkulturalny.pl/api/rest/events.json ')
-          .then(response => response.json())
-          .then(events => {
-              console.log(events);
+  // componentDidMount() {
+  //     fetch(' https://isa.mateuszmarzecki.pl/v1/proxy?url=https://planerkulturalny.pl/api/rest/events.json ')
+  //         .then(response => response.json())
+  //         .then(events => {
+  //             console.log(events);
 
-              this.setState({
-                  events: events
-              });
-          });
-  }
+  //             this.setState({
+  //                 events: events
+  //             });
+  //         });
+  // }
 
   render() {
     return(
@@ -50,8 +50,8 @@ class App extends Component {
               <div className="col-9">
 
                 {/* NavBar up */}
-                <Finder />
-                <Route path="/events"><Events events={this.state.events}/></Route>
+                
+                <Route path="/events"><Events /></Route>
                 <Route path="/addEvent"><Form /></Route>
                 <Route path="/favourite"><Favourites /></Route>
 
