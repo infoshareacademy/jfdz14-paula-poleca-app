@@ -7,8 +7,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Events from './components/Events';
-import Form from './components/Form';
+import Form from './Modal';
 import Favourites from './components/Favourites';
+import Finder from './components/Finders/Finder';
+import { Modal } from 'react-bootstrap';
 
 class App extends Component {
 
@@ -34,20 +36,12 @@ class App extends Component {
       <Switch>
 
       <Container fluid>
-        {/* <Row>
-          <Col>
-            <AppNavbar />
-              <div style={{display:'flex', float: 'left'}}>
-              <Sidebar />
-              <Events />
-            </div>
-          </Col>
-        </Row> */}
 
-          <Row>
+        <Row>
           <Col>
             <AppNavbar />
             <Row>
+              
 
             <div className="col-3">
               <Sidebar />
@@ -56,6 +50,7 @@ class App extends Component {
               <div className="col-9">
 
                 {/* NavBar up */}
+                <Finder />
                 <Route path="/events"><Events events={this.state.events}/></Route>
                 <Route path="/addEvent"><Form /></Route>
                 <Route path="/favourite"><Favourites /></Route>
@@ -67,6 +62,7 @@ class App extends Component {
                 
               </div>             
             </Row>
+           
 
           </Col>
         </Row>
