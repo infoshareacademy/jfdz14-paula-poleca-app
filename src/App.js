@@ -64,7 +64,8 @@ class App extends Component {
   componentDidMount() {
       fetch(' https://isa.mateuszmarzecki.pl/v1/proxy?url=https://planerkulturalny.pl/api/rest/events.json ')
           .then(response => response.json())
-          .then(events => {
+          .then(data => {
+              let events = data.slice(0,10);
               console.log(events);
               const newEvents = events.map(event => {
                 event.favourite = false;
@@ -84,6 +85,7 @@ class App extends Component {
     return(
     <BrowserRouter>
       <Switch>
+      <React.Fragment>
 
       <Container fluid>
         {/* <Row>
@@ -131,7 +133,7 @@ class App extends Component {
         </Row>
         
       </Container> 
-
+      </React.Fragment>
       </Switch>   
     </BrowserRouter>
     );
