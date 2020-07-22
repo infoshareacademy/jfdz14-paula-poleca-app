@@ -2,8 +2,21 @@
     width: 50%;
 }
 .movie-card .descLong {
-    font-size: 12px;
+    font-size: 14px;
 }
 .addFavourite {
     cursor: pointer;
+    color: grey;
+}
+.addFavourite:hover {
+    /* font-weight: bold; */
+    color: #444;
+}
+.addFavourite .starColor {
+    color: #444;
+    padding-left: 10px;
+}
+.addFavourite .starColorActive {
+    color: orange;
+    padding-left: 10px;
 }

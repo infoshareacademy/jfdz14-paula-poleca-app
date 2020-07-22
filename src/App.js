@@ -19,14 +19,46 @@ class App extends Component {
   addFavourite = (id) => {
     console.log('addFavourite', id);
 
-    this.setState({
-      events: this.state.events.map(event => {
-        if(event.id === id) {
-          event.favourite = true;
+    const events = this.state.events.map(event => {
+      if(event.id === id) {
+        if(event.favourite) {
+          this.removeLocalStorage(id);
+        } else {
+          this.addLocalStorage(id);
         }
-        return event;
-      })
-    })
+        event.favourite = !event.favourite;
+      }
+      return event;
+    });
+
+    this.setState({
+      events: events
+    });
+  }
+
+  addLocalStorage = (id) => {
+    let fav;
+    if(localStorage.getItem('fav') === null) {
+        fav = 0;
+    } else {
+        fav = localStorage.getItem('fav');
+    }
+    localStorage.setItem('fav_'+id, id);
+    fav++;
+    localStorage.setItem('fav', fav);
+  }
+
+  removeLocalStorage = (id) => {
+    localStorage.removeItem('fav_'+id);
+    let ile = localStorage.getItem('fav');
+    ile--;
+    localStorage.setItem('fav', ile);
+  }
+
+  readLocalStorage = (id) => {
+    let idFromStorage = localStorage.getItem('fav_'+id);
+    // console.log(idFromStorage);
+    if(idFromStorage) return Number(idFromStorage);
   }
 
   componentDidMount() {
@@ -36,7 +68,10 @@ class App extends Component {
               console.log(events);
               const newEvents = events.map(event => {
                 event.favourite = false;
-                // console.log(event);
+                let idFromStorage = this.readLocalStorage(event.id);
+                if(idFromStorage === event.id) {
+                  event.favourite = true;
+                }
                 return event;
               });
               this.setState({
@@ -69,14 +104,20 @@ class App extends Component {
             <div className="col-3">
               <Sidebar />
             </div>
-
               <div className="col-9">
 
                 {/* NavBar up */}
                 <Route path="/events">
-                  <Events events={this.state.events} addFavourite={this.addFavourite} /></Route>
-                <Route path="/addEvent"><Form /></Route>
-                <Route path="/favourite"><Favourites events={this.state.events} /></Route>
+                    <Events events={this.state.events} addFavourite={this.addFavourite} />
+                </Route>
+
+                <Route path="/addEvent">
+                    <Form />
+                </Route>
+
+                <Route path="/favourite">
+                    <Favourites events={this.state.events} addFavourite={this.addFavourite} />
+                </Route>
 
                 {/* SideBar */}
                 <Route path="/statistics"><h2>Statystyki</h2></Route>

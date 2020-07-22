@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ListGroup from 'react-bootstrap/ListGroup';
+import '../styles/Events.css';
+import "./MovieCard.css";
 
 class Favourites extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class Favourites extends Component {
         return (
             <>
             <h2>Favourites</h2>
-            <ListGroup>
+            <div className="cardsContainer">
                 {
                 this.props.events
                 .map((event) => {
@@ -18,30 +19,34 @@ class Favourites extends Component {
                     // console.log('-----------------------');
                     return (
                     event.favourite &&
-                    <ListGroup.Item key = {event.id}>
-                        
-                        <div className="movie-card">
-                            <div className="movie-card card">
-                                <h5>{event.name}</h5>
-                                <p 
-                                    className="movie-card-description" style={{ fontSize: "14px" }}>
-                                {event.place.name}
-                                </p>
-                                    {event.attachments[0] !== undefined ? <img src={event.attachments[0].fileName} alt=""/> : null }
-                                <p className="descLong">
-                                    {event.descShort} 
-                                </p>
-                                <p>
-                                    <a href={event.urls.www} target="_blank">Zobacz link</a>
-                                </p>
-                            </div>
-                        </div>
+                    <div key = {event.id}>
+                        <div className="movie-card card">
+                            <h5>{event.name}</h5>
 
-                    </ListGroup.Item>                            
+                            <p className="addFavourite" 
+                                onClick={() => this.props.addFavourite(event.id)}>Usuń z ulubionych   
+                                <span className={event.favourite ? "starColorActive" : "starColor"}>
+                                    <i className="fa fa-star fa-lg"></i>
+                                </span>
+                            </p>
+
+                            <p 
+                                className="movie-card-description" style={{ fontSize: "14px" }}>
+                                {event.place.name}
+                            </p>
+                                {event.attachments[0] !== undefined ? <img src={event.attachments[0].fileName} alt=""/> : null }
+                            <p className="descLong">
+                                {event.descShort} 
+                            </p>
+                            <p>
+                                <a href={event.urls.www} target="_blank">Zobacz link</a>
+                            </p>
+                        </div>
+                    </div>                            
                     );
                 })
             }
-            </ListGroup>
+            </div>
             </>
         );
     }
