@@ -8,7 +8,7 @@ class Events extends React.Component {
     render() {
         return (
         <>
-        <h2>Events</h2>
+        <h2>Eventy</h2>
         <ListGroup>
             {
             this.props.events
@@ -28,7 +28,7 @@ class Events extends React.Component {
                     <div className="movie-card">
     
                         <div className="movie-card card">
-                        <div>
+                        
                             <h5>{event.name}</h5>
                             <p className="movie-card-description" style={{ fontSize: "14px" }}>
                             {event.place.name}
@@ -45,7 +45,7 @@ class Events extends React.Component {
                             </p>
                         </div>
                     </div>
-                    </div>
+                    
                 </ListGroup.Item>
             })
         }

@@ -1,6 +1,40 @@
-.movie-card img {
-    width: 50%;
+body {
+    margin: 0;
+    padding: 0;
 }
-.movie-card .descLong {
+
+.cards {
+    display: flex;
+}
+
+.event-card img {
+    width: 100px;
+}
+.event-card .descLong {
+    
     font-size: 12px;
+
+}
+
+.event-card {
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: blanchedalmond;
+    border: 2px solid black;
+}
+
+.descLong {
+    margin: 8px;
+    padding: 8px;
+}
+.event-name {
+    padding: 8px;
+    margin: 8px;
+    font-size: 16px;
+}
+
+.list-group {
+    flex-direction: row;
+    flex-wrap: wrap;
 }
