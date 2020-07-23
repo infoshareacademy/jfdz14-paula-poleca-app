@@ -12,6 +12,12 @@ const Forms = () => {
             <Form.Label>Nazwa wydarzenia</Form.Label>
             <Form.Control type="text" placeholder="Tytuł"  isRequired/>
         </Form.Group>
+
+        <Form.Group controlId="exampleForm.ControlInput1">
+            <Form.Label>Cena</Form.Label>
+            <Form.Control type="number" placeholder="PLN"  isRequired/>
+        </Form.Group>
+
         <Form.Group controlId="exampleForm.ControlSelect1">
             <Form.Label>Wybierz miasto</Form.Label>
             <Form.Control as="select" isRequired>
