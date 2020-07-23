@@ -1,14 +1,10 @@
 import React, {Component} from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import './styles/App.css';
-import AppNavbar from './navigation/Navbar';
-import Sidebar from './navigation/Sidebar';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
 import Events from './components/Events';
 import Form from './components/Form';
 import Favourites from './components/Favourites';
+import Page from './Page';
 
 class App extends Component {
 
@@ -83,59 +79,28 @@ class App extends Component {
 
   render() {
     return(
-    <BrowserRouter>
-      <Switch>
       <React.Fragment>
 
-      <Container fluid>
-        {/* <Row>
-          <Col>
-            <AppNavbar />
-              <div style={{display:'flex', float: 'left'}}>
-              <Sidebar />
-              <Events />
-            </div>
-          </Col>
-        </Row> */}
+          {/* NavBar */}
+          <Route exact path="/">
+              <Page />
+          </Route>
+          <Route path="/events">
+              <Events events={this.state.events} addFavourite={this.addFavourite} />
+          </Route>
+          <Route path="/addEvent">
+              <Form />
+          </Route>
+          <Route path="/favourite">
+              <Favourites events={this.state.events} addFavourite={this.addFavourite} />
+          </Route>
 
-          <Row>
-          <Col>
-            <AppNavbar />
-            <Row>
+          {/* SideBar */}
+          <Route path="/statistics"><h2>Statystyki</h2></Route>
+          <Route path="/cinema"><h2>Kino</h2></Route>
+          <Route path="/theater"><h2>Teatr</h2></Route>
 
-            <div className="col-3">
-              <Sidebar />
-            </div>
-              <div className="col-9">
-
-                {/* NavBar up */}
-                <Route path="/events">
-                    <Events events={this.state.events} addFavourite={this.addFavourite} />
-                </Route>
-
-                <Route path="/addEvent">
-                    <Form />
-                </Route>
-
-                <Route path="/favourite">
-                    <Favourites events={this.state.events} addFavourite={this.addFavourite} />
-                </Route>
-
-                {/* SideBar */}
-                <Route path="/statistics"><h2>Statystyki</h2></Route>
-                <Route path="/cinema"><h2>Kino</h2></Route>
-                <Route path="/theater"><h2>Teatr</h2></Route>
-                
-              </div>             
-            </Row>
-
-          </Col>
-        </Row>
-        
-      </Container> 
       </React.Fragment>
-      </Switch>   
-    </BrowserRouter>
     );
   }
 }
