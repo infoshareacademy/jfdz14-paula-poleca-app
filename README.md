@@ -6,11 +6,7 @@
 https://infoshareacademy.github.io/jfdz14-paula-poleca-app/
 
 
-### `team`
--Volodymyr
--Androw
--Michel
--Paula
+### `team - VAMP`
 
 | No     | Name                |
 | :----: | :-----------------: |
