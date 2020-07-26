@@ -44,10 +44,10 @@ const Form = () => {
         </div>
         );
 
-
-
     return (
         <div>
+          <h2>Dodaj event</h2>
+          <div>for Pulina</div>
           <button type="button" onClick={handleOpen} className={styles.button}>
             Dodaj nowe wydarzenie
           </button>

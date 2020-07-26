@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/Events.css';
-import "./MovieCard.css";
+import "../styles/MovieCard.css";
 import Finder from './Finders/Finder';
 
 class Events extends React.Component {
@@ -16,7 +16,6 @@ class Events extends React.Component {
     }
 
     addFavourite = (id) => {
-        console.log('addFavourite ', id);
         this.props.addFavourite(id);
     }
 
@@ -29,7 +28,7 @@ class Events extends React.Component {
             filterValue = {this.state.filter}
             />
 
-        <h2>Events</h2>
+        <h2>Eventy</h2>
 
         <div className="cardsContainer">
             {
@@ -53,15 +52,15 @@ class Events extends React.Component {
                             </span>
                         </p>
                             {event.attachments[0] !== undefined ? <img src={event.attachments[0].fileName} alt=""/> : null }
-                        <p className="descLong">
+                        {/* <p className="descLong">
                             {event.descShort} 
-                        </p>
+                        </p> */}
                         {/* <p className="descLong">
                             {event.descLong} 
                         </p> */}
-                        <p>
+                        {/* <p>
                             <a href={event.urls.www} target="_blank">Zobacz link</a>
-                        </p>
+                        </p> */}
                     </div>
                 );
             })

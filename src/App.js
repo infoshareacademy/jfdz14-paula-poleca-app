@@ -4,7 +4,7 @@ import './styles/App.css';
 import Events from './components/Events';
 import Form from './components/Form';
 import Favourites from './components/Favourites';
-import Page from './Page';
+import Statistics from './components/Statistics';
 
 class App extends Component {
 
@@ -13,7 +13,6 @@ class App extends Component {
   }
 
   addFavourite = (id) => {
-    console.log('addFavourite', id);
 
     const events = this.state.events.map(event => {
       if(event.id === id) {
@@ -53,7 +52,6 @@ class App extends Component {
 
   readLocalStorage = (id) => {
     let idFromStorage = localStorage.getItem('fav_'+id);
-    // console.log(idFromStorage);
     if(idFromStorage) return Number(idFromStorage);
   }
 
@@ -62,7 +60,7 @@ class App extends Component {
           .then(response => response.json())
           .then(data => {
               let events = data.slice(0,10);
-              console.log(events);
+              // console.log(events);
               const newEvents = events.map(event => {
                 event.favourite = false;
                 let idFromStorage = this.readLocalStorage(event.id);
@@ -83,9 +81,6 @@ class App extends Component {
 
           {/* NavBar */}
           <Route exact path="/">
-              <Page />
-          </Route>
-          <Route path="/events">
               <Events events={this.state.events} addFavourite={this.addFavourite} />
           </Route>
           <Route path="/addEvent">
@@ -96,9 +91,9 @@ class App extends Component {
           </Route>
 
           {/* SideBar */}
-          <Route path="/statistics"><h2>Statystyki</h2></Route>
-          <Route path="/cinema"><h2>Kino</h2></Route>
-          <Route path="/theater"><h2>Teatr</h2></Route>
+          <Route path="/statistics">
+            <Statistics />
+          </Route>
 
       </React.Fragment>
     );
