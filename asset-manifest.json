@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/paula/static/css/main.a8f62c80.chunk.css",
-    "main.js": "/paula/static/js/main.ff792fb0.chunk.js",
-    "main.js.map": "/paula/static/js/main.ff792fb0.chunk.js.map",
-    "runtime-main.js": "/paula/static/js/runtime-main.6009810e.js",
-    "runtime-main.js.map": "/paula/static/js/runtime-main.6009810e.js.map",
-    "static/js/2.b2d462cb.chunk.js": "/paula/static/js/2.b2d462cb.chunk.js",
-    "static/js/2.b2d462cb.chunk.js.map": "/paula/static/js/2.b2d462cb.chunk.js.map",
-    "index.html": "/paula/index.html",
-    "precache-manifest.de268960b2ba2f9fd8d7e9e6e2f44b8f.js": "/paula/precache-manifest.de268960b2ba2f9fd8d7e9e6e2f44b8f.js",
-    "service-worker.js": "/paula/service-worker.js",
-    "static/css/main.a8f62c80.chunk.css.map": "/paula/static/css/main.a8f62c80.chunk.css.map",
-    "static/js/2.b2d462cb.chunk.js.LICENSE.txt": "/paula/static/js/2.b2d462cb.chunk.js.LICENSE.txt"
+    "main.css": "/jfdz14-paula-poleca-app/static/css/main.a8f62c80.chunk.css",
+    "main.js": "/jfdz14-paula-poleca-app/static/js/main.ff792fb0.chunk.js",
+    "main.js.map": "/jfdz14-paula-poleca-app/static/js/main.ff792fb0.chunk.js.map",
+    "runtime-main.js": "/jfdz14-paula-poleca-app/static/js/runtime-main.29aed46b.js",
+    "runtime-main.js.map": "/jfdz14-paula-poleca-app/static/js/runtime-main.29aed46b.js.map",
+    "static/js/2.b2d462cb.chunk.js": "/jfdz14-paula-poleca-app/static/js/2.b2d462cb.chunk.js",
+    "static/js/2.b2d462cb.chunk.js.map": "/jfdz14-paula-poleca-app/static/js/2.b2d462cb.chunk.js.map",
+    "index.html": "/jfdz14-paula-poleca-app/index.html",
+    "precache-manifest.d195ebb3d144012bcd91eb87d08af28a.js": "/jfdz14-paula-poleca-app/precache-manifest.d195ebb3d144012bcd91eb87d08af28a.js",
+    "service-worker.js": "/jfdz14-paula-poleca-app/service-worker.js",
+    "static/css/main.a8f62c80.chunk.css.map": "/jfdz14-paula-poleca-app/static/css/main.a8f62c80.chunk.css.map",
+    "static/js/2.b2d462cb.chunk.js.LICENSE.txt": "/jfdz14-paula-poleca-app/static/js/2.b2d462cb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.6009810e.js",
+    "static/js/runtime-main.29aed46b.js",
     "static/js/2.b2d462cb.chunk.js",
     "static/css/main.a8f62c80.chunk.css",
     "static/js/main.ff792fb0.chunk.js"
