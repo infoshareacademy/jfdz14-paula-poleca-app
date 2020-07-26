@@ -11,15 +11,9 @@ const AppNavbar = () => {
         <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="#home">Paula Poleca</Navbar.Brand>
             <Nav className="mr-auto">
-                <Nav.Link>
-                    <NavLink to="/events">Events</NavLink>
-                </Nav.Link>
-                <Nav.Link>
-                    <NavLink to="/addEvent">Dodaj event</NavLink>
-                </Nav.Link>
-                <Nav.Link>
-                    <NavLink to="/favourite">Favourite</NavLink>
-                </Nav.Link>
+                <Nav.Link as={NavLink} to="/events">Events</Nav.Link>
+                <Nav.Link as={NavLink} to="/addEvent">Dodaj event</Nav.Link>
+                <Nav.Link as={NavLink} to="/favourite">Favourite</Nav.Link>
             </Nav>
   </Navbar>
         );    

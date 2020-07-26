@@ -5,18 +5,9 @@ import Nav from "react-bootstrap/Nav";
 const Sidebar = () => {
     return(
         <Nav defaultActiveKey="/home" className="flex-column">
-            <Nav.Link>
-                <NavLink to="/statistics">Statystyki</NavLink>
-            </Nav.Link>
-            <Nav.Link>
-                <NavLink to="/cinema">Kino</NavLink>
-            </Nav.Link>
-            <Nav.Link>
-                <NavLink to="/theater">Teatr</NavLink>
-            </Nav.Link>
-            {/* <Nav.Link eventKey="disabled" disabled>
-                Disabled
-            </Nav.Link> */}
+            <Nav.Link to="/statistics">Statystyki</Nav.Link>
+            <Nav.Link to="/cinema">Kino</Nav.Link>
+            <Nav.Link to="/theater">Teatr</Nav.Link>
         </Nav>
     );
 }
