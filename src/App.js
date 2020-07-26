@@ -59,7 +59,8 @@ class App extends Component {
       fetch(' https://isa.mateuszmarzecki.pl/v1/proxy?url=https://planerkulturalny.pl/api/rest/events.json ')
           .then(response => response.json())
           .then(data => {
-              let events = data.slice(0,10);
+              let events = data;
+              // let events = data.slice(0,10);
               // console.log(events);
               const newEvents = events.map(event => {
                 event.favourite = false;

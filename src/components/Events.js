@@ -7,6 +7,7 @@ class Events extends React.Component {
     
     state = {
         filter: '',
+        more: 20,
     }
 
     handleOnFormChange = (textFilter) => {
@@ -19,7 +20,34 @@ class Events extends React.Component {
         this.props.addFavourite(id);
     }
 
+    showMore = () => {
+        console.log('showMore...');
+        
+        console.log(this.props.events.length);
+        let maxLoad = this.state.more + 20;
+        console.log(maxLoad);
+        if(maxLoad < this.props.events.length) {
+            this.setState({
+                more: maxLoad,
+            });            
+        } else {
+            while(maxLoad > this.props.events.length ) {
+                console.log('maxLoad ', maxLoad);
+                console.log('length ', this.props.events.length);
+                maxLoad = maxLoad - 1;
+            }
+            console.log(maxLoad); 
+            this.setState({
+                more: maxLoad,
+            });   
+        }
+    }
+
     render() {
+
+        // const events = this.props.events;
+        const events = this.props.events.slice(0,this.state.more);
+
         return (
         <>
 
@@ -32,7 +60,8 @@ class Events extends React.Component {
 
         <div className="cardsContainer">
             {
-            this.props.events
+
+            events
             .filter((event) => {
                 return event.place.name.toLocaleLowerCase()
                 .includes(this.state.filter.toLocaleLowerCase())
@@ -66,6 +95,11 @@ class Events extends React.Component {
             })
         }
         </div>
+        {this.state.more < this.props.events.length &&
+        <div className="containerMore">
+        <button className="buttonMore" onClick={this.showMore}>Show more...</button>    
+        </div>
+        }
         </>
         ); 
     }

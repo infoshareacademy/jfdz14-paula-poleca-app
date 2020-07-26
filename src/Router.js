@@ -18,9 +18,7 @@ class Router extends Component {
           <Container fluid>
             <Row>
               <Col>
-
                 <AppNavbar />
-
                 <Row>
                   <div className="col-3">
                     <Sidebar />
@@ -29,7 +27,6 @@ class Router extends Component {
                     <App />
                   </div>             
                 </Row>
-
               </Col>
             </Row>
           </Container> 
