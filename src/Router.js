@@ -12,7 +12,7 @@ class Router extends Component {
 
   render() {
     return(
-    <BrowserRouter basename={Process.env.PUBLIC_URL}>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <React.Fragment>
           <Container fluid>

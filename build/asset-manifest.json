@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/jfdz14-paula-poleca-app/static/css/main.a8f62c80.chunk.css",
+    "main.js": "/jfdz14-paula-poleca-app/static/js/main.ad8e29f2.chunk.js",
+    "main.js.map": "/jfdz14-paula-poleca-app/static/js/main.ad8e29f2.chunk.js.map",
+    "runtime-main.js": "/jfdz14-paula-poleca-app/static/js/runtime-main.29aed46b.js",
+    "runtime-main.js.map": "/jfdz14-paula-poleca-app/static/js/runtime-main.29aed46b.js.map",
+    "static/js/2.b2d462cb.chunk.js": "/jfdz14-paula-poleca-app/static/js/2.b2d462cb.chunk.js",
+    "static/js/2.b2d462cb.chunk.js.map": "/jfdz14-paula-poleca-app/static/js/2.b2d462cb.chunk.js.map",
+    "index.html": "/jfdz14-paula-poleca-app/index.html",
+    "precache-manifest.5736b1b4f2efe520f3c1f872686b9443.js": "/jfdz14-paula-poleca-app/precache-manifest.5736b1b4f2efe520f3c1f872686b9443.js",
+    "service-worker.js": "/jfdz14-paula-poleca-app/service-worker.js",
+    "static/css/main.a8f62c80.chunk.css.map": "/jfdz14-paula-poleca-app/static/css/main.a8f62c80.chunk.css.map",
+    "static/js/2.b2d462cb.chunk.js.LICENSE.txt": "/jfdz14-paula-poleca-app/static/js/2.b2d462cb.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.29aed46b.js",
+    "static/js/2.b2d462cb.chunk.js",
+    "static/css/main.a8f62c80.chunk.css",
+    "static/js/main.ad8e29f2.chunk.js"
+  ]
+}
