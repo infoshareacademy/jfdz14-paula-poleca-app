@@ -33,11 +33,11 @@ class Forms extends React.Component {
 
     render(){
         return (
-            <div className="my-3">
+            <div style={{marginLeft: 16, marginTop:16}}>
             <Form>
                     <h2>Dodaj nowe wydarzenie</h2>
                     <p>Chcesz się podzielić z innymi nadchodzącycm wydarzeniem? Znasz miejsce, cene i godzinę? Dodaj nowe wydarzenie do PaulaPoleca!</p>
-                <Form.Group controlId="title">
+                <Form.Group controlId="title"  >
                     <Form.Label>Nazwa wydarzenia</Form.Label>
                     <Form.Control type="text" onKeyUp={this.keyUpHandler} placeholder={"Tytuł" }/>
                 </Form.Group>
