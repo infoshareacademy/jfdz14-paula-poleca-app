@@ -1,0 +1,36 @@
+.cardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movie-card {
+    /* margin-left: 10px; */
+    margin-right: 10px;
+    margin-bottom: 10px;
+    max-width: 300px;
+    width: 300px;
+}
+
+.movie-card.card {
+    min-height: 400px;
+    border-radius: 4px;
+    border: 1px solid black;
+    padding-left: 5px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.card-footer-badge {
+    border-radius: 4px;
+    border: 1px solid gainsboro;
+    padding: 8px;
+    font-size: 1rem;
+}
+
+.movie-card-description {
+    /* text-align: center; */
+}
