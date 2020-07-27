@@ -5,29 +5,29 @@ import Button from 'react-bootstrap/Button'
 
 class Forms extends React.Component {
         state = {
-          text: " ",
-          city: "Gdańsk"
+          data: " ",
+          city: "None",
+
         };
       
         keyUpHandler = (event) => {
-          console.log(event.target.value);
-      
           this.setState({
-            text: event.target.value,
+            data: event.target.value,
           })
+          console.log(this.state.data)
         }
 
         handlerOnChange = (event) =>{
-            console.log(event.target.value)
 
             this.setState({
-                city: event.target.city
+                city: event.target.value
             })
+
             
         }
 
         saveDataInLolcalStorage = () => {
-            localStorage.setItem("new_event", "{}")
+            localStorage.setItem("new_event", JSON.stringify([`${this.state.data}`, `${this.state.city}`]))
         }
 
 
@@ -37,17 +37,12 @@ class Forms extends React.Component {
             <Form>
                     <h2>Dodaj nowe wydarzenie</h2>
                     <p>Chcesz się podzielić z innymi nadchodzącycm wydarzeniem? Znasz miejsce, cene i godzinę? Dodaj nowe wydarzenie do PaulaPoleca!</p>
-                <Form.Group controlId="exampleForm.ControlInput1">
+                <Form.Group controlId="title">
                     <Form.Label>Nazwa wydarzenia</Form.Label>
                     <Form.Control type="text" onKeyUp={this.keyUpHandler} placeholder={"Tytuł" }/>
                 </Form.Group>
-        
-                <Form.Group controlId="exampleForm.ControlInput1">
-                    <Form.Label>Cena</Form.Label>
-                    <Form.Control type="number" onKeyUp={this.keyUpHandler} placeholder="PLN" />
-                </Form.Group>
-        
-                <Form.Group controlId="exampleForm.ControlSelect1">
+    
+                <Form.Group controlId="city">
                     <Form.Label >Wybierz miasto</Form.Label>
                     <Form.Control as="select" onChange={this.handlerOnChange} >
                     <option>Gdańsk</option>
@@ -56,16 +51,16 @@ class Forms extends React.Component {
                     </Form.Control>
                 </Form.Group>
                 <Form.Group>
-                    <Form.File id="exampleFormControlFile1" label="Example file input" />
+                    <Form.File id="event_img" label="Example file input" />
                 </Form.Group>
         
-                <Form.Group controlId="exampleForm.ControlTextarea1">
+                <Form.Group controlId="desc">
                     <Form.Label>Opis wydarzenia: </Form.Label>
-                    <Form.Control as="textarea" rows="3" />
+                    <Form.Control as="textarea" rows="3" onKeyUp={this.keyUpHandler} />
                 </Form.Group>
                 <Form.Group>
                 <Form.Label>Link do wydarzenia</Form.Label>
-                    <Form.Control type="text" placeholder="Link do wydarzenia"/>
+                    <Form.Control type="text" onKeyUp={this.keyUpHandler} placeholder="Link do wydarzenia"/>
                 </Form.Group>
         
                 <Button variant="primary" type="submit" onClick={this.saveDataInLolcalStorage}>
