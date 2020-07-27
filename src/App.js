@@ -81,7 +81,7 @@ class App extends Component {
       <React.Fragment>
 
           {/* NavBar */}
-          <Route exact path="/">
+          <Route basename={Process.env.PUBLIC_URL} exact path="/">
               <Events events={this.state.events} addFavourite={this.addFavourite} />
           </Route>
           <Route path="/addEvent">
