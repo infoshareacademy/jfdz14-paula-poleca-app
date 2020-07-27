@@ -77,7 +77,7 @@ class Events extends React.Component {
                         <p className="addFavourite" 
                             onClick={() => this.addFavourite(event.id)}>Dodaj do ulubionych   
                             <span className={event.favourite ? "starColorActive" : "starColor"}>
-                                <i className="fa fa-star fa-lg"></i>
+                                <i className="fa fa-heart fa-lg"></i>
                             </span>
                         </p>
                             {event.attachments[0] !== undefined ? <img src={event.attachments[0].fileName} alt=""/> : null }

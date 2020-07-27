@@ -26,7 +26,7 @@ class Favourites extends Component {
                             <p className="addFavourite" 
                                 onClick={() => this.props.addFavourite(event.id)}>Usuń z ulubionych   
                                 <span className={event.favourite ? "starColorActive" : "starColor"}>
-                                    <i className="fa fa-star fa-lg"></i>
+                                    <i className="fa fa-heart fa-lg"></i>
                                 </span>
                             </p>
 
