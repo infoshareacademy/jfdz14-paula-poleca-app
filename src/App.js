@@ -5,6 +5,7 @@ import Events from './components/Events';
 import Form from './components/Form';
 import Favourites from './components/Favourites';
 import Page from './Page';
+import Gdansk from './components/Finders/Gdansk'
 
 class App extends Component {
 
@@ -60,9 +61,10 @@ class App extends Component {
   componentDidMount() {
       fetch(' https://isa.mateuszmarzecki.pl/v1/proxy?url=https://planerkulturalny.pl/api/rest/events.json ')
           .then(response => response.json())
-          .then(data => {
-              let events = data.slice(0,10);
-              console.log(events);
+          .then(events => {
+               
+              // let events = data.slice(0,10);
+              //console.log(events);
               const newEvents = events.map(event => {
                 event.favourite = false;
                 let idFromStorage = this.readLocalStorage(event.id);
@@ -87,6 +89,9 @@ class App extends Component {
           </Route>
           <Route path="/events">
               <Events events={this.state.events} addFavourite={this.addFavourite} />
+          </Route>
+          <Route path="/events/gdansk">
+              <Gdansk />
           </Route>
           <Route path="/addEvent">
               <Form />

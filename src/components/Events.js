@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/Events.css';
 import "./MovieCard.css";
 import Finder from './Finders/Finder';
+import CityFinder from './Finders/CityFinder'
 
 class Events extends React.Component {
     
@@ -20,15 +21,25 @@ class Events extends React.Component {
         this.props.addFavourite(id);
     }
 
+    cityChange = (cityFilter) => {
+        this.setState({
+            filter: cityFilter
+        })
+    }
+
     render() {
         return (
         <>
+            <div style = {{display: 'flex'}}>
+                <Finder 
+                    onFormChange={this.handleOnFormChange}
+                    filterValue = {this.state.filter}
+                    />
 
-        <Finder 
-            onFormChange={this.handleOnFormChange}
-            filterValue = {this.state.filter}
-            />
-
+                <CityFinder 
+                    onFormChange={this.cityChange} 
+                />
+            </div>
         <h2>Events</h2>
 
         <div className="cardsContainer">
@@ -36,6 +47,10 @@ class Events extends React.Component {
             this.props.events
             .filter((event) => {
                 return event.place.name.toLocaleLowerCase()
+                .includes(this.state.filter.toLocaleLowerCase()) || 
+                event.name.toLocaleLowerCase()
+                .includes(this.state.filter.toLocaleLowerCase()) ||
+                event.descShort.toLocaleLowerCase()
                 .includes(this.state.filter.toLocaleLowerCase())
             })            
             .map((event) => {
