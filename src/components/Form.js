@@ -1,24 +1,24 @@
 import React from "react";
-// import { makeStyles } from "@material-ui/core/styles";
-// import Modal from "@material-ui/core/Modal";
-// import styles from './Modal.module.css'
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import styles from '../styles/Modal.module.css';
 
 
 const Form = () => {
-    // const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
 
-    // const handleOpen = () => {
-    //     setOpen(true);
-    // };
+    const handleOpen = () => {
+        setOpen(true);
+    };
 
-    // const handleClose = () => {
-    //     setOpen(false);
-    // };
+    const handleClose = () => {
+        setOpen(false);
+    };
 
     const body = (
         <div className= {styles.modal}>
             <h2>Dodaj nowe wydarzenie w Trójmieście!</h2>
-            {/* <p>
+            <p>
                 Podziel się nowym wydarzeniem w Trójmiscie. Uzupełnij wymagane dane, aby poinformować o nadchodządym nowym wydarzeniu!
             </p>
             <div className={styles.form}>
@@ -40,7 +40,7 @@ const Form = () => {
                 <input className={styles.formInput}  type="file" />
                 <button  type="submit" value="Submit" className={styles.button}> Dodaj </button>
 
-            </div> */}
+            </div>
         </div>
         );
 
@@ -48,16 +48,15 @@ const Form = () => {
 
     return (
         <div>
-          <h2>Form</h2>
-          {/* <button type="button" onClick={handleOpen} className={styles.button}>
+          <button type="button" onClick={handleOpen} className={styles.button}>
             Dodaj nowe wydarzenie
-          </button> */}
-          {/* <Modal
+          </button>
+          <Modal
             open={open}
             onClose={handleClose}
           >
             {body}
-          </Modal> */}
+          </Modal>
         </div>
       )
   };
