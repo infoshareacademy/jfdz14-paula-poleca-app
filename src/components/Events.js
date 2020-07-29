@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/Events.css';
 import "../styles/MovieCard.css";
 import Finder from './Finders/Finder';
+import Spinner from 'react-bootstrap/Spinner';
 
 class Events extends React.Component {
     
@@ -50,6 +51,13 @@ class Events extends React.Component {
             />
 
         <h2>Eventy</h2>
+
+        {
+        this.props.loading && 
+        <div>
+            <p style={{fontSize: '30px', textAlign: 'center'}}><Spinner animation="border" /> LOADING...</p>
+        </div>
+        }
 
         <div className="cardsContainer">
             {

@@ -10,7 +10,8 @@ import ErrorPage from './components/ErrorPage';
 class App extends Component {
 
   state = {
-    events: []
+    events: [],
+    loading: true,
   }
 
   addFavourite = (id) => {
@@ -71,6 +72,7 @@ class App extends Component {
               });
               this.setState({
                   events: newEvents,
+                  loading: false,
               });
           });
   }
@@ -81,7 +83,7 @@ class App extends Component {
         <Switch>
            {/* NavBar */}
           <Route exact path="/">
-              <Events events={this.state.events} addFavourite={this.addFavourite} />
+              <Events events={this.state.events} loading={this.state.loading} addFavourite={this.addFavourite} />
           </Route>
           <Route exact path="/addEvent" component={Form}>
               {/* <Form /> */}
