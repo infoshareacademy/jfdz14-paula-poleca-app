@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import '../styles/Navbar.css';
-// import logo from "./logo.png";
+import logo from "./logo.png";
 
 
 
@@ -15,7 +15,7 @@ const AppNavbar = () => {
                 <Navbar.Brand href="/">
                 <img
                     alt=""
-                    // src={logo}
+                    src={logo}
                     width="32"
                     height="32"
                     className="d-inline-block align-top"
