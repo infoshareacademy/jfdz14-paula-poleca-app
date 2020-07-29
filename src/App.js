@@ -3,13 +3,9 @@ import Container from '@material-ui/core/Container';
 import Sidebar from './Sidebar';
 import Menu from './Menu';
 import Form from './Modal';
-import PieChart from './components/Charts/PieChart';
-import Example from './components/Charts/PieChart';
-import Pie from './components/Charts/PieChart';
 import SimplePieChart from './components/Charts/PieChart';
-import SameDataComposedChart from './components/Charts/ComposedChart';
 import SimpleBarChart from './components/Charts/BarChartNoPadding';
-
+import SimpleAreaCharts from './components/Charts/AreaChart';
 
 import './App.css';
 
@@ -18,14 +14,16 @@ function App() {
     <Container maxWidth="m">
       <Sidebar></Sidebar>
       <Form />
-      <div align="center">PieChart
+      <div align="center">Wydarzenia w Trójmieście
       <SimplePieChart />
       </div>
-      <div align="center">BarChart
-      <SimpleBarChart />
+    
+      <div align="center">Ilość dodanych wydarzeń
+      <SimpleAreaCharts />
       </div>
-      <div align="center">ComposedChart
-      <SameDataComposedChart />
+    
+      <div align="center">Ilość zarejestrowanych użytkowników
+      <SimpleBarChart />
       </div>
       
     </Container>

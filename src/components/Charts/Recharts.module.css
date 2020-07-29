@@ -1,4 +1,16 @@
 .pieChart { 
+  
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin: 20px auto;
+    /* background-color: rgb(164, 236, 236); */
+    border: 1px solid #333;
+}
+
+.twoSimplePieChart { 
+  
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -19,6 +31,15 @@
 }
 
 .barChart {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+  margin: 20px auto;
+  border: 1px solid #333;
+}
+
+.simpleAreaCharts {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
