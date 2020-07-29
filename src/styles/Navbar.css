@@ -1,8 +1,6 @@
-.navbar{
-    color: #157AF6 !important;
-}
-
-.box{
-    padding-left: 0 !important;
-    margin-left: 0;
+/* .logo {
+    background-image: url(./logo.png);
+  } */
+.bg-grey {
+    background-color: blueviolet;
 }
