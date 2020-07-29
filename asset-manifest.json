@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/jfdz14-paula-poleca-app/static/css/main.a8f62c80.chunk.css",
-    "main.js": "/jfdz14-paula-poleca-app/static/js/main.cb58217c.chunk.js",
-    "main.js.map": "/jfdz14-paula-poleca-app/static/js/main.cb58217c.chunk.js.map",
+    "main.css": "/jfdz14-paula-poleca-app/static/css/main.4ab89168.chunk.css",
+    "main.js": "/jfdz14-paula-poleca-app/static/js/main.ad0f4916.chunk.js",
+    "main.js.map": "/jfdz14-paula-poleca-app/static/js/main.ad0f4916.chunk.js.map",
     "runtime-main.js": "/jfdz14-paula-poleca-app/static/js/runtime-main.29aed46b.js",
     "runtime-main.js.map": "/jfdz14-paula-poleca-app/static/js/runtime-main.29aed46b.js.map",
-    "static/js/2.b2d462cb.chunk.js": "/jfdz14-paula-poleca-app/static/js/2.b2d462cb.chunk.js",
-    "static/js/2.b2d462cb.chunk.js.map": "/jfdz14-paula-poleca-app/static/js/2.b2d462cb.chunk.js.map",
+    "static/js/2.8ce5292a.chunk.js": "/jfdz14-paula-poleca-app/static/js/2.8ce5292a.chunk.js",
+    "static/js/2.8ce5292a.chunk.js.map": "/jfdz14-paula-poleca-app/static/js/2.8ce5292a.chunk.js.map",
     "index.html": "/jfdz14-paula-poleca-app/index.html",
-    "precache-manifest.b9191d744c143760d7521e16f1943cc6.js": "/jfdz14-paula-poleca-app/precache-manifest.b9191d744c143760d7521e16f1943cc6.js",
+    "precache-manifest.7f62bf4cc14d1c02179fcd4f12c8cb47.js": "/jfdz14-paula-poleca-app/precache-manifest.7f62bf4cc14d1c02179fcd4f12c8cb47.js",
     "service-worker.js": "/jfdz14-paula-poleca-app/service-worker.js",
-    "static/css/main.a8f62c80.chunk.css.map": "/jfdz14-paula-poleca-app/static/css/main.a8f62c80.chunk.css.map",
-    "static/js/2.b2d462cb.chunk.js.LICENSE.txt": "/jfdz14-paula-poleca-app/static/js/2.b2d462cb.chunk.js.LICENSE.txt"
+    "static/css/main.4ab89168.chunk.css.map": "/jfdz14-paula-poleca-app/static/css/main.4ab89168.chunk.css.map",
+    "static/js/2.8ce5292a.chunk.js.LICENSE.txt": "/jfdz14-paula-poleca-app/static/js/2.8ce5292a.chunk.js.LICENSE.txt",
+    "static/media/gdansk.jpg": "/jfdz14-paula-poleca-app/static/media/gdansk.8f2c3aec.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.29aed46b.js",
-    "static/js/2.b2d462cb.chunk.js",
-    "static/css/main.a8f62c80.chunk.css",
-    "static/js/main.cb58217c.chunk.js"
+    "static/js/2.8ce5292a.chunk.js",
+    "static/css/main.4ab89168.chunk.css",
+    "static/js/main.ad0f4916.chunk.js"
   ]
 }
