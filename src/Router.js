@@ -12,15 +12,13 @@ class Router extends Component {
 
   render() {
     return(
-    <BrowserRouter>
-      <Switch>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
+      
         <React.Fragment>
           <Container fluid>
             <Row>
               <Col>
-
                 <AppNavbar />
-
                 <Row>
                   <div className="col-3">
                     <Sidebar />
@@ -29,12 +27,11 @@ class Router extends Component {
                     <App />
                   </div>             
                 </Row>
-
               </Col>
             </Row>
           </Container> 
         </React.Fragment>
-      </Switch>   
+        
     </BrowserRouter>
     );
   }

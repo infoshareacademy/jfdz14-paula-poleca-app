@@ -1,14 +1,26 @@
 import React from 'react';
 import img from './img/gdansk.jpg';
 import './styles/Page.css';
+import Jumbotron from 'react-bootstrap/Jumbotron'
+import Button from 'react-bootstrap/Button'
+import { NavLink } from 'react-router-dom';
+
 
 const Page = () => {
     return (
-        <div className="Page">
-            <h1>Main Page</h1>
-            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni ducimus temporibus inventore, nesciunt ab sunt sint similique iusto earum qui sequi beatae deleniti possimus amet, dicta illo iste debitis assumenda.</h4>
-            <img src={img} alt=""/>
-        </div>
+        <Jumbotron>
+         <h1>Paula Poleca!</h1>
+        <p>
+        Zbiór  największych i najciekawszych imprezy oraz wydarzeń w Trójmieście!
+         Na bieżąco zapewniamy użytkownikom informacje na temat najnowszych wydarzeń kulturalnych i rozrywkowych.
+         Zapoznaj się z nadchodzącycmi wydarzeniami w Twojej okolicy!
+
+
+        </p>
+        <p>
+            <Button as={NavLink} to="/events" variant="primary">Wydarzenie</Button>
+        </p>
+        </Jumbotron>
     );
 }
  

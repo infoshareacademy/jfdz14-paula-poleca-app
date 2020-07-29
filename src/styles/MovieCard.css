@@ -12,10 +12,11 @@
 }
 
 .movie-card.card {
-    min-height: 400px;
+    min-height: 200px;
     border-radius: 4px;
     border: 1px solid black;
     padding-left: 5px;
+    padding-bottom: 5px;
 }
 
 .card-footer {

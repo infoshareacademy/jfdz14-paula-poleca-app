@@ -1,20 +1,20 @@
 import React, {Component} from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 import Events from './components/Events';
 import Form from './components/Form';
 import Favourites from './components/Favourites';
-import Page from './Page';
-import Gdansk from './components/Finders/Gdansk'
+import Statistics from './components/Statistics';
+import ErrorPage from './components/ErrorPage';
 
 class App extends Component {
 
   state = {
-    events: []
+    events: [],
+    loading: true,
   }
 
   addFavourite = (id) => {
-    console.log('addFavourite', id);
 
     const events = this.state.events.map(event => {
       if(event.id === id) {
@@ -54,17 +54,14 @@ class App extends Component {
 
   readLocalStorage = (id) => {
     let idFromStorage = localStorage.getItem('fav_'+id);
-    // console.log(idFromStorage);
     if(idFromStorage) return Number(idFromStorage);
   }
 
   componentDidMount() {
       fetch(' https://isa.mateuszmarzecki.pl/v1/proxy?url=https://planerkulturalny.pl/api/rest/events.json ')
           .then(response => response.json())
-          .then(events => {
-               
-              // let events = data.slice(0,10);
-              //console.log(events);
+          .then(data => {
+              let events = data;
               const newEvents = events.map(event => {
                 event.favourite = false;
                 let idFromStorage = this.readLocalStorage(event.id);
@@ -75,6 +72,7 @@ class App extends Component {
               });
               this.setState({
                   events: newEvents,
+                  loading: false,
               });
           });
   }
@@ -82,28 +80,26 @@ class App extends Component {
   render() {
     return(
       <React.Fragment>
-
-          {/* NavBar */}
+        <Switch>
+           {/* NavBar */}
           <Route exact path="/">
-              <Page />
+              <Events events={this.state.events} loading={this.state.loading} addFavourite={this.addFavourite} />
           </Route>
-          <Route path="/events">
-              <Events events={this.state.events} addFavourite={this.addFavourite} />
+          <Route exact path="/addEvent" component={Form}>
+              {/* <Form /> */}
           </Route>
-          <Route path="/events/gdansk">
-              <Gdansk />
-          </Route>
-          <Route path="/addEvent">
-              <Form />
-          </Route>
-          <Route path="/favourite">
+          <Route exact path="/favourite">
               <Favourites events={this.state.events} addFavourite={this.addFavourite} />
           </Route>
 
           {/* SideBar */}
-          <Route path="/statistics"><h2>Statystyki</h2></Route>
-          <Route path="/cinema"><h2>Kino</h2></Route>
-          <Route path="/theater"><h2>Teatr</h2></Route>
+          <Route path="/statistics">
+            <Statistics />
+          </Route>
+
+          <Route component={ErrorPage} />          
+        </Switch>
+
 
       </React.Fragment>
     );

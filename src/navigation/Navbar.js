@@ -2,21 +2,32 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-// import Form from "react-bootstrap/Form";
+import '../styles/Navbar.css';
+import logo from "./logo.png";
+
+
+
 
 const AppNavbar = () => {
 
     return(
+            <Navbar bg="primary" variant="dark">
+                <Navbar.Brand href="/">
+                <img
+                    alt=""
+                    src={logo}
+                    width="32"
+                    height="32"
+                    className="d-inline-block align-top"
+                />{' '}
+                Paula Poleca
+                </Navbar.Brand>
 
-        <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="#home">Paula Poleca</Navbar.Brand>
-            <Nav className="mr-auto">
-                <Nav.Link as={NavLink} to="/events">Events</Nav.Link>
-                <Nav.Link as={NavLink} to="/addEvent">Dodaj event</Nav.Link>
-                <Nav.Link as={NavLink} to="/favourite">Favourite</Nav.Link>
-            </Nav>
-  </Navbar>
+            </Navbar>
+
+
         );    
 }
 
 export default AppNavbar
+ 
