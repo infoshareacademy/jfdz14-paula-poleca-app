@@ -6,6 +6,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import CardGroup from 'react-bootstrap/CardGroup'
+import Button from 'react-bootstrap/Button'
 
 class Events extends React.Component {
     
@@ -53,7 +54,7 @@ class Events extends React.Component {
             filterValue = {this.state.filter}
             />
 
-        <h2>Eventy</h2>
+        <h2>Nadchodzące wydarzenia</h2>
 
         {
         this.props.loading && 
@@ -103,7 +104,7 @@ class Events extends React.Component {
         </div>
         {this.state.more < this.props.events.length &&
         <div className="containerMore">
-        <button className="buttonMore" onClick={this.showMore}>Show more...</button>    
+             <Button type="submit" size="lg" onClick={this.showMore} style={{width:"300px", marginTop:"16px", marginBottom:"16px"}}> Zobacz więcej wydarzeń</Button>{' '}
         </div>
         }
         </>
