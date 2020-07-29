@@ -82,15 +82,15 @@ class Events extends React.Component {
                             </span>
                         </p>
                             {event.attachments[0] !== undefined ? <img src={event.attachments[0].fileName} alt=""/> : null }
-                        {/* <p className="descLong">
+                        <p className="descLong">
                             {event.descShort} 
-                        </p> */}
+                        </p>
                         {/* <p className="descLong">
                             {event.descLong} 
                         </p> */}
-                        {/* <p>
+                        <p>
                             <a href={event.urls.www} target="_blank">Zobacz link</a>
-                        </p> */}
+                        </p>
                     </div>
                 );
             })
@@ -106,3 +106,4 @@ class Events extends React.Component {
     }
 }
 export default Events
+

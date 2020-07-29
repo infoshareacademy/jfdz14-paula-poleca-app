@@ -1,64 +1,97 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Modal from "@material-ui/core/Modal";
-import styles from '../styles/Modal.module.css';
+
+import React from 'react';
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
+class Forms extends React.Component {
+        state = {
+          title: "Title",
+          description: "Description",
+          link: "Link",
+          city: " ",
+
+        };
+      
+        
+        keyUpHandlerTitle = (event) => {
+          this.setState({
+            title: event.target.value,
+          })
+          console.log(this.state.title)
+        }
+
+        keyUpHandlerDesc = (event) => {
+            this.setState({
+                description: event.target.value,
+            })
+        }
 
 
-const Form = () => {
-    const [open, setOpen] = React.useState(false);
+        keyUpHandlerLink = (event) => {
+            this.setState({
+                link: event.target.value
+            })
+        }
 
-    const handleOpen = () => {
-        setOpen(true);
-    };
+        handlerOnChange = (event) =>{
+            console.log(this.state.city)
 
-    const handleClose = () => {
-        setOpen(false);
-    };
 
-    const body = (
-        <div className= {styles.modal}>
-            <h2>Dodaj nowe wydarzenie w Trójmieście!</h2>
-            <p>
-                Podziel się nowym wydarzeniem w Trójmiscie. Uzupełnij wymagane dane, aby poinformować o nadchodządym nowym wydarzeniu!
-            </p>
-            <div className={styles.form}>
-                <input className={styles.formInput} type="text" id="title" name="title" defaultValue="Tytuł"/>
-                <div>
-                  <p>Podaj cene wydarzenia w PLN: </p>
-                  <input className={styles.formInput}  type="number" id="pirce" name="price"/>                
-                </div>
-                <select className={styles.formInput} id="town" name="town">
-                    <option value="Gdansk">Gdańsk</option>
-                    <option value="Gdynia">Gdynia</option>
-                    <option value="Sopot">Sopot</option>
-                </select>
-                <input className={styles.formInput}  type="date" id="date"/>
-     
-                
-                <textarea className={styles.formInput} name="message" rows="10" cols="30">Dodaj krótki opis wydarzenia.</textarea>
+            this.setState({
+                city: event.target.value
+            })
+        }
 
-                <input className={styles.formInput}  type="file" />
-                <button  type="submit" value="Submit" className={styles.button}> Dodaj </button>
+        saveDataInLolcalStorage = () => {
+            localStorage.setItem("new_event", JSON.stringify([`${this.state.title}`,`${this.state.city}`, `${this.state.description}`, `${this.state.link}`]))
+        }
 
+
+    render(){
+        return (
+            <div style={{marginLeft: 16, marginTop: 16}}>
+            <Form>
+                    <h2>Dodaj nowe wydarzenie</h2>
+                    <p>Chcesz się podzielić z innymi nadchodzącycm wydarzeniem? Znasz miejsce, cene i godzinę? Dodaj nowe wydarzenie do PaulaPoleca!</p>
+                <Form.Group controlId="title"  >
+                    <Form.Label>Nazwa wydarzenia</Form.Label>
+                    <Form.Control type="text" onKeyUp={this.keyUpHandlerTitle} placeholder={"Tytuł" }/>
+                </Form.Group>
+    
+                <Form.Group controlId="city">
+                    <Form.Label >Wybierz miasto</Form.Label>
+                    <Form.Control as="select" onChange={this.handlerOnChange} >
+                    <option>Miasto</option>
+                    <option>Gdańsk</option>
+                    <option>Gdynia</option>
+                    <option>Sopot</option>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group>
+                    <Form.File id="event_img" label="Example file input" on/>
+                </Form.Group>
+        
+                <Form.Group controlId="desc">
+                    <Form.Label>Opis wydarzenia: </Form.Label>
+                    <Form.Control as="textarea" rows="3" onKeyUp={this.keyUpHandlerDesc} />
+                </Form.Group>
+                <Form.Group>
+                <Form.Label>Link do wydarzenia</Form.Label>
+                    <Form.Control type="text" onKeyUp={this.keyUpHandlerLink} placeholder="Link do wydarzenia"/>
+                </Form.Group>
+        
+                <Button variant="primary" type="submit" onClick={this.saveDataInLolcalStorage}>
+                Zapisz
+                </Button>
+            </Form>
             </div>
-        </div>
-        );
+        
+            );
+          }
 
-    return (
-        <div>
-          <h2>Dodaj event</h2>
-          <div>for Pulina</div>
-          <button type="button" onClick={handleOpen} className={styles.button}>
-            Dodaj nowe wydarzenie
-          </button>
-          <Modal
-            open={open}
-            onClose={handleClose}
-          >
-            {body}
-          </Modal>
-        </div>
-      )
-  };
+    }
 
-  export default Form
+    
+
+export default Forms;
+
