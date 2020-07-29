@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 import Events from './components/Events';
 import Form from './components/Form';
 import Favourites from './components/Favourites';
 import Statistics from './components/Statistics';
+import ErrorPage from './components/ErrorPage';
 
 class App extends Component {
 
@@ -60,8 +61,6 @@ class App extends Component {
           .then(response => response.json())
           .then(data => {
               let events = data;
-              // let events = data.slice(0,10);
-              // console.log(events);
               const newEvents = events.map(event => {
                 event.favourite = false;
                 let idFromStorage = this.readLocalStorage(event.id);
@@ -79,15 +78,15 @@ class App extends Component {
   render() {
     return(
       <React.Fragment>
-
-          {/* NavBar */}
+        <Switch>
+           {/* NavBar */}
           <Route exact path="/">
               <Events events={this.state.events} addFavourite={this.addFavourite} />
           </Route>
-          <Route path="/addEvent">
-              <Form />
+          <Route exact path="/addEvent" component={Form}>
+              {/* <Form /> */}
           </Route>
-          <Route path="/favourite">
+          <Route exact path="/favourite">
               <Favourites events={this.state.events} addFavourite={this.addFavourite} />
           </Route>
 
@@ -95,6 +94,10 @@ class App extends Component {
           <Route path="/statistics">
             <Statistics />
           </Route>
+
+          <Route component={ErrorPage} />          
+        </Switch>
+
 
       </React.Fragment>
     );

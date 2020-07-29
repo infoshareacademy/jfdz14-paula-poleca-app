@@ -21,22 +21,16 @@ class Events extends React.Component {
     }
 
     showMore = () => {
-        console.log('showMore...');
-        
-        console.log(this.props.events.length);
+        let eventslength = this.props.events.length;
         let maxLoad = this.state.more + 20;
-        console.log(maxLoad);
-        if(maxLoad < this.props.events.length) {
+        if(maxLoad < eventslength) {
             this.setState({
                 more: maxLoad,
             });            
         } else {
-            while(maxLoad > this.props.events.length ) {
-                console.log('maxLoad ', maxLoad);
-                console.log('length ', this.props.events.length);
+            while(maxLoad > eventslength ) {
                 maxLoad = maxLoad - 1;
             }
-            console.log(maxLoad); 
             this.setState({
                 more: maxLoad,
             });   
@@ -45,7 +39,6 @@ class Events extends React.Component {
 
     render() {
 
-        // const events = this.props.events;
         const events = this.props.events.slice(0,this.state.more);
 
         return (

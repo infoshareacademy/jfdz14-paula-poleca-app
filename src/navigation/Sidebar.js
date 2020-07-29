@@ -8,7 +8,7 @@ const Sidebar = () => {
             <Nav.Link as={NavLink} to="/">Eventy</Nav.Link>
             <Nav.Link as={NavLink} to="/addEvent">Dodaj event</Nav.Link>
             <Nav.Link as={NavLink} to="/favourite">Ulubione</Nav.Link>            
-            <Nav.Link as={NavLink} to="/statistics">Statystyki</Nav.Link>
+            <Nav.Link as={NavLink} to="/statistics">Statystyki x</Nav.Link>
         </Nav>
     );
 }

@@ -13,7 +13,7 @@ class Router extends Component {
   render() {
     return(
     <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Switch>
+      
         <React.Fragment>
           <Container fluid>
             <Row>
@@ -31,7 +31,7 @@ class Router extends Component {
             </Row>
           </Container> 
         </React.Fragment>
-      </Switch>   
+        
     </BrowserRouter>
     );
   }
