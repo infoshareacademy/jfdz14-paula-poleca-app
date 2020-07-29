@@ -1,12 +1,14 @@
 import React from 'react'
 import '../styles/Events.css';
-import "./MovieCard.css";
+import "../styles/MovieCard.css";
 import Finder from './Finders/Finder';
+import Spinner from 'react-bootstrap/Spinner';
 
 class Events extends React.Component {
     
     state = {
         filter: '',
+        more: 20,
     }
 
     handleOnFormChange = (textFilter) => {
@@ -16,11 +18,30 @@ class Events extends React.Component {
     }
 
     addFavourite = (id) => {
-        console.log('addFavourite ', id);
         this.props.addFavourite(id);
     }
 
+    showMore = () => {
+        let eventslength = this.props.events.length;
+        let maxLoad = this.state.more + 20;
+        if(maxLoad < eventslength) {
+            this.setState({
+                more: maxLoad,
+            });            
+        } else {
+            while(maxLoad > eventslength ) {
+                maxLoad = maxLoad - 1;
+            }
+            this.setState({
+                more: maxLoad,
+            });   
+        }
+    }
+
     render() {
+
+        const events = this.props.events.slice(0,this.state.more);
+
         return (
         <>
 
@@ -29,11 +50,19 @@ class Events extends React.Component {
             filterValue = {this.state.filter}
             />
 
-        <h2>Events</h2>
+        <h2>Eventy</h2>
+
+        {
+        this.props.loading && 
+        <div>
+            <p style={{fontSize: '30px', textAlign: 'center'}}><Spinner animation="border" /> LOADING...</p>
+        </div>
+        }
 
         <div className="cardsContainer">
             {
-            this.props.events
+
+            events
             .filter((event) => {
                 return event.place.name.toLocaleLowerCase()
                 .includes(this.state.filter.toLocaleLowerCase())
@@ -49,7 +78,7 @@ class Events extends React.Component {
                         <p className="addFavourite" 
                             onClick={() => this.addFavourite(event.id)}>Dodaj do ulubionych   
                             <span className={event.favourite ? "starColorActive" : "starColor"}>
-                                <i className="fa fa-star fa-lg"></i>
+                                <i className="fa fa-heart fa-lg"></i>
                             </span>
                         </p>
                             {event.attachments[0] !== undefined ? <img src={event.attachments[0].fileName} alt=""/> : null }
@@ -67,6 +96,11 @@ class Events extends React.Component {
             })
         }
         </div>
+        {this.state.more < this.props.events.length &&
+        <div className="containerMore">
+        <button className="buttonMore" onClick={this.showMore}>Show more...</button>    
+        </div>
+        }
         </>
         ); 
     }
