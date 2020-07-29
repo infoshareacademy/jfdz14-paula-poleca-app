@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/Events.css';
 import "../styles/MovieCard.css";
 import Finder from './Finders/Finder';
+import CityFinder from './Finders/CityFinder'
 import Spinner from 'react-bootstrap/Spinner';
 
 class Events extends React.Component {
@@ -21,6 +22,12 @@ class Events extends React.Component {
         this.props.addFavourite(id);
     }
 
+    cityChange = (cityFilter) => {
+        this.setState({
+            filter: cityFilter
+        })
+    }
+    
     showMore = () => {
         let eventslength = this.props.events.length;
         let maxLoad = this.state.more + 20;
@@ -44,11 +51,17 @@ class Events extends React.Component {
 
         return (
         <>
+            <div style = {{display: 'flex'}}>
+                <Finder 
+                    onFormChange={this.handleOnFormChange}
+                    filterValue = {this.state.filter}
+                    />
 
-        <Finder 
-            onFormChange={this.handleOnFormChange}
-            filterValue = {this.state.filter}
-            />
+                <CityFinder 
+                    onFormChange={this.cityChange} 
+                />
+            </div>
+      
 
         <h2>Eventy</h2>
 
@@ -65,6 +78,10 @@ class Events extends React.Component {
             events
             .filter((event) => {
                 return event.place.name.toLocaleLowerCase()
+                .includes(this.state.filter.toLocaleLowerCase()) || 
+                event.name.toLocaleLowerCase()
+                .includes(this.state.filter.toLocaleLowerCase()) ||
+                event.descShort.toLocaleLowerCase()
                 .includes(this.state.filter.toLocaleLowerCase())
             })            
             .map((event) => {
