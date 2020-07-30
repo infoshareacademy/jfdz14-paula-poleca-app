@@ -94,7 +94,13 @@ class Events extends React.Component {
                 return (
                         <CardDeck>
                         <Card key={event.id} className="text-center" style={{ width: '16rem' }}>
-                        <Card.Img variant="top" src={event.attachments[0] !== undefined ? <img src={event.attachments[0].fileName} alt=""/> : null }/>
+                        {/* {
+                         event.attachments[0] !== undefined ?
+                         <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" />
+                        : null
+                        }    */}
+
+                        
                             <Card.Body key={event.id}>
                             <Card.Title>{event.name}</Card.Title>
                                 <p className="addFavourite" 
