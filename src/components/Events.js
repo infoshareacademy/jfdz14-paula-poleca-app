@@ -106,14 +106,15 @@ class Events extends React.Component {
 
                             <Card.Text>
                                 <div>{event.place.name}</div>
+                                <div>{event.startDate.slice(0, 10)}</div>
                                 {/* <div>{event.descShort} </div> */}
 
                             </Card.Text>
                             </Card.Body>
                             <Card.Footer>
-                            <small className="text-muted"><a href={event.urls.www} target="_blank">Zobacz link</a>
+                            {/* <small className="text-muted"><a href={event.urls.www} target="_blank">Zobacz link</a> */}
                             {/* <EventModal /> */}
-                        </small>
+                        {/* </small> */}
                             </Card.Footer>
                         </Card>
                         </CardDeck>
