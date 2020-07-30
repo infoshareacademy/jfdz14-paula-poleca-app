@@ -6,8 +6,9 @@ import CityFinder from './Finders/CityFinder'
 import Spinner from 'react-bootstrap/Spinner';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
-import CardGroup from 'react-bootstrap/CardGroup'
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import EventModal from './Modal.js'
+
 
 class Events extends React.Component {
     
@@ -92,7 +93,7 @@ class Events extends React.Component {
 
                 return (
                         <CardDeck>
-                        <Card key={event.id} className="text-center" style={{ width: '18rem' }}>
+                        <Card key={event.id} className="text-center" style={{ width: '16rem' }}>
                         <Card.Img variant="top" src={event.attachments[0] !== undefined ? <img src={event.attachments[0].fileName} alt=""/> : null }/>
                             <Card.Body key={event.id}>
                             <Card.Title>{event.name}</Card.Title>
@@ -111,6 +112,7 @@ class Events extends React.Component {
                             </Card.Body>
                             <Card.Footer>
                             <small className="text-muted"><a href={event.urls.www} target="_blank">Zobacz link</a>
+                            <EventModal />
                         </small>
                             </Card.Footer>
                         </Card>
