@@ -1,6 +1,11 @@
 
 ## Project - Paula Poleca
 
+#Installation
+
+$ npm install
+$ npm install react-bootstrap bootstrap
+$ npm install recharts
 
 ### `page`
 https://infoshareacademy.github.io/jfdz14-paula-poleca-app/
