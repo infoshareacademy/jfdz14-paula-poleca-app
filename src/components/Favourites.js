@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import '../styles/Events.css';
 import "../styles/MovieCard.css";
+import Card from 'react-bootstrap/Card';
+import CardDeck from 'react-bootstrap/CardDeck';
+import Button from 'react-bootstrap/Button';
+import EventModal from './Modal.js'
+
 
 class Favourites extends Component {
     constructor(props) {
@@ -19,29 +24,32 @@ class Favourites extends Component {
 
                     return (
                     event.favourite &&
-                    <div key = {event.id}>
-                        <div className="movie-card card">
-                            <h5>{event.name}</h5>
-
+                    <CardDeck>
+                    <Card key={event.id} className="text-center" style={{ width: '16rem' }}>
+                    <Card.Img variant="top" src={event.attachments[0] !== undefined ? <img src={event.attachments[0].fileName} alt=""/> : null }/>
+                        <Card.Body key={event.id}>
+                        <Card.Title>{event.name}</Card.Title>
                             <p className="addFavourite" 
-                                onClick={() => this.props.addFavourite(event.id)}>Usuń z ulubionych   
+                                onClick={() => this.addFavourite(event.id)}>Ulubione  
                                 <span className={event.favourite ? "starColorActive" : "starColor"}>
-                                    <i className="fa fa-heart fa-lg"></i>
+                                <i className="fa fa-heart fa-lg"></i>
                                 </span>
                             </p>
 
-                            <p className="movie-card-description" style={{ fontSize: "14px" }}>
-                                {event.place.name}
-                            </p>
-                                {event.attachments[0] !== undefined ? <img src={event.attachments[0].fileName} alt=""/> : null }
-                            <p className="descLong">
-                                {event.descShort} 
-                            </p>
-                            <p>
-                                <a href={event.urls.www} target="_blank">Zobacz link</a>
-                            </p>
-                        </div>
-                    </div>                            
+                        <Card.Text>
+                            <div>{event.place.name}</div>
+                            <div>{event.startDate.slice(0, 10)}</div>
+                            {/* <div>{event.descShort} </div> */}
+
+                        </Card.Text>
+                        </Card.Body>
+                        <Card.Footer>
+                        {/* <small className="text-muted"><a href={event.urls.www} target="_blank">Zobacz link</a> */}
+                        <EventModal />
+                    {/* </small> */}
+                        </Card.Footer>
+                    </Card>
+                    </CardDeck>   
                     );
                 })
             }
