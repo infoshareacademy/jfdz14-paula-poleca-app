@@ -22,7 +22,7 @@ const Sidebar = () => {
         <Nav.Link as={NavLink} to="/favourite"> <img src={favourite} height="25"/>Ulubione</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-        <Nav.Link to="/statistics"><img src={stats} height="25"/>Statystyki</Nav.Link>
+        <Nav.Link as={NavLink} to="/statistics"><img src={stats} height="25"/>Statystyki</Nav.Link>
         </Nav.Item>
         </Nav>
 
