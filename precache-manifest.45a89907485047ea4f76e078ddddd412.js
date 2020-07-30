@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ce7ec892369388083e7cb7d0b27cea2d",
+    "revision": "7e75c1459fbf9e1d71141ecf4b4009f2",
     "url": "/jfdz14-paula-poleca-app/index.html"
   },
   {
-    "revision": "b870cc97a75bebb78cf3",
-    "url": "/jfdz14-paula-poleca-app/static/css/main.40a20744.chunk.css"
+    "revision": "0c724290a4479b5b0604",
+    "url": "/jfdz14-paula-poleca-app/static/css/main.7b5d1ed0.chunk.css"
   },
   {
-    "revision": "e5810a9f283f24634be3",
-    "url": "/jfdz14-paula-poleca-app/static/js/2.443037fd.chunk.js"
+    "revision": "c40463407cc0c349e88e",
+    "url": "/jfdz14-paula-poleca-app/static/js/2.e70850ce.chunk.js"
   },
   {
-    "revision": "3453b8997016469371284a28c0e873e2",
-    "url": "/jfdz14-paula-poleca-app/static/js/2.443037fd.chunk.js.LICENSE.txt"
+    "revision": "ca3cfcda77dc9f4f71fda9fdfcf14fb0",
+    "url": "/jfdz14-paula-poleca-app/static/js/2.e70850ce.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b870cc97a75bebb78cf3",
-    "url": "/jfdz14-paula-poleca-app/static/js/main.a526863b.chunk.js"
+    "revision": "0c724290a4479b5b0604",
+    "url": "/jfdz14-paula-poleca-app/static/js/main.95b37fb8.chunk.js"
   },
   {
     "revision": "bfe53469c176f22cf9c9",

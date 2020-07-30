@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/jfdz14-paula-poleca-app/static/css/main.40a20744.chunk.css",
-    "main.js": "/jfdz14-paula-poleca-app/static/js/main.a526863b.chunk.js",
-    "main.js.map": "/jfdz14-paula-poleca-app/static/js/main.a526863b.chunk.js.map",
+    "main.css": "/jfdz14-paula-poleca-app/static/css/main.7b5d1ed0.chunk.css",
+    "main.js": "/jfdz14-paula-poleca-app/static/js/main.95b37fb8.chunk.js",
+    "main.js.map": "/jfdz14-paula-poleca-app/static/js/main.95b37fb8.chunk.js.map",
     "runtime-main.js": "/jfdz14-paula-poleca-app/static/js/runtime-main.29aed46b.js",
     "runtime-main.js.map": "/jfdz14-paula-poleca-app/static/js/runtime-main.29aed46b.js.map",
-    "static/js/2.443037fd.chunk.js": "/jfdz14-paula-poleca-app/static/js/2.443037fd.chunk.js",
-    "static/js/2.443037fd.chunk.js.map": "/jfdz14-paula-poleca-app/static/js/2.443037fd.chunk.js.map",
+    "static/js/2.e70850ce.chunk.js": "/jfdz14-paula-poleca-app/static/js/2.e70850ce.chunk.js",
+    "static/js/2.e70850ce.chunk.js.map": "/jfdz14-paula-poleca-app/static/js/2.e70850ce.chunk.js.map",
     "index.html": "/jfdz14-paula-poleca-app/index.html",
-    "precache-manifest.f84dcb2836ce3423fa29fe4e0c8112e3.js": "/jfdz14-paula-poleca-app/precache-manifest.f84dcb2836ce3423fa29fe4e0c8112e3.js",
+    "precache-manifest.45a89907485047ea4f76e078ddddd412.js": "/jfdz14-paula-poleca-app/precache-manifest.45a89907485047ea4f76e078ddddd412.js",
     "service-worker.js": "/jfdz14-paula-poleca-app/service-worker.js",
-    "static/css/main.40a20744.chunk.css.map": "/jfdz14-paula-poleca-app/static/css/main.40a20744.chunk.css.map",
-    "static/js/2.443037fd.chunk.js.LICENSE.txt": "/jfdz14-paula-poleca-app/static/js/2.443037fd.chunk.js.LICENSE.txt",
+    "static/css/main.7b5d1ed0.chunk.css.map": "/jfdz14-paula-poleca-app/static/css/main.7b5d1ed0.chunk.css.map",
+    "static/js/2.e70850ce.chunk.js.LICENSE.txt": "/jfdz14-paula-poleca-app/static/js/2.e70850ce.chunk.js.LICENSE.txt",
     "static/media/gdansk.jpg": "/jfdz14-paula-poleca-app/static/media/gdansk.8f2c3aec.jpg",
     "static/media/logo.png": "/jfdz14-paula-poleca-app/static/media/logo.fde072ed.png"
   },
   "entrypoints": [
     "static/js/runtime-main.29aed46b.js",
-    "static/js/2.443037fd.chunk.js",
-    "static/css/main.40a20744.chunk.css",
-    "static/js/main.a526863b.chunk.js"
+    "static/js/2.e70850ce.chunk.js",
+    "static/css/main.7b5d1ed0.chunk.css",
+    "static/js/main.95b37fb8.chunk.js"
   ]
 }
