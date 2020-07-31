@@ -6,6 +6,7 @@ import Form from './components/Form';
 import Favourites from './components/Favourites';
 import Statistics from './components/Statistics';
 import ErrorPage from './components/ErrorPage';
+import Share from './components/Share/Share'
 
 class App extends Component {
 
@@ -99,8 +100,9 @@ class App extends Component {
 
           <Route component={ErrorPage} />          
         </Switch>
-
-
+        <div align="center" margin='200'>
+          <Share />
+        </div>
       </React.Fragment>
     );
   }

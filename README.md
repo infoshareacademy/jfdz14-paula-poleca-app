@@ -6,6 +6,8 @@
 $ npm install
 $ npm install react-bootstrap bootstrap
 $ npm install recharts
+$ npm install react-share
+$ npm start
 
 ### `page`
 https://infoshareacademy.github.io/jfdz14-paula-poleca-app/
