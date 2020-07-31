@@ -68,7 +68,10 @@ class Events extends React.Component {
         {
         this.props.loading && 
         <div>
-            <p style={{fontSize: '30px', textAlign: 'center'}}><Spinner animation="border" /> LOADING...</p>
+            <p style={{fontSize: '30px', textAlign: 'center'}}>
+                {/* <Spinner animation="border" /> */}
+                LOADING...
+            </p>
         </div>
         }
 
