@@ -28,6 +28,17 @@
 }
 
 
+@media screen and (min-width: 1024px){
+
+    .findersBox {
+        width: 70%;
+        margin-top: 16px;
+        display: flex;
+        justify-content: space-evenly;   
+    }
+}
+    
+
 
 
 

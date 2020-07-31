@@ -51,7 +51,7 @@ class Events extends React.Component {
 
         return (
         <>
-            <div style = {{display: 'flex'}}>
+            <div className='findersBox'>
                 <Finder 
                     onFormChange={this.handleOnFormChange}
                     filterValue = {this.state.filter}
