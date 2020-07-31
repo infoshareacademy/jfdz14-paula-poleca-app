@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/jfdz14-paula-poleca-app/static/css/main.c5cba82d.chunk.css",
-    "main.js": "/jfdz14-paula-poleca-app/static/js/main.03b67c26.chunk.js",
-    "main.js.map": "/jfdz14-paula-poleca-app/static/js/main.03b67c26.chunk.js.map",
+    "main.js": "/jfdz14-paula-poleca-app/static/js/main.4f71507e.chunk.js",
+    "main.js.map": "/jfdz14-paula-poleca-app/static/js/main.4f71507e.chunk.js.map",
     "runtime-main.js": "/jfdz14-paula-poleca-app/static/js/runtime-main.29aed46b.js",
     "runtime-main.js.map": "/jfdz14-paula-poleca-app/static/js/runtime-main.29aed46b.js.map",
-    "static/js/2.e00ff386.chunk.js": "/jfdz14-paula-poleca-app/static/js/2.e00ff386.chunk.js",
-    "static/js/2.e00ff386.chunk.js.map": "/jfdz14-paula-poleca-app/static/js/2.e00ff386.chunk.js.map",
+    "static/js/2.558c690d.chunk.js": "/jfdz14-paula-poleca-app/static/js/2.558c690d.chunk.js",
+    "static/js/2.558c690d.chunk.js.map": "/jfdz14-paula-poleca-app/static/js/2.558c690d.chunk.js.map",
     "index.html": "/jfdz14-paula-poleca-app/index.html",
-    "precache-manifest.2f960ee60a1c953133611a12fa27b6eb.js": "/jfdz14-paula-poleca-app/precache-manifest.2f960ee60a1c953133611a12fa27b6eb.js",
+    "precache-manifest.86841af7d1e95db7dad2d2b0dbf9e217.js": "/jfdz14-paula-poleca-app/precache-manifest.86841af7d1e95db7dad2d2b0dbf9e217.js",
     "service-worker.js": "/jfdz14-paula-poleca-app/service-worker.js",
     "static/css/main.c5cba82d.chunk.css.map": "/jfdz14-paula-poleca-app/static/css/main.c5cba82d.chunk.css.map",
-    "static/js/2.e00ff386.chunk.js.LICENSE.txt": "/jfdz14-paula-poleca-app/static/js/2.e00ff386.chunk.js.LICENSE.txt",
+    "static/js/2.558c690d.chunk.js.LICENSE.txt": "/jfdz14-paula-poleca-app/static/js/2.558c690d.chunk.js.LICENSE.txt",
     "static/media/gdansk.jpg": "/jfdz14-paula-poleca-app/static/media/gdansk.8f2c3aec.jpg",
     "static/media/logo.png": "/jfdz14-paula-poleca-app/static/media/logo.fde072ed.png"
   },
   "entrypoints": [
     "static/js/runtime-main.29aed46b.js",
-    "static/js/2.e00ff386.chunk.js",
+    "static/js/2.558c690d.chunk.js",
     "static/css/main.c5cba82d.chunk.css",
-    "static/js/main.03b67c26.chunk.js"
+    "static/js/main.4f71507e.chunk.js"
   ]
 }
