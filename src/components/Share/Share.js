@@ -17,7 +17,8 @@ import './Share.css';
 
 export default class Share extends Component {
   render() {
-    const shareUrl = 'http://app.paulapoleca.jfdz14.is-academy.pl/';
+    // const shareUrl = 'http://app.paulapoleca.jfdz14.is-academy.pl/';
+    const shareUrl = 'https://infoshareacademy.github.io/jfdz14-paula-poleca-app/';
     const title = 'Paula Poleca App';
 
     return (
