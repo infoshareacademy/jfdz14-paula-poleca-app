@@ -4,12 +4,25 @@ import "../styles/MovieCard.css";
 import Finder from './Finders/Finder';
 import CityFinder from './Finders/CityFinder'
 import Spinner from 'react-bootstrap/Spinner';
+import RangeSlider from './Finders/RangeSlider'
 
 class Events extends React.Component {
     
     state = {
         filter: '',
         more: 20,
+        add : 0
+    }
+
+    addNumber = parseInt(this.state.add)
+
+    allEvents = (sliderValue) => {
+   
+            // console.log(sliderValue)
+            // console.log(typeof(sliderValue))
+        this.setState({
+            add: sliderValue
+        })
     }
 
     handleOnFormChange = (textFilter) => {
@@ -46,7 +59,12 @@ class Events extends React.Component {
     }
 
     render() {
-
+        console.log(this.state.add)
+        console.log(typeof(this.state.add))
+        console.log(typeof(parseInt(this.state.add)))
+        console.log(this.addNumber)
+        
+       
         const events = this.props.events.slice(0,this.state.more);
 
         return (
@@ -60,6 +78,14 @@ class Events extends React.Component {
                 <CityFinder 
                     onFormChange={this.cityChange} 
                 />
+
+                <RangeSlider 
+                    onFormChange={this.allEvents}
+                    filterValue = {this.state.add}
+                />
+                <button style = {{width: '50px', height: '50px'}}>{this.state.add}</button>
+                
+             
             </div>
       
 
@@ -118,6 +144,22 @@ class Events extends React.Component {
         <button className="buttonMore" onClick={this.showMore}>Show more...</button>    
         </div>
         }
+        {
+            this.state.add == 20 ? window.scrollTo(0, 4000) : null
+        }
+         {
+            this.state.add == 40 ? window.scrollTo(0, 8000) : null
+        }
+    
+    {
+            this.state.add == 60 ? window.scrollTo(0, 12000) : null
+        }
+    
+    {
+            this.state.add == 80 ? window.scrollTo(0, 16000) : null
+        }
+    
+    
         </>
         ); 
     }
