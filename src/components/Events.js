@@ -119,7 +119,7 @@ class Events extends React.Component {
                             </Card.Body>
                             <Card.Footer>
                             {/* <small className="text-muted"><a href={event.urls.www} target="_blank">Zobacz link</a> */}
-                            <EventModal />
+                            <EventModal event={event} />
                         {/* </small> */}
                             </Card.Footer>
                         </Card>
