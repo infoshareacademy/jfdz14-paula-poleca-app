@@ -1,65 +1,59 @@
-import React from "react";
-// import { makeStyles } from "@material-ui/core/styles";
-// import Modal from "@material-ui/core/Modal";
-// import styles from './Modal.module.css'
+import React, { Component } from 'react';
+
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button';
+
+class EventModal extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isOpen: false,
+        }
+    }
 
 
-const Form = () => {
-    // const [open, setOpen] = React.useState(false);
+    showModal = () => {
+        this.setState({
+            isOpen: true
+        })
+    };
 
-    // const handleOpen = () => {
-    //     setOpen(true);
-    // };
+    hideModal = () => {
+        this.setState({
+            isOpen: false
+        })
+    };
 
-    // const handleClose = () => {
-    //     setOpen(false);
-    // };
 
-    const body = (
-        <div className= {styles.modal}>
-            <h2>Dodaj nowe wydarzenie w Trójmieście!</h2>
-            {/* <p>
-                Podziel się nowym wydarzeniem w Trójmiscie. Uzupełnij wymagane dane, aby poinformować o nadchodządym nowym wydarzeniu!
-            </p>
-            <div className={styles.form}>
-                <input className={styles.formInput} type="text" id="title" name="title" defaultValue="Tytuł"/>
-                <div>
-                  <p>Podaj cene wydarzenia w PLN: </p>
-                  <input className={styles.formInput}  type="number" id="pirce" name="price"/>                
-                </div>
-                <select className={styles.formInput} id="town" name="town">
-                    <option value="Gdansk">Gdańsk</option>
-                    <option value="Gdynia">Gdynia</option>
-                    <option value="Sopot">Sopot</option>
-                </select>
-                <input className={styles.formInput}  type="date" id="date"/>
-     
-                
-                <textarea className={styles.formInput} name="message" rows="10" cols="30">Dodaj krótki opis wydarzenia.</textarea>
 
-                <input className={styles.formInput}  type="file" />
-                <button  type="submit" value="Submit" className={styles.button}> Dodaj </button>
+    render() {
+        const { event } = this.props;
 
-            </div> */}
-        </div>
+        return (
+            <div >
+                <Button onClick={this.showModal} style={{ textAlign: "center" }}>Dowiedz się więcej</Button>
+                <Modal show={this.state.isOpen} onHide={this.hideModal} >
+                    <Modal.Header>
+                        <Modal.Title>{event.name}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        {/* {
+                         event.attachments[0] !== undefined ?
+                         <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" />
+                        : null
+                        }    */}
+                        <div>{event.startDate.slice(0, 10)}</div>
+                        <div> {event.descLong} </div>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="danger" onClick={this.hideModal}>Zamknij</Button>
+                        <Button variant="success" onClick={this.hideModal}>Przejdz do Wydarzenia</Button>
+
+                    </Modal.Footer>
+                </Modal>
+            </div>
         );
+    }
+}
 
-
-
-    return (
-        <div>
-          <h2>Form</h2>
-          {/* <button type="button" onClick={handleOpen} className={styles.button}>
-            Dodaj nowe wydarzenie
-          </button> */}
-          {/* <Modal
-            open={open}
-            onClose={handleClose}
-          >
-            {body}
-          </Modal> */}
-        </div>
-      )
-  };
-
-  export default Form
+export default EventModal;
