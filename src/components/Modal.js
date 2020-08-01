@@ -47,7 +47,7 @@ class EventModal extends Component {
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="danger" onClick={this.hideModal}>Zamknij</Button>
-                        <Button variant="success" onClick={this.hideModal}>Przejdz do Wydarzenia</Button>
+                        <Button variant="success" onClick={this.hideModal}><a href={event.urls.www} target="_blank">Przejdz do Wydarzenia</a></Button>
 
                     </Modal.Footer>
                 </Modal>
