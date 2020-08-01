@@ -134,8 +134,8 @@ class Events extends React.Component {
                         <p className="descLong">
                             {event.descShort} 
                         </p>
-                        {/* <p className="descLong">
-                            {event.descLong} 
+                        {/* <p className="date">
+                            {event.startDate} 
                         </p> */}
                         <p>
                             <a href={event.urls.www} target="_blank">Zobacz link</a>
