@@ -11,7 +11,8 @@ class Events extends React.Component {
     state = {
         filter: '',
         more: 20,
-        add : 0
+        add : 0,
+        city: ''
     }
 
     addNumber = parseInt(this.state.add)
@@ -37,7 +38,7 @@ class Events extends React.Component {
 
     cityChange = (cityFilter) => {
         this.setState({
-            filter: cityFilter
+            city: cityFilter
         })
     }
     
@@ -108,7 +109,12 @@ class Events extends React.Component {
                 event.name.toLocaleLowerCase()
                 .includes(this.state.filter.toLocaleLowerCase()) ||
                 event.descShort.toLocaleLowerCase()
-                .includes(this.state.filter.toLocaleLowerCase())
+                .includes(this.state.filter.toLocaleLowerCase()) 
+                
+            })
+            .filter((event) => {
+                return event.place.name.toLocaleLowerCase()
+                .includes(this.state.city.toLocaleLowerCase())
             })            
             .map((event) => {
 
