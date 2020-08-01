@@ -12,7 +12,7 @@ const AppNavbar = () => {
 
     return(
             <Navbar bg="primary" variant="dark">
-                <Navbar.Brand href="/">
+                <Navbar.Brand as={NavLink} to="/">
                 <img
                     alt=""
                     src={logo}
