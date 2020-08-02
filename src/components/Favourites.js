@@ -43,10 +43,11 @@ class Favourites extends Component {
                             </p>
 
                         <Card.Text>
-                            <div>{event.place.name}</div>
-                            <div>{event.startDate.slice(0, 10)}</div>
-                            {/* <div>{event.descShort} </div> */}
+                            {event.place.name}
+                        </Card.Text>
 
+                        <Card.Text>
+                            {event.startDate.slice(0, 10)}
                         </Card.Text>
                         </Card.Body>
                         <Card.Footer>
