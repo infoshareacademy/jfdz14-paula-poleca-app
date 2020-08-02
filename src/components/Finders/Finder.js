@@ -12,17 +12,17 @@ class Finder extends React.Component {
         return(
             <Form>
                 <Form.Group controlId="formBasicEmail">
-                    <h2>Finder</h2>
+                   
                     <Form.Control 
                     style = {{width: 200}} 
                     type="text" 
-                    placeholder="Szukaj"
+                    placeholder="Znajdź swój Event!"
                     value={this.props.filterValue}
                     onChange={this.handleOnChange}
                     />
-                    <Form.Text className="text-muted">
+                    {/* <Form.Text className="text-muted">
                     Znajdź swój Event!
-                    </Form.Text>
+                    </Form.Text> */}
                 </Form.Group>
             </Form>
         );
