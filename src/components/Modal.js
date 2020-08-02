@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import gdansk from './gdansk1.jpg'
+
 
 class EventModal extends Component {
     constructor(props) {
@@ -37,13 +40,14 @@ class EventModal extends Component {
                         <Modal.Title>{event.name}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        {/* {
-                         event.attachments[0] !== undefined ?
-                         <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" />
-                        : null
-                        }    */}
+                        {
+                         event.attachments[0] !== undefined || null
+                        ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" />
+                        : <Card.Img variant="top" src={gdansk} alt="imgEvent" />
+                        }   
                         <div>{event.startDate.slice(0, 10)}</div>
                         <div> {event.descLong} </div>
+
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="danger" onClick={this.hideModal}>Zamknij</Button>
