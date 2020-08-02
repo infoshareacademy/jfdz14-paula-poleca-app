@@ -1,7 +1,7 @@
-// import React from 'react'
+import React from 'react'
 import Form from "react-bootstrap/Form";
-import React, { useState } from 'react';
-// import RangeSlider from 'react-bootstrap-range-slider';
+
+
 
 class RangeSlider extends React.Component {
 
@@ -9,9 +9,9 @@ class RangeSlider extends React.Component {
     max = 100;
     step = 20;
 
-    sliderValue = (event) => {
-        return this.props.onFormChange(event.target.value)
-    }
+    // sliderValue = (event) => {
+    //     return this.props.onFormChange(event.target.value)
+    // }
 
 
     render() {
@@ -26,7 +26,7 @@ class RangeSlider extends React.Component {
                     min = {this.min}
                     max = {this.max}
                     step = {this.step}
-                    onChange = {this.sliderValue}
+                    // onChange = {this.sliderValue}
                     defaultValue = {this.min}
                           
                     />

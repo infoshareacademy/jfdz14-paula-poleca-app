@@ -8,21 +8,22 @@ import favourite from "./favourite.png";
 import stats from "./stats.png";
 
 
+
 const Sidebar = () => {
     return(
         <div className="wrapper">
         <Nav variant="pills" defaultActiveKey="/home" className="flex-column">
         <Nav.Item >
-        <Nav.Link as={NavLink} to="/"> <img src={planner} height="25"/>Wydarzenia</Nav.Link>
+        <Nav.Link exact as={NavLink} to="/"> <img src={planner} height="25"/><span>Wydarzenia</span></Nav.Link>
         </Nav.Item>
         <Nav.Item>
-        <Nav.Link as={NavLink} to="/addEvent"> <img src={addNew} height="25"/>Nowe wydarzenie</Nav.Link>
+        <Nav.Link as={NavLink} to="/addEvent"> <img src={addNew} height="25"/><span>Nowe wydarzenie</span></Nav.Link>
         </Nav.Item>
         <Nav.Item>
-        <Nav.Link as={NavLink} to="/favourite"> <img src={favourite} height="25"/>Ulubione</Nav.Link>
+        <Nav.Link as={NavLink} to="/favourite"> <img src={favourite} height="25"/><span>Ulubione</span></Nav.Link>
         </Nav.Item>
         <Nav.Item>
-        <Nav.Link as={NavLink} to="/statistics"><img src={stats} height="25"/>Statystyki</Nav.Link>
+        <Nav.Link as={NavLink} to="/statistics"><img src={stats} height="25"/><span>Statystyki</span></Nav.Link>
         </Nav.Item>
         </Nav>
 

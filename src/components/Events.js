@@ -5,6 +5,12 @@ import Finder from './Finders/Finder';
 import CityFinder from './Finders/CityFinder'
 import Spinner from 'react-bootstrap/Spinner';
 import RangeSlider from './Finders/RangeSlider'
+import Card from 'react-bootstrap/Card';
+import CardDeck from 'react-bootstrap/CardDeck';
+import Button from 'react-bootstrap/Button';
+import EventModal from './Modal.js'
+import gdansk from './gdansk1.jpg'
+
 
 class Events extends React.Component {
     
@@ -87,12 +93,14 @@ class Events extends React.Component {
             </div>
       
 
-        <h2>Eventy</h2>
+        <h2>Nadchodzące wydarzenia</h2>
 
         {
         this.props.loading && 
         <div>
-            <p style={{fontSize: '30px', textAlign: 'center'}}><Spinner animation="border" /> LOADING...</p>
+            <p style={{fontSize: '30px', textAlign: 'center'}}>
+                {/* <Spinner animation="border" />  */}
+                LOADING...</p>
         </div>
         }
 
@@ -116,35 +124,46 @@ class Events extends React.Component {
             .map((event) => {
 
                 return (
-                    <div key={event.id} className="movie-card card">
-                        <h5>{event.name}</h5>
-                        <p className="movie-card-description">
-                            {event.place.name}
-                        </p>                                
-                        <p className="addFavourite" 
-                            onClick={() => this.addFavourite(event.id)}>Dodaj do ulubionych   
-                            <span className={event.favourite ? "starColorActive" : "starColor"}>
-                                <i className="fa fa-heart fa-lg"></i>
-                            </span>
-                        </p>
-                            {event.attachments[0] !== undefined ? <img src={event.attachments[0].fileName} alt=""/> : null }
-                        <p className="descLong">
-                            {event.descShort} 
-                        </p>
-                        {/* <p className="date">
-                            {event.startDate} 
-                        </p> */}
-                        <p>
-                            <a href={event.urls.www} target="_blank">Zobacz link</a>
-                        </p>
-                    </div>
+                        <CardDeck key={event.id} style={{margin:"2px"}}>
+                        <Card className="text-center" style={{ width: '14rem' }}>
+                        {
+                         event.attachments[0] !== undefined 
+                        ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" style={{height:"150px"}} />
+                        : <Card.Img variant="top" src={gdansk} alt="imgEvent" style={{height:"150px"}} />
+                        }   
+
+                            
+                            <Card.Body key={event.id}>
+                            <Card.Title>{event.name}</Card.Title>
+                                <p className="addFavourite" 
+                                    onClick={() => this.addFavourite(event.id)}>Ulubione  
+                                    <span className={event.favourite ? "starColorActive" : "starColor"}>
+                                    <i className="fa fa-heart fa-lg"></i>
+                                    </span>
+                                </p>
+
+                            <Card.Text>
+                                {event.place.name}
+                            </Card.Text> 
+                            <Card.Text> 
+                                {event.startDate.slice(0, 10)}
+                             </Card.Text>
+                            </Card.Body>
+                            
+                            <Card.Footer>
+                            {/* <small className="text-muted"><a href={event.urls.www} target="_blank">Zobacz link</a> */}
+                            <EventModal event={event} />
+                        {/* </small> */}
+                            </Card.Footer>
+                        </Card>
+                        </CardDeck>
                 );
             })
         }
         </div>
         {this.state.more < this.props.events.length &&
         <div className="containerMore">
-        <button className="buttonMore" onClick={this.showMore}>Show more...</button>    
+             <Button type="submit" size="lg" onClick={this.showMore} style={{width:"200px", marginTop:"16px", marginBottom:"16px", textAlign:"center"}}> Zobacz więcej wydarzeń</Button>{' '}
         </div>
         }
         {/* {
