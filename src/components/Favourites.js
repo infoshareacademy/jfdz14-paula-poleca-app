@@ -24,33 +24,31 @@ class Favourites extends Component {
 
                     return (
                     event.favourite &&
-                    <CardDeck>
-                    <Card key={event.id} className="text-center" style={{ width: '16rem' }}>
-                    {/* {
+                    <CardDeck key={event.id}>
+                    <Card className="text-center" style={{ width: '16rem' }}>
+                        {/* {
                          event.attachments[0] !== undefined ?
                          <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" />
                         : null
                         }    */}
-                        <Card.Body key={event.id}>
-                        <Card.Title>{event.name}</Card.Title>
+                        <Card.Body>
+                            <Card.Title>{event.name}</Card.Title>
                             <p className="addFavourite" 
-                                onClick={() => this.addFavourite(event.id)}>Ulubione  
+                                onClick={() => this.props.addFavourite(event.id)}>Ulubione  
                                 <span className={event.favourite ? "starColorActive" : "starColor"}>
                                 <i className="fa fa-heart fa-lg"></i>
                                 </span>
                             </p>
+                            <Card.Text>
+                                {event.place.name}
+                            </Card.Text>    
+                            <Card.Text>
+                                {event.startDate.slice(0, 10)}
+                            </Card.Text>    
 
-                        <Card.Text>
-                            <div>{event.place.name}</div>
-                            <div>{event.startDate.slice(0, 10)}</div>
-                            {/* <div>{event.descShort} </div> */}
-
-                        </Card.Text>
                         </Card.Body>
                         <Card.Footer>
-                        {/* <small className="text-muted"><a href={event.urls.www} target="_blank">Zobacz link</a> */}
-                        <EventModal event={event} />
-                    {/* </small> */}
+                            <EventModal event={event} />
                         </Card.Footer>
                     </Card>
                     </CardDeck>   
