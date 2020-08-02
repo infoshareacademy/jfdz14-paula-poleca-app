@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import '../styles/Navbar.css';
-import logo from "./logo.png";
+import logo from "./logo-white.png";
 
 
 
@@ -11,7 +11,7 @@ import logo from "./logo.png";
 const AppNavbar = () => {
 
     return(
-            <Navbar bg="primary" variant="dark">
+            <Navbar bg="secondary" variant="dark">
                 <Navbar.Brand as={NavLink} to="/">
                 <img
                     alt=""
