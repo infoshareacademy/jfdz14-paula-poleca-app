@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/jfdz14-paula-poleca-app/precache-manifest.788d3f30b954d71cf04f9213a605fb85.js"
+  "/jfdz14-paula-poleca-app/precache-manifest.c571e9d851344bcd69fcf4ea8e56c904.js"
 );
 
 self.addEventListener('message', (event) => {
