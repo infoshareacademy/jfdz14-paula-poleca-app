@@ -63,11 +63,6 @@ class Events extends React.Component {
     }
 
     render() {
-        console.log(this.state.add)
-        console.log(typeof(this.state.add))
-        console.log(typeof(parseInt(this.state.add)))
-        console.log(this.addNumber)
-        
        
         const events = this.props.events.slice(0,this.state.more);
 
