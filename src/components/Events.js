@@ -4,6 +4,7 @@ import "../styles/MovieCard.css";
 import Finder from './Finders/Finder';
 import CityFinder from './Finders/CityFinder'
 import Spinner from 'react-bootstrap/Spinner';
+import RangeSlider from './Finders/RangeSlider'
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button';
@@ -16,7 +17,17 @@ class Events extends React.Component {
     state = {
         filter: '',
         more: 20,
+        // add : 0,
+        city: ''
     }
+
+    addNumber = parseInt(this.state.add)
+
+    // allEvents = (sliderValue) => {
+    //     this.setState({
+    //         add: sliderValue
+    //     })
+    // }
 
     handleOnFormChange = (textFilter) => {
         this.setState({
@@ -30,7 +41,7 @@ class Events extends React.Component {
 
     cityChange = (cityFilter) => {
         this.setState({
-            filter: cityFilter
+            city: cityFilter
         })
     }
     
@@ -52,20 +63,28 @@ class Events extends React.Component {
     }
 
     render() {
-
+       
         const events = this.props.events.slice(0,this.state.more);
 
         return (
         <>
-            <div style = {{display: 'flex'}}>
-                {/* <Finder 
+            <div className='findersBox'>
+                <Finder 
                     onFormChange={this.handleOnFormChange}
                     filterValue = {this.state.filter}
                     />
 
                 <CityFinder 
                     onFormChange={this.cityChange} 
-                /> */}
+                />
+
+                <RangeSlider 
+                    // onFormChange={this.allEvents}
+                    // filterValue = {this.state.add}
+                />
+                {/* <button style = {{width: '50px', height: '50px'}}>{this.state.add}</button> */}
+                
+             
             </div>
       
 
@@ -90,7 +109,13 @@ class Events extends React.Component {
                 event.name.toLocaleLowerCase()
                 .includes(this.state.filter.toLocaleLowerCase()) ||
                 event.descShort.toLocaleLowerCase()
-                .includes(this.state.filter.toLocaleLowerCase())
+                .includes(this.state.filter.toLocaleLowerCase()) ||
+                event.startDate.includes(this.state.filter)
+                
+            })
+            .filter((event) => {
+                return event.place.name.toLocaleLowerCase()
+                .includes(this.state.city.toLocaleLowerCase())
             })            
             .map((event) => {
 
@@ -137,6 +162,22 @@ class Events extends React.Component {
              <Button type="submit" size="lg" onClick={this.showMore} style={{width:"200px", marginTop:"16px", marginBottom:"16px", textAlign:"center"}}> Zobacz więcej wydarzeń</Button>{' '}
         </div>
         }
+        {/* {
+            this.state.add == 20 ? window.scrollTo(0, 4000) : null
+        }
+         {
+            this.state.add == 40 ? window.scrollTo(0, 8000) : null
+        }
+    
+    {
+            this.state.add == 60 ? window.scrollTo(0, 12000) : null
+        }
+    
+    {
+            this.state.add == 80 ? window.scrollTo(0, 16000) : null
+        } */}
+    
+    
         </>
         ); 
     }
