@@ -95,7 +95,7 @@ class Events extends React.Component {
             .map((event) => {
 
                 return (
-                        <CardDeck key={event.id} style={{margin:"2px"}}>
+                        <CardDeck key={event.id} style={{margin:"4px"}}>
                         <Card className="text-center" style={{ width: '14rem' }}>
                         {
                          event.attachments[0] !== undefined 

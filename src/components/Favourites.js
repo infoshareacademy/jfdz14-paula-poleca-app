@@ -5,6 +5,8 @@ import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button';
 import EventModal from './Modal.js'
+import gdansk from './gdansk1.jpg'
+
 
 
 class Favourites extends Component {
@@ -25,12 +27,12 @@ class Favourites extends Component {
                     return (
                     event.favourite &&
                     <CardDeck>
-                    <Card key={event.id} className="text-center" style={{ width: '16rem' }}>
-                    {/* {
-                         event.attachments[0] !== undefined ?
-                         <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" />
-                        : null
-                        }    */}
+                    <Card key={event.id} className="text-center" style={{ width: '14rem' }}>
+                    {
+                         event.attachments[0] !== undefined 
+                        ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" style={{height:"150px"}} />
+                        : <Card.Img variant="top" src={gdansk} alt="imgEvent" style={{height:"150px"}} />
+                        }   
                         <Card.Body key={event.id}>
                         <Card.Title>{event.name}</Card.Title>
                             <p className="addFavourite" 
