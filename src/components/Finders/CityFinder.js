@@ -36,7 +36,7 @@ class CityFinder extends React.Component {
 
                 <Dropdown.Menu>
                     <Dropdown.Item onSelect={this.allCities}>
-                         Wszystko
+                         Wszystkie
                     </Dropdown.Item>
                     <Dropdown.Item onSelect={this.cityGdansk}>
                          Gdańsk
