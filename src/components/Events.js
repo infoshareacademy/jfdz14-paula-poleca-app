@@ -114,7 +114,8 @@ class Events extends React.Component {
                 event.name.toLocaleLowerCase()
                 .includes(this.state.filter.toLocaleLowerCase()) ||
                 event.descShort.toLocaleLowerCase()
-                .includes(this.state.filter.toLocaleLowerCase()) 
+                .includes(this.state.filter.toLocaleLowerCase()) ||
+                event.startDate.includes(this.state.filter)
                 
             })
             .filter((event) => {
