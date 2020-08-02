@@ -96,7 +96,7 @@ class Events extends React.Component {
 
                 return (
                         <CardDeck key={event.id} style={{margin:"2px"}}>
-                        <Card className="text-center" style={{ width: '16rem' }}>
+                        <Card className="text-center" style={{ width: '14rem' }}>
                         {
                          event.attachments[0] !== undefined 
                         ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" style={{height:"150px"}} />
