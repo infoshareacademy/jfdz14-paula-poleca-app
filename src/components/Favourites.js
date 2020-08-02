@@ -36,7 +36,7 @@ class Favourites extends Component {
                         <Card.Body key={event.id}>
                         <Card.Title>{event.name}</Card.Title>
                             <p className="addFavourite" 
-                                onClick={() => this.addFavourite(event.id)}>Ulubione  
+                                onClick={() => this.props.addFavourite(event.id)}>Ulubione  
                                 <span className={event.favourite ? "starColorActive" : "starColor"}>
                                 <i className="fa fa-heart fa-lg"></i>
                                 </span>
