@@ -5,6 +5,8 @@ import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button';
 import EventModal from './Modal.js'
+import gdansk from './gdansk1.jpg'
+
 
 
 class Favourites extends Component {
@@ -25,30 +27,33 @@ class Favourites extends Component {
                     return (
                     event.favourite &&
                     <CardDeck key={event.id}>
-                    <Card className="text-center" style={{ width: '16rem' }}>
-                        {/* {
-                         event.attachments[0] !== undefined ?
-                         <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" />
-                        : null
-                        }    */}
-                        <Card.Body>
-                            <Card.Title>{event.name}</Card.Title>
+                    <Card  className="text-center" style={{ width: '14rem' }}>
+                    {
+                         event.attachments[0] !== undefined 
+                        ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" style={{height:"150px"}} />
+                        : <Card.Img variant="top" src={gdansk} alt="imgEvent" style={{height:"150px"}} />
+                        }   
+                        <Card.Body key={event.id}>
+                        <Card.Title>{event.name}</Card.Title>
                             <p className="addFavourite" 
-                                onClick={() => this.props.addFavourite(event.id)}>Ulubione  
+                                onClick={ () => this.props.addFavourite(event.id)}>Ulubione  
                                 <span className={event.favourite ? "starColorActive" : "starColor"}>
                                 <i className="fa fa-heart fa-lg"></i>
                                 </span>
                             </p>
-                            <Card.Text>
-                                {event.place.name}
-                            </Card.Text>    
-                            <Card.Text>
-                                {event.startDate.slice(0, 10)}
-                            </Card.Text>    
 
+                        <Card.Text>
+                            {event.place.name}
+                        </Card.Text>
+
+                        <Card.Text>
+                            {event.startDate.slice(0, 10)}
+                        </Card.Text>
                         </Card.Body>
                         <Card.Footer>
-                            <EventModal event={event} />
+                        {/* <small className="text-muted"><a href={event.urls.www} target="_blank">Zobacz link</a> */}
+                        <EventModal event={event} />
+                    {/* </small> */}
                         </Card.Footer>
                     </Card>
                     </CardDeck>   
