@@ -68,7 +68,7 @@ class Forms extends React.Component {
                     </Form.Control>
                 </Form.Group>
                 <Form.Group>
-                    <Form.File id="event_img" label="Example file input" on/>
+                    <Form.File id="event_img" label="Example file input" />
                 </Form.Group>
         
                 <Form.Group controlId="desc">

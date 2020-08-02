@@ -19,7 +19,7 @@ const AppNavbar = () => {
                     width="32"
                     height="32"
                     className="d-inline-block align-top"
-                />{' '}
+                />
                 Paula Poleca
                 </Navbar.Brand>
 

@@ -14,7 +14,7 @@ const Sidebar = () => {
         <div className="wrapper">
         <Nav variant="pills" defaultActiveKey="/home" className="flex-column">
         <Nav.Item >
-        <Nav.Link as={NavLink} to="/"> <img src={planner} height="25"/><span>Wydarzenia</span></Nav.Link>
+        <Nav.Link exact as={NavLink} to="/"> <img src={planner} height="25"/><span>Wydarzenia</span></Nav.Link>
         </Nav.Item>
         <Nav.Item>
         <Nav.Link as={NavLink} to="/addEvent"> <img src={addNew} height="25"/><span>Nowe wydarzenie</span></Nav.Link>
