@@ -52,15 +52,15 @@ class Forms extends React.Component {
             <div style={{marginLeft: 16, marginTop: 16}}>
             <Form>
                     <h2>Dodaj nowe wydarzenie</h2>
-                    <p>Chcesz się podzielić z innymi nadchodzącycm wydarzeniem? Znasz miejsce, cene i godzinę? Dodaj nowe wydarzenie do PaulaPoleca!</p>
+                    <p style={{maxWidth:"300px"}}>Chcesz się podzielić z innymi nadchodzącycm wydarzeniem? Znasz miejsce, cene i godzinę? Dodaj nowe wydarzenie do PaulaPoleca!</p>
                 <Form.Group controlId="title"  >
                     <Form.Label>Nazwa wydarzenia</Form.Label>
-                    <Form.Control type="text" onKeyUp={this.keyUpHandlerTitle} placeholder={"Tytuł" }/>
+                    <Form.Control type="text" onKeyUp={this.keyUpHandlerTitle} placeholder={"Tytuł" } style={{maxWidth:"280px"}}/>
                 </Form.Group>
     
                 <Form.Group controlId="city">
                     <Form.Label >Wybierz miasto</Form.Label>
-                    <Form.Control as="select" onChange={this.handlerOnChange} >
+                    <Form.Control as="select" onChange={this.handlerOnChange} style={{maxWidth:"280px"}}>
                     <option>Miasto</option>
                     <option>Gdańsk</option>
                     <option>Gdynia</option>
@@ -73,11 +73,11 @@ class Forms extends React.Component {
         
                 <Form.Group controlId="desc">
                     <Form.Label>Opis wydarzenia: </Form.Label>
-                    <Form.Control as="textarea" rows="3" onKeyUp={this.keyUpHandlerDesc} />
+                    <Form.Control as="textarea" rows="3" onKeyUp={this.keyUpHandlerDesc} style={{maxWidth:"280px"}}/>
                 </Form.Group>
                 <Form.Group>
                 <Form.Label>Link do wydarzenia</Form.Label>
-                    <Form.Control type="text" onKeyUp={this.keyUpHandlerLink} placeholder="Link do wydarzenia"/>
+                    <Form.Control type="text" onKeyUp={this.keyUpHandlerLink} placeholder="Link do wydarzenia" style={{width:"auto", maxWidth:"280px"}}/>
                 </Form.Group>
         
                 <Button variant="primary" type="submit" onClick={this.saveDataInLolcalStorage}>

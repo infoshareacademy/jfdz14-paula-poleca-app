@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button';
 import EventModal from './Modal.js'
+import gdansk from './gdansk1.jpg'
 
 
 class Events extends React.Component {
@@ -94,13 +95,13 @@ class Events extends React.Component {
             .map((event) => {
 
                 return (
-                        <CardDeck key={event.id}>
+                        <CardDeck key={event.id} style={{margin:"2px"}}>
                         <Card className="text-center" style={{ width: '16rem' }}>
-                        {/* {
-                         event.attachments[0] !== undefined ?
-                         <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" />
-                        : null
-                        }    */}
+                        {
+                         event.attachments[0] !== undefined 
+                        ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" style={{height:"150px"}} />
+                        : <Card.Img variant="top" src={gdansk} alt="imgEvent" style={{height:"150px"}} />
+                        }   
 
                             
                             <Card.Body key={event.id}>
@@ -133,7 +134,7 @@ class Events extends React.Component {
         </div>
         {this.state.more < this.props.events.length &&
         <div className="containerMore">
-             <Button type="submit" size="lg" onClick={this.showMore} style={{width:"300px", marginTop:"16px", marginBottom:"16px"}}> Zobacz więcej wydarzeń</Button>{' '}
+             <Button type="submit" size="lg" onClick={this.showMore} style={{width:"200px", marginTop:"16px", marginBottom:"16px", textAlign:"center"}}> Zobacz więcej wydarzeń</Button>{' '}
         </div>
         }
         </>
