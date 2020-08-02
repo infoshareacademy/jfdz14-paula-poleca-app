@@ -11,20 +11,17 @@ class Events extends React.Component {
     state = {
         filter: '',
         more: 20,
-        add : 0,
+        // add : 0,
         city: ''
     }
 
     addNumber = parseInt(this.state.add)
 
-    allEvents = (sliderValue) => {
-   
-            // console.log(sliderValue)
-            // console.log(typeof(sliderValue))
-        this.setState({
-            add: sliderValue
-        })
-    }
+    // allEvents = (sliderValue) => {
+    //     this.setState({
+    //         add: sliderValue
+    //     })
+    // }
 
     handleOnFormChange = (textFilter) => {
         this.setState({
@@ -81,10 +78,10 @@ class Events extends React.Component {
                 />
 
                 <RangeSlider 
-                    onFormChange={this.allEvents}
-                    filterValue = {this.state.add}
+                    // onFormChange={this.allEvents}
+                    // filterValue = {this.state.add}
                 />
-                <button style = {{width: '50px', height: '50px'}}>{this.state.add}</button>
+                {/* <button style = {{width: '50px', height: '50px'}}>{this.state.add}</button> */}
                 
              
             </div>
@@ -150,7 +147,7 @@ class Events extends React.Component {
         <button className="buttonMore" onClick={this.showMore}>Show more...</button>    
         </div>
         }
-        {
+        {/* {
             this.state.add == 20 ? window.scrollTo(0, 4000) : null
         }
          {
@@ -163,7 +160,7 @@ class Events extends React.Component {
     
     {
             this.state.add == 80 ? window.scrollTo(0, 16000) : null
-        }
+        } */}
     
     
         </>
