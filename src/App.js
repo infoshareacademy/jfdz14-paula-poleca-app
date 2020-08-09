@@ -59,10 +59,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-      fetch(' https://isa.mateuszmarzecki.pl/v1/proxy?url=https://planerkulturalny.pl/api/rest/events.json ')
-          .then(response => response.json())
+      fetch('https://paulapoleca-vamp.firebaseio.com/events.json')
+          .then(response => { 
+            return response.json()})
           .then(data => {
-              let events = data;
+              let events = Object.keys(data).map(key => ({ ...data[key], id: key}));
               const newEvents = events.map(event => {
                 event.favourite = false;
                 let idFromStorage = this.readLocalStorage(event.id);

@@ -123,14 +123,14 @@ class Events extends React.Component {
                         <CardDeck key={event.id} style={{margin:"4px"}}>
                         <Card className="text-center" style={{ width: '14rem' }}>
                         {
-                         event.attachments[0] !== undefined 
+                         event.attachments && event.attachments[0] !== undefined 
                         ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" style={{height:"150px"}} />
                         : <Card.Img variant="top" src={gdansk} alt="imgEvent" style={{height:"150px"}} />
                         }   
 
                             
                             <Card.Body key={event.id}>
-                            <Card.Title>{event.name}</Card.Title>
+                            <Card.Title style={{ height: "100px", textTransform: "UPPERCASE", textAlign:"center"}}>{event.name}</Card.Title>
                                 <p className="addFavourite" 
                                     onClick={() => this.addFavourite(event.id)}>Ulubione  
                                     <span className={event.favourite ? "starColorActive" : "starColor"}>
@@ -138,15 +138,15 @@ class Events extends React.Component {
                                     </span>
                                 </p>
 
-                            <Card.Text>
+                            <Card.Text style={{height: "50px"}}>
                                 {event.place.name}
                             </Card.Text> 
-                            <Card.Text> 
+                            <Card.Text style={{text: "bold"}}> 
                                 {event.startDate.slice(0, 10)}
                              </Card.Text>
                             </Card.Body>
                             
-                            <Card.Footer>
+                            <Card.Footer style={{display:"block", margin:"0px"}}>
                             {/* <small className="text-muted"><a href={event.urls.www} target="_blank">Zobacz link</a> */}
                             <EventModal event={event} />
                         {/* </small> */}
@@ -159,7 +159,7 @@ class Events extends React.Component {
         </div>
         {this.state.more < this.props.events.length &&
         <div className="containerMore">
-             <Button type="submit" size="lg" onClick={this.showMore} style={{width:"200px", marginTop:"16px", marginBottom:"16px", textAlign:"center"}}> Zobacz więcej wydarzeń</Button>{' '}
+             <Button type="submit" size="lg" onClick={this.showMore} style={{width:"200px", marginTop:"16px", marginBottom:"16px", textAlign:"center"}}> Więcej </Button>{' '}
         </div>
         }
         {/* {
