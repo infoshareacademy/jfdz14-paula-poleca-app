@@ -29,7 +29,7 @@ class Favourites extends Component {
                     <CardDeck key={event.id}>
                     <Card  className="text-center" style={{ width: '14rem' }}>
                     {
-                         event.attachments[0] !== undefined 
+                        event.attachments && event.attachments[0] !== undefined 
                         ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" style={{height:"150px"}} />
                         : <Card.Img variant="top" src={gdansk} alt="imgEvent" style={{height:"150px"}} />
                         }   

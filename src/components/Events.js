@@ -36,6 +36,7 @@ class Events extends React.Component {
     }
 
     addFavourite = (id) => {
+        console.log(id)
         this.props.addFavourite(id);
     }
 
