@@ -20,7 +20,7 @@ class RangeSlider extends React.Component {
             
             <Form>
                 <Form.Group controlId="formBasicRange">
-                    <Form.Label>Range</Form.Label>
+                    {/* <Form.Label>Range</Form.Label> */}
                     <Form.Control style = {{width: '150px'}}
                     type="range" 
                     min = {this.min}

@@ -78,10 +78,10 @@ class Events extends React.Component {
                     onFormChange={this.cityChange} 
                 />
 
-                <RangeSlider 
-                    // onFormChange={this.allEvents}
-                    // filterValue = {this.state.add}
-                />
+                {/* <RangeSlider 
+                    onFormChange={this.allEvents}
+                    filterValue = {this.state.add}
+                /> */}
                 {/* <button style = {{width: '50px', height: '50px'}}>{this.state.add}</button> */}
                 
              
@@ -130,7 +130,7 @@ class Events extends React.Component {
 
                             
                             <Card.Body key={event.id}>
-                            <Card.Title style={{ height: "100px", textTransform: "UPPERCASE", textAlign:"center"}}>{event.name}</Card.Title>
+                            <Card.Title style={{ height: "80px", textTransform: "UPPERCASE", textAlign:"center"}}>{event.name}</Card.Title>
                                 <p className="addFavourite" 
                                     onClick={() => this.addFavourite(event.id)}>Ulubione  
                                     <span className={event.favourite ? "starColorActive" : "starColor"}>
@@ -159,7 +159,7 @@ class Events extends React.Component {
         </div>
         {this.state.more < this.props.events.length &&
         <div className="containerMore">
-             <Button type="submit" size="lg" onClick={this.showMore} style={{width:"200px", marginTop:"16px", marginBottom:"16px", textAlign:"center"}}> Więcej </Button>{' '}
+             <Button type="submit" size="lg" onClick={this.showMore} style={{width:"200px", marginTop:"16px", marginBottom:"16px", textAlign:"center", backgroundColor:"#999999", borderColor:" #999999"}}> Więcej </Button>{' '}
         </div>
         }
         {/* {

@@ -30,7 +30,7 @@ class CityFinder extends React.Component {
     render() {
         return(
             <Dropdown>
-                <Dropdown.Toggle style={{backgroundColor: 'blue'}} id="dropdown-basic">
+                <Dropdown.Toggle style={{color: "black",backgroundColor: "#ffffff", borderColor:"#008000", marginRight:"16px"}} id="dropdown-basic">
                     Wybierz miasto!
                 </Dropdown.Toggle>
 
