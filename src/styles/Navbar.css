@@ -2,3 +2,14 @@ img {
     margin-right: 8px;
 }
 
+.text{
+    text-transform: uppercase;
+    font-weight: 8px;
+    color: white;
+
+}
+nav{
+    background-color :#008000;
+    color: white
+}
+

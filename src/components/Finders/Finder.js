@@ -14,7 +14,7 @@ class Finder extends React.Component {
                 <Form.Group controlId="formBasicEmail">
                    
                     <Form.Control 
-                    style = {{maxWidth: "160px", marginRight:"16px"}} 
+                    style = {{maxWidth: "160px", marginRight:"16px", borderColor: "#008000"}} 
                     type="text" 
                     placeholder="Znajdź swój Event!"
                     value={this.props.filterValue}

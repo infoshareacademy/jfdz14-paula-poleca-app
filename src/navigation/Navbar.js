@@ -11,7 +11,7 @@ import logo from "./logo-white.png";
 const AppNavbar = () => {
 
     return(
-            <Navbar style={{backgroundColor :"#008000"}}>
+            <Navbar className="text">
                 <Navbar.Brand as={NavLink} to="/">
                 <img
                     alt=""
