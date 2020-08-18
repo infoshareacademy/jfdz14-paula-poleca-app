@@ -1,0 +1,25 @@
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+p{
+    text-align: center;
+    max-width: 400px;
+}
+
+input, textarea{
+    width: 200px;
+}
+#city{
+    min-width: 200px;
+
+}
+
+
+.button{
+    background-color:#008000; 
+}

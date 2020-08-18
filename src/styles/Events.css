@@ -28,21 +28,23 @@
 }
 
 .findersBox {
-    padding-left: 25%;
     margin: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
 }
-
+/* 
 @media screen and (min-width: 1024px){
 
     .findersBox {
         padding: 8px;
-        width: 70%;
         margin-top: 16px;
         display: flex;
-        justify-content: space-evenly;
+        flex-wrap: wrap;
+        justify-content: space-between;
         
     }
-}
+} */
     
 
 

@@ -34,7 +34,7 @@ class EventModal extends Component {
 
         return (
             <div >
-                <Button onClick={this.showModal} >Szczegóły</Button>
+                <Button onClick={this.showModal} style={{backgroundColor:"#008000", borderColor:"#008000"}} >Szczegóły</Button>
                 <Modal show={this.state.isOpen} onHide={this.hideModal} >
                     <Modal.Header>
                         <Modal.Title>{event.name}</Modal.Title>
