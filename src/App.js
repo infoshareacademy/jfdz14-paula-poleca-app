@@ -7,6 +7,7 @@ import Favourites from './components/Favourites';
 import Statistics from './components/Statistics';
 import ErrorPage from './components/ErrorPage';
 import Share from './components/Share/Share'
+import SignInn from './components/SignIn'
 
 class App extends Component {
 
@@ -97,6 +98,14 @@ class App extends Component {
           {/* SideBar */}
           <Route path="/statistics">
             <Statistics />
+          </Route>
+
+          <Route path="/sign-in">
+            <SignInn />
+          </Route>
+
+          <Route path="/sign-up">
+            <SignInn isSignUp/>
           </Route>
 
           <Route component={ErrorPage} />          
