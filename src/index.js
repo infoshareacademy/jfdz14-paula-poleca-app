@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import Router from './Router';
-import firebase from 'firebase'
+import firebase from 'firebase';
 
 
   var firebaseConfig = {
