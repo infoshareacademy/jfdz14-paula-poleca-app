@@ -130,7 +130,7 @@ class Events extends React.Component {
 
                             
                             <Card.Body key={event.id}>
-                            <Card.Title style={{ height: "80px", textTransform: "UPPERCASE", textAlign:"center"}}>{event.name}</Card.Title>
+                            <Card.Title style={{ height: "50px", textTransform: "UPPERCASE", textAlign:"center"}}>{event.name}</Card.Title>
                                 <p className="addFavourite" 
                                     onClick={() => this.addFavourite(event.id)}>Ulubione  
                                     <span className={event.favourite ? "starColorActive" : "starColor"}>
@@ -138,7 +138,7 @@ class Events extends React.Component {
                                     </span>
                                 </p>
 
-                            <Card.Text style={{height: "50px"}}>
+                            <Card.Text style={{height: "20px"}}>
                                 {event.place.name}
                             </Card.Text> 
                             <Card.Text style={{text: "bold"}}> 
