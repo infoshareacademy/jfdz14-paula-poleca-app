@@ -137,9 +137,9 @@ class Events extends React.Component {
                             <Card.Text style={{height: "20px"}}>
                                 {event.place.name}
                             </Card.Text> 
-                            <Card.Text style={{text: "bold"}}> 
+                            {/* <Card.Text style={{text: "bold"}}> 
                                 {event.startDate.slice(0, 10)}
-                             </Card.Text>
+                             </Card.Text> */}
                             </Card.Body>
                             
                             <Card.Footer style={{display:"block", margin:"0px"}}>
