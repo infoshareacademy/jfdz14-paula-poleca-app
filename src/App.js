@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 import Events from './components/Events';
-import Form from './components/Form';
+import Forms from './components/Form';
 import Favourites from './components/Favourites';
 import Statistics from './components/Statistics';
 import ErrorPage from './components/ErrorPage';
@@ -91,8 +91,8 @@ class App extends Component {
           <Route exact path="/">
               <Events events={this.state.events} loading={this.state.loading} addFavourite={this.addFavourite} />
           </Route>
-          <Route exact path="/addEvent" component={Form} onAdd={this.fetchData}>
-              {/* <Form /> */}
+          <Route exact path="/addEvent">
+              <Forms onAdd={this.fetchData} />
           </Route>
           <Route exact path="/favourite">
               <Favourites events={this.state.events} addFavourite={this.addFavourite} />
