@@ -138,10 +138,10 @@ class Events extends React.Component {
                                     </span>
                                 </p>
 
-                            <Card.Text style={{height: "50px"}}>
+                            <Card.Text style={{height: "50px", textAlign:"center"}}>
                                 {event.place.name}
                             </Card.Text> 
-                            <Card.Text style={{text: "bold"}}> 
+                            <Card.Text style={{text: "bold", textAlign:"center"}}> 
                                 {event.startDate.slice(0, 10)}
                              </Card.Text>
                             </Card.Body>
