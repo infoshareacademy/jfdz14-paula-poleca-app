@@ -89,9 +89,9 @@ class App extends Component {
         <Switch>
            {/* NavBar */}
           <Route exact path="/">
-              <Events events={this.state.events} loading={this.state.loading} addFavourite={this.addFavourite} onAdd={this.fetchData} />
+              <Events events={this.state.events} loading={this.state.loading} addFavourite={this.addFavourite} />
           </Route>
-          <Route exact path="/addEvent" component={Form}>
+          <Route exact path="/addEvent" component={Form} onAdd={this.fetchData}>
               {/* <Form /> */}
           </Route>
           <Route exact path="/favourite">

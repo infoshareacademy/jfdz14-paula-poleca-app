@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import style from '../styles/Form.css';
 import {DATABASE_URL} from "../index";
+import App from "../App";
 
 
 const initialState = {
@@ -16,10 +17,6 @@ const initialState = {
 class Forms extends React.Component {
         state = initialState
 
-        resetForm = () => {
-            this.setState(initialState)
-        }
-      
         resetForm = () => {
             this.setState(initialState)
         }
