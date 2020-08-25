@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
 import '../styles/Navbar.css';
 import logo from "./logo-white.png";
 import firebase from 'firebase'
@@ -31,10 +30,11 @@ class AppNavbar extends React.Component {
                     />
                 Paula Poleca
                 </Navbar.Brand>
-                <p>{this.props.user && `Hello ${this.props.user.email}`}</p>
+                {/* <p>{this.props.user && `Hello ${this.props.user.email}`}</p> */}
                 {
                     this.props.user ?
-                    <Navbar.Brand as={NavLink} to='/'>
+                    <Navbar.Brand className='right' as={NavLink} to='/'>
+                        <p className='email'>Hello {this.props.user.email}</p>
                         <button onClick={this.props.handleOnSignOutClick}>Sign out</button>
                     </Navbar.Brand>
                     : 
