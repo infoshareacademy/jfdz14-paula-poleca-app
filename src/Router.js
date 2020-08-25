@@ -7,8 +7,38 @@ import App from './App';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import firebase from 'firebase'
 
 class Router extends Component {
+
+  state = {
+    user: null
+}
+
+
+
+handleOnSignOutClick = () => {
+    firebase.auth().signOut();
+}
+
+
+componentDidMount() {
+    const unsubscribe  = firebase.auth().onAuthStateChanged(user => {
+        this.setState({
+            user
+        })
+    });
+
+
+
+    this.setState({
+        unsubscribe 
+    })
+}
+
+componentWillUnmount() {
+    this.state.unsubscribe();
+}
 
   render() {
     return(
@@ -18,10 +48,13 @@ class Router extends Component {
           <Container fluid>
             <Row>
               <Col>
-                <AppNavbar />
+                <AppNavbar 
+                user = {this.state.user}
+                handleOnSignOutClick = {this.handleOnSignOutClick}
+                />
                 <Row>
                   <div className="col-3">
-                    <Sidebar />
+                    <Sidebar user = {this.state.user}/>
                   </div>
                   <div className="col-9">
                     <App />

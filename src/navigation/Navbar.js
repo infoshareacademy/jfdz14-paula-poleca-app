@@ -10,33 +10,10 @@ import firebase from 'firebase'
 
 
 class AppNavbar extends React.Component {
-    state = {
-        user: null
-    }
-
     
-
+    
     handleOnSignOutClick = () => {
         firebase.auth().signOut();
-    }
-
-
-    componentDidMount() {
-        const unsubscribe  = firebase.auth().onAuthStateChanged(user => {
-            this.setState({
-                user
-            })
-        });
-
-
-
-        this.setState({
-            unsubscribe 
-        })
-    }
-
-    componentWillUnmount() {
-        this.state.unsubscribe();
     }
 
 
@@ -54,11 +31,11 @@ class AppNavbar extends React.Component {
                     />
                 Paula Poleca
                 </Navbar.Brand>
-                <p>{this.state.user && `Hello ${this.state.user.email}`}</p>
+                <p>{this.props.user && `Hello ${this.props.user.email}`}</p>
                 {
-                    this.state.user ?
+                    this.props.user ?
                     <Navbar.Brand as={NavLink} to='/'>
-                        <button onClick={this.handleOnSignOutClick}>Sign out</button>
+                        <button onClick={this.props.handleOnSignOutClick}>Sign out</button>
                     </Navbar.Brand>
                     : 
                     <Navbar.Brand as={NavLink} to='sign-in'>
@@ -67,7 +44,7 @@ class AppNavbar extends React.Component {
                 }
                
 
-            </Navbar>
+            </Navbar>                                       
 
 
         );    
