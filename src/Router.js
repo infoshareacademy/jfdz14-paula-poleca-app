@@ -7,12 +7,9 @@ import App from './App';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-<<<<<<< HEAD
-import firebase from 'firebase'
-=======
+import firebase from 'firebase';
 import './styles/Router.css';
 import Share from './components/Share/Share';
->>>>>>> master
 
 class Router extends Component {
 
