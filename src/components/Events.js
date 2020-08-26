@@ -36,6 +36,7 @@ class Events extends React.Component {
     }
 
     addFavourite = (id) => {
+        console.log(id)
         this.props.addFavourite(id);
     }
 
@@ -45,26 +46,27 @@ class Events extends React.Component {
         })
     }
     
-    showMore = () => {
-        let eventslength = this.props.events.length;
-        let maxLoad = this.state.more + 20;
-        if(maxLoad < eventslength) {
-            this.setState({
-                more: maxLoad,
-            });            
-        } else {
-            while(maxLoad > eventslength ) {
-                maxLoad = maxLoad - 1;
-            }
-            this.setState({
-                more: maxLoad,
-            });   
-        }
-    }
+    // showMore = () => {
+    //     let eventslength = this.props.events.length;
+    //     let maxLoad = this.state.more + 20;
+    //     if(maxLoad < eventslength) {
+    //         this.setState({
+    //             more: maxLoad,
+    //         });            
+    //     } else {
+    //         while(maxLoad > eventslength ) {
+    //             maxLoad = maxLoad - 1;
+    //         }
+    //         this.setState({
+    //             more: maxLoad,
+    //         });   
+    //     }
+    // }
 
     render() {
        
-        const events = this.props.events.slice(0,this.state.more);
+        const events = this.props.events;
+        // const events = this.props.events.slice(0,this.state.more);
 
         return (
         <>
@@ -91,13 +93,10 @@ class Events extends React.Component {
         <h2>Nadchodzące wydarzenia</h2>
 
         {
-        this.props.loading && 
-        <div>
-            <p style={{fontSize: '30px', textAlign: 'center'}}>
-                {/* <Spinner animation="border" />  */}
-                LOADING...</p>
+        this.props.loading && <div style={{fontSize: '30px', textAlign: 'center'}}>
+            <Spinner animation="border" /><div style={{display: 'inline', paddingLeft: '20px'}}>LOADING...</div>
         </div>
-        }
+        }        
 
         <div className="cardsContainer">
             {
@@ -111,14 +110,12 @@ class Events extends React.Component {
                 event.descShort.toLocaleLowerCase()
                 .includes(this.state.filter.toLocaleLowerCase()) ||
                 event.startDate.includes(this.state.filter)
-                
             })
             .filter((event) => {
                 return event.place.name.toLocaleLowerCase()
                 .includes(this.state.city.toLocaleLowerCase())
             })            
             .map((event) => {
-
                 return (
                         <CardDeck key={event.id} style={{margin:"4px"}}>
                         <Card className="text-center" style={{ width: '14rem' }}>
@@ -127,10 +124,9 @@ class Events extends React.Component {
                         ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" style={{height:"150px"}} />
                         : <Card.Img variant="top" src={gdansk} alt="imgEvent" style={{height:"150px"}} />
                         }   
-
-                            
+ 
                             <Card.Body key={event.id}>
-                            <Card.Title style={{ height: "80px", textTransform: "UPPERCASE", textAlign:"center"}}>{event.name}</Card.Title>
+                            <Card.Title style={{ height: "50px", textTransform: "UPPERCASE", textAlign:"center"}}>{event.name}</Card.Title>
                                 <p className="addFavourite" 
                                     onClick={() => this.addFavourite(event.id)}>Ulubione  
                                     <span className={event.favourite ? "starColorActive" : "starColor"}>
@@ -138,12 +134,12 @@ class Events extends React.Component {
                                     </span>
                                 </p>
 
-                            <Card.Text style={{height: "50px"}}>
+                            <Card.Text style={{height: "20px"}}>
                                 {event.place.name}
                             </Card.Text> 
-                            <Card.Text style={{text: "bold"}}> 
+                            {/* <Card.Text style={{text: "bold"}}> 
                                 {event.startDate.slice(0, 10)}
-                             </Card.Text>
+                             </Card.Text> */}
                             </Card.Body>
                             
                             <Card.Footer style={{display:"block", margin:"0px"}}>
@@ -157,24 +153,11 @@ class Events extends React.Component {
             })
         }
         </div>
-        {this.state.more < this.props.events.length &&
+        
+        {/* {this.state.more < this.props.events.length &&
         <div className="containerMore">
              <Button type="submit" size="lg" onClick={this.showMore} style={{width:"200px", marginTop:"16px", marginBottom:"16px", textAlign:"center", backgroundColor:"#999999", borderColor:" #999999"}}> Więcej </Button>{' '}
         </div>
-        }
-        {/* {
-            this.state.add == 20 ? window.scrollTo(0, 4000) : null
-        }
-         {
-            this.state.add == 40 ? window.scrollTo(0, 8000) : null
-        }
-    
-    {
-            this.state.add == 60 ? window.scrollTo(0, 12000) : null
-        }
-    
-    {
-            this.state.add == 80 ? window.scrollTo(0, 16000) : null
         } */}
     
     

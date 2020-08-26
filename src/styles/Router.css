@@ -1,0 +1,21 @@
+.cardsContainer {
+    margin-bottom: 50px;
+    padding-bottom: 50px;    
+}
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+.row {
+    margin-right: 0;
+    margin-left: 0;
+}
+.footer {
+    background-color: #6c757d;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    color: white;
+    /* line-height: 50px; */
+}

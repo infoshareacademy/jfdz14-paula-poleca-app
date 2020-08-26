@@ -6,7 +6,7 @@ import Form from './components/Form';
 import Favourites from './components/Favourites';
 import Statistics from './components/Statistics';
 import ErrorPage from './components/ErrorPage';
-import Share from './components/Share/Share'
+//import Share from './components/Share/Share'
 import SignInn from './components/SignIn'
 
 class App extends Component {
@@ -65,10 +65,11 @@ class App extends Component {
             return response.json()})
           .then(data => {
               let events = Object.keys(data).map(key => ({ ...data[key], id: key}));
+              console.log(events);
               const newEvents = events.map(event => {
                 event.favourite = false;
                 let idFromStorage = this.readLocalStorage(event.id);
-                if(idFromStorage === event.id) {
+                if(idFromStorage === +event.id) {
                   event.favourite = true;
                 }
                 return event;
@@ -83,6 +84,7 @@ class App extends Component {
   render() {
     return(
       <React.Fragment>
+
         <Switch>
            {/* NavBar */}
           <Route exact path="/">
@@ -110,9 +112,11 @@ class App extends Component {
 
           <Route component={ErrorPage} />          
         </Switch>
-        <div align="center" margin='200'>
+
+        {/* <div align="center" margin='200'>
           <Share />
-        </div>
+        </div> */}
+
       </React.Fragment>
     );
   }
