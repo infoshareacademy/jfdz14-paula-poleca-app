@@ -160,7 +160,7 @@ class Events extends React.Component {
         }
 
         {
-            !filteredEvents && 
+            !filteredEvents && !this.props.loading &&  
             <CardDeck style={{margin:"4px"}}>
                             
                         <Card className="text-center" style={{ width: '14rem' }}>
