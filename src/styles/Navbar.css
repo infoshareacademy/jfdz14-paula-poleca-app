@@ -3,6 +3,8 @@ img {
 }
 
 .text{
+    display: flex;
+    justify-content: space-between;
     text-transform: uppercase;
     font-weight: 8px;
     color: white;
@@ -13,3 +15,35 @@ nav{
     color: white
 }
 
+.text button {
+    
+    color:white;
+    letter-spacing: 2px;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: green;
+    
+}
+
+.right {
+    display: flex;
+}
+
+.text p{
+    color: white;
+    letter-spacing: 2px;
+    border-bottom: 1px solid white;
+    padding: 8px;
+    text-transform: none;
+    margin: 10px 20px;
+
+}
+
+
+@media screen and (max-width: 767px) {
+   
+    .text p {
+        display: none;
+    }
+}
