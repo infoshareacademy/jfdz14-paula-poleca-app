@@ -19,8 +19,16 @@ input, textarea{
 
 }
 
+.button:hover, .button:active{
+    border:#008000!important;
+    box-shadow:#008000!important;
+    outline: none;
+}
 
-.button{
-    background-color:#008000; 
+.button {
+    border-color:#008000!important;
+    box-shadow:#008000!important;
+    background-color:#008000!important; 
     width: 200px;
+    outline: none;
 }

@@ -7,16 +7,17 @@ import {DATABASE_URL} from "../index";
 
 
 const initialState = {
-    title: " ",
-    description: " ",
-    link: " ",
-    city: " ",
+    name: "",
+    place: {name: ""},
+    attachments: "",
+    descShort: ""
 }
 
 class Forms extends React.Component {
         state = initialState
 
         resetForm = () => {
+            console.log(initialState)
             this.setState(initialState)
         }
 
@@ -27,6 +28,19 @@ class Forms extends React.Component {
         }
 
         handleOnSubmit = (event) => {
+           const newEvent = {
+                name : "",
+                place : {
+                    name : ""
+                  },
+                attachments : [ {
+                    fileName : ""
+                  } ],
+        
+                  descShort : ""
+        
+        }
+
             event.preventDefault();
             fetch(`${DATABASE_URL}/events.json`, {
                 method: 'POST',
@@ -40,27 +54,29 @@ class Forms extends React.Component {
     render(){
         return (
             <div  style={{marginLeft: 16, marginTop: 16}}>
-                <Form onSubmit={this.handleOnSubmit}>
+                <Form noValidate autoComplete="off" onSubmit={this.handleOnSubmit}>
                     <h2>Dodaj nowe wydarzenie</h2>
                     <p>Chcesz się podzielić z innymi nadchodzącycm wydarzeniem? Znasz miejsce, cene i godzinę? Dodaj nowe wydarzenie do PaulaPoleca!</p>
                 <div className="form-wrapper">
-                <Form.Group controlId="title" >
+                <Form.Group>
                     <Form.Label>
                         Nazwa wydarzenia
                         </Form.Label>
                     <Form.Control 
-                    name="title"
+                    value={this.state.name}
+                    name="name"
                     type="text" 
                     onChange={this.handleOnChange}
                     placeholder={"Tytuł" } />
                 </Form.Group>
     
-                <Form.Group controlId="city">
+                <Form.Group>
                     <Form.Label >Wybierz miasto</Form.Label>
                     <Form.Control 
+                    value={this.state.place.name}
                     as="select" 
-                    name="city"
-                    onChange={this.handlerOnChange}>
+                    name="place"
+                    onChange={this.handleOnChange}>
                     <option>Miasto</option>
                     <option>Gdańsk</option>
                     <option>Gdynia</option>
@@ -68,13 +84,14 @@ class Forms extends React.Component {
                     </Form.Control>
                 </Form.Group>
     
-                <Form.Group controlId="desc">
+                <Form.Group >
                     <Form.Label>Opis wydarzenia: </Form.Label>
                     <Form.Control 
-                    name="description"
+                    value={this.state.descShort}
+                    name="descShort"
                     as="textarea" 
                     rows="3" 
-                    onChange={this.hadleOnChange}/>
+                    onChange={this.handleOnChange}/>
                 </Form.Group>
                 <Form.Group>
                 <Form.Label>Link do wydarzenia</Form.Label>
@@ -87,12 +104,14 @@ class Forms extends React.Component {
                 </Form.Group>
                 <Form.Group style={{display:"flex"}}>
                     <Form.File
-                        name="img"
-                        id="event_img" />
+                        // name="attachments"
+                        id="event_img"
+                        onChange={this.handleOnChange}
+                        />
                 </Form.Group>
                 </div>
             
-                <Button className="button " type="submit">
+                <Button className="button" type="submit">
                 Zapisz
                 </Button>
             </Form>

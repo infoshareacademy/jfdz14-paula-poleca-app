@@ -80,29 +80,26 @@ class App extends Component {
   }
 
   componentDidMount() {
-<<<<<<< HEAD
     this.fetchData()
-=======
-      fetch('https://paulapoleca-vamp.firebaseio.com/events.json')
-          .then(response => { 
-            return response.json()})
-          .then(data => {
-              let events = Object.keys(data).map(key => ({ ...data[key], id: key}));
-              console.log(events);
-              const newEvents = events.map(event => {
-                event.favourite = false;
-                let idFromStorage = this.readLocalStorage(event.id);
-                if(idFromStorage === +event.id) {
-                  event.favourite = true;
-                }
-                return event;
-              });
-              this.setState({
-                  events: newEvents,
-                  loading: false,
-              });
-          });
->>>>>>> master
+      // fetch('https://paulapoleca-vamp.firebaseio.com/events.json')
+      //     .then(response => { 
+      //       return response.json()})
+      //     .then(data => {
+      //         let events = Object.keys(data).map(key => ({ ...data[key], id: key}));
+      //         console.log(events);
+      //         const newEvents = events.map(event => {
+      //           event.favourite = false;
+      //           let idFromStorage = this.readLocalStorage(event.id);
+      //           if(idFromStorage === +event.id) {
+      //             event.favourite = true;
+      //           }
+      //           return event;
+      //         });
+      //         this.setState({
+      //             events: newEvents,
+      //             loading: false,
+      //         });
+      //     });
   }
 
   render() {
