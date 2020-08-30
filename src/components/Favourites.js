@@ -14,7 +14,8 @@ class Favourites extends Component {
         super(props);
         this.state = {}
     }
-    render() { 
+    render() {
+        let chosenFavourites = false; 
         return (
             <>
             <h2>Ulubione</h2>
@@ -27,9 +28,10 @@ class Favourites extends Component {
                     return (
                     event.favourite &&
                     <CardDeck key={event.id}>
+                    {chosenFavourites = true}
                     <Card  className="text-center" style={{ width: '14rem' }}>
                     {
-                         event.attachments[0] !== undefined 
+                        event.attachments && event.attachments[0] !== undefined 
                         ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" style={{height:"150px"}} />
                         : <Card.Img variant="top" src={gdansk} alt="imgEvent" style={{height:"150px"}} />
                         }   
@@ -60,6 +62,11 @@ class Favourites extends Component {
                     );
                 })
             }
+            {
+            !chosenFavourites && (
+                <h4>Brak dodanych wydarzeń </h4>
+                )                           
+            }            
             </div>
             </>
         );

@@ -6,7 +6,7 @@ import Forms from './components/Form';
 import Favourites from './components/Favourites';
 import Statistics from './components/Statistics';
 import ErrorPage from './components/ErrorPage';
-import Share from './components/Share/Share'
+// import Share from './components/Share/Share';
 
 class App extends Component {
 
@@ -80,12 +80,35 @@ class App extends Component {
   }
 
   componentDidMount() {
+<<<<<<< HEAD
     this.fetchData()
+=======
+      fetch('https://paulapoleca-vamp.firebaseio.com/events.json')
+          .then(response => { 
+            return response.json()})
+          .then(data => {
+              let events = Object.keys(data).map(key => ({ ...data[key], id: key}));
+              console.log(events);
+              const newEvents = events.map(event => {
+                event.favourite = false;
+                let idFromStorage = this.readLocalStorage(event.id);
+                if(idFromStorage === +event.id) {
+                  event.favourite = true;
+                }
+                return event;
+              });
+              this.setState({
+                  events: newEvents,
+                  loading: false,
+              });
+          });
+>>>>>>> master
   }
 
   render() {
     return(
       <React.Fragment>
+
         <Switch>
            {/* NavBar */}
           <Route exact path="/">
@@ -103,11 +126,14 @@ class App extends Component {
             <Statistics />
           </Route>
 
-          <Route component={ErrorPage} />          
+          <Route component={ErrorPage} /> 
+                  
         </Switch>
-        <div align="center" margin='200'>
+
+        {/* <div align="center" margin='200'>
           <Share />
-        </div>
+        </div> */}
+
       </React.Fragment>
     );
   }

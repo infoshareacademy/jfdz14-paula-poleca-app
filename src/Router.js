@@ -7,6 +7,8 @@ import App from './App';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import './styles/Router.css';
+import Share from './components/Share/Share';
 
 class Router extends Component {
 
@@ -27,8 +29,19 @@ class Router extends Component {
                     <App />
                   </div>             
                 </Row>
+
               </Col>
             </Row>
+            <Row>
+                 {/* <div className="col"> */}
+                 {/* <nav class="navbar navbar-expand navbar-dark bg-secondary">Footer</nav> */}
+                 {/* </div> */}
+                 <div className="footer">
+                    <div align="center" margin='200'>
+                      <Share />
+                    </div>
+                 </div>
+            </Row>            
           </Container> 
         </React.Fragment>
         

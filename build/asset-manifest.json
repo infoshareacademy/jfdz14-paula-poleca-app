@@ -1,5 +1,6 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.css": "/jfdz14-paula-poleca-app/static/css/main.996ab737.chunk.css",
     "main.js": "/jfdz14-paula-poleca-app/static/js/main.c9926362.chunk.js",
     "main.js.map": "/jfdz14-paula-poleca-app/static/js/main.c9926362.chunk.js.map",
@@ -12,14 +13,34 @@
     "service-worker.js": "/jfdz14-paula-poleca-app/service-worker.js",
     "static/css/main.996ab737.chunk.css.map": "/jfdz14-paula-poleca-app/static/css/main.996ab737.chunk.css.map",
     "static/js/2.571d32c4.chunk.js.LICENSE.txt": "/jfdz14-paula-poleca-app/static/js/2.571d32c4.chunk.js.LICENSE.txt",
+=======
+    "main.css": "/jfdz14-paula-poleca-app/static/css/main.04b082bf.chunk.css",
+    "main.js": "/jfdz14-paula-poleca-app/static/js/main.d2ded2fb.chunk.js",
+    "main.js.map": "/jfdz14-paula-poleca-app/static/js/main.d2ded2fb.chunk.js.map",
+    "runtime-main.js": "/jfdz14-paula-poleca-app/static/js/runtime-main.29aed46b.js",
+    "runtime-main.js.map": "/jfdz14-paula-poleca-app/static/js/runtime-main.29aed46b.js.map",
+    "static/js/2.44f14a2d.chunk.js": "/jfdz14-paula-poleca-app/static/js/2.44f14a2d.chunk.js",
+    "static/js/2.44f14a2d.chunk.js.map": "/jfdz14-paula-poleca-app/static/js/2.44f14a2d.chunk.js.map",
+    "index.html": "/jfdz14-paula-poleca-app/index.html",
+    "precache-manifest.8816efebe40cbdb3fe7152bff373d731.js": "/jfdz14-paula-poleca-app/precache-manifest.8816efebe40cbdb3fe7152bff373d731.js",
+    "service-worker.js": "/jfdz14-paula-poleca-app/service-worker.js",
+    "static/css/main.04b082bf.chunk.css.map": "/jfdz14-paula-poleca-app/static/css/main.04b082bf.chunk.css.map",
+    "static/js/2.44f14a2d.chunk.js.LICENSE.txt": "/jfdz14-paula-poleca-app/static/js/2.44f14a2d.chunk.js.LICENSE.txt",
+>>>>>>> master
     "static/media/gdansk.jpg": "/jfdz14-paula-poleca-app/static/media/gdansk.8f2c3aec.jpg",
     "static/media/gdansk1.jpg": "/jfdz14-paula-poleca-app/static/media/gdansk1.8f2c3aec.jpg",
     "static/media/logo-white.png": "/jfdz14-paula-poleca-app/static/media/logo-white.395935ed.png"
   },
   "entrypoints": [
     "static/js/runtime-main.29aed46b.js",
+<<<<<<< HEAD
     "static/js/2.571d32c4.chunk.js",
     "static/css/main.996ab737.chunk.css",
     "static/js/main.c9926362.chunk.js"
+=======
+    "static/js/2.44f14a2d.chunk.js",
+    "static/css/main.04b082bf.chunk.css",
+    "static/js/main.d2ded2fb.chunk.js"
+>>>>>>> master
   ]
 }
