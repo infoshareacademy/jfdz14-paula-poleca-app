@@ -16,19 +16,11 @@ class Events extends React.Component {
     
     state = {
         filter: '',
-        more: 20,
-        // add : 0,
         city: '',
         user: null,
     }
 
     addNumber = parseInt(this.state.add)
-
-    // allEvents = (sliderValue) => {
-    //     this.setState({
-    //         add: sliderValue
-    //     })
-    // }
 
     handleOnFormChange = (textFilter) => {
         this.setState({
@@ -48,7 +40,6 @@ class Events extends React.Component {
     }
 
     logFavourite = (evnt) => {
-        console.log('Musisz być zalogowany');
         evnt.target.textContent = 'Musisz być zalogowany';
     }    
     
@@ -61,14 +52,12 @@ class Events extends React.Component {
     } 
     
     componentWillUnmount() {
-        console.log('componentWillUnmount')
         this.state.unsubscribe();
       }    
 
     render() {
        
         const events = this.props.events;
-        // const events = this.props.events.slice(0,this.state.more);
 
         return (
         <>
@@ -81,16 +70,8 @@ class Events extends React.Component {
                 <CityFinder 
                     onFormChange={this.cityChange} 
                 />
-
-                {/* <RangeSlider 
-                    onFormChange={this.allEvents}
-                    filterValue = {this.state.add}
-                /> */}
-                {/* <button style = {{width: '50px', height: '50px'}}>{this.state.add}</button> */}
-                
              
             </div>
-      
 
         <h2>Nadchodzące wydarzenia</h2>
 
@@ -119,15 +100,15 @@ class Events extends React.Component {
             })            
             .map((event) => {
                 return (
-                        <CardDeck key={event.id} style={{margin:"4px"}}>
+                    <CardDeck key={event.id} style={{margin:"4px"}}>
                         <Card className="text-center" style={{ width: '14rem' }}>
                         {
-                         event.attachments && event.attachments[0] !== undefined 
+                        event.attachments && event.attachments[0] !== undefined 
                         ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" style={{height:"150px"}} />
                         : <Card.Img variant="top" src={gdansk} alt="imgEvent" style={{height:"150px"}} />
                         }   
  
-                            <Card.Body key={event.id}>
+                        <Card.Body key={event.id}>
                             <Card.Title style={{ height: "50px", textTransform: "UPPERCASE", textAlign:"center"}}>{event.name}</Card.Title>
                                 
                                 {/* <p className="addFavourite" 
@@ -160,22 +141,16 @@ class Events extends React.Component {
                             )
                             } 
 
-
                             <Card.Text style={{height: "20px"}}>
                                 {event.place.name}
                             </Card.Text> 
-                            {/* <Card.Text style={{text: "bold"}}> 
-                                {event.startDate.slice(0, 10)}
-                             </Card.Text> */}
-                            </Card.Body>
+                        </Card.Body>
                             
-                            <Card.Footer style={{display:"block", margin:"0px"}}>
-                            {/* <small className="text-muted"><a href={event.urls.www} target="_blank">Zobacz link</a> */}
+                        <Card.Footer style={{display:"block", margin:"0px"}}>
                             <EventModal event={event} />
-                        {/* </small> */}
-                            </Card.Footer>
+                        </Card.Footer>
                         </Card>
-                        </CardDeck>
+                    </CardDeck>
                 );
             })
         }

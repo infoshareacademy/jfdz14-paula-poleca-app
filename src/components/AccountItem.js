@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 
 const AccountItem = (props) => {
     const handleItemEdit = () => {
-        console.log('handleItemEdit');
         props.onEdit();
     }
     return (

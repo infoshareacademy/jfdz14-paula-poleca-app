@@ -20,7 +20,6 @@ class SignIn extends React.Component {
         surname: undefined,
         city: undefined,
         user: null,
-        // redirectAdwccount: false,
     }
 
     handleOnChange = (event) => {
@@ -37,44 +36,39 @@ class SignIn extends React.Component {
                 .createUserWithEmailAndPassword(this.state.email, this.state.password)
                 .then((data) => {
                     console.log('utowrozno konto');
-                    console.log('data: ',data);
                     this.setState({user: data.user});
                     
                     this.setState({
                         email: '',
                         password: '',
-                        // redirectAccount: true,
                     });
                     this.handleShowModal();
                 })
                 .catch((error) => {
-                    // alert(error.message);
-                    console.log(error.message);
+                    alert(error.message);
                 })
         } else {
             firebase.auth()
                 .signInWithEmailAndPassword(this.state.email, this.state.password)
-                .then(() => {
-                    console.log('zalogowano')
+                .then((data) => {
+                    console.log('zalogowano');
+                    this.setState({user: data.user});
                     this.setState({
                         redirect: true
                     })
                 })
                 .catch((error) => {
-                    // alert(error.message);
-                    console.log(error.message);
+                    alert(error.message);
                 })
         }
     }
 
     handleShowModal = () => {
-        console.log('handleShowModal');
         this.setState({
             isModalOpen: true,
         });
     }
     handleOnHide = () => {
-        console.log('handleOnHide');
         this.setState({
             isModalOpen: false,
         });
@@ -85,16 +79,9 @@ class SignIn extends React.Component {
         })        
     }
     handleModalForm = () => {
-        console.log('handleModalForm');
 
-        // const {name, surname, city} = this.state;
-        // const form = {name, surname, city};
-
-        // const form = {name: 'brak', surname: 'brak', city: 'brak'};
-        // console.log({name: name, surname: surname, city: city});
         const {name = 'brak', surname = 'brak', city = 'brak'} = this.state;
         const form = {name: name, surname: surname, city: city};
-        console.log(form);
 
         // fetch(`${DATABASE_URL}/Users/${this.state.user.uid}.json`, {
         //     method: 'POST', 
@@ -102,7 +89,6 @@ class SignIn extends React.Component {
         //   });
 
         var rootRef = firebase.database().ref().child('Users');
-        console.log('rootRef ',rootRef);
         var userRef = rootRef.child(this.state.user.uid);
 		userRef.set(form, function(error) {
 			if(error) {
@@ -121,9 +107,6 @@ class SignIn extends React.Component {
         if (this.state.redirect) {
             return <Redirect to='/'/>
         }
-        // if (this.state.redirectAccount) {
-        //     return <Redirect to='/account'/>
-        // }
 
         return(
             <>
@@ -179,22 +162,29 @@ class SignIn extends React.Component {
                             <Form>
                                 <Form.Group>
                                 <Form.Label>Imię</Form.Label>
-                                <Form.Control 
-                                    value={this.state.name} name="name" onChange={this.handleChangeForm}
+                                <Form.Control
+                                    type="text"
+                                    // {this.state.name === undefined 
+                                    //     ? value='' 
+                                    //     : value=this.state.name}  
+                                    value={this.state.name === undefined ? '' : this.state.name} 
+                                    name="name" onChange={this.handleChangeForm}
                                 />
                                 </Form.Group>
 
                                 <Form.Group>
                                 <Form.Label>Nazwisko</Form.Label>
                                 <Form.Control 
-                                    value={this.state.surname} name="surname" onChange={this.handleChangeForm}
+                                    value={this.state.surname === undefined ? '' : this.state.surname} 
+                                    name="surname" onChange={this.handleChangeForm}
                                 />
                                 </Form.Group>
 
                                 <Form.Group>
                                 <Form.Label>Miasto</Form.Label>
                                 <Form.Control 
-                                    value={this.state.city} name="city" onChange={this.handleChangeForm}
+                                    value={this.state.city === undefined ? '' : this.state.city} 
+                                    name="city" onChange={this.handleChangeForm}
                                 />
                                 </Form.Group>
                             </Form>

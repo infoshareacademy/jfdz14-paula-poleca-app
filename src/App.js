@@ -99,14 +99,12 @@ class App extends Component {
   }  
 
   componentDidMount() {
-    console.log('componentDidMount');
     this.getFetch();
   }
 
-  componentWillUnmount() {
-    console.log('componentWillUnmount')
-    this.state.unsubscribe();
-  }
+  // componentWillUnmount() {
+    // this.state.unsubscribe();
+  // }
 
   render() {
     return(
@@ -145,7 +143,7 @@ class App extends Component {
           </Route>
 
           <Route path="/account">
-            <Account />
+            <Account user={this.state.user}/>
           </Route>
 
           <Route component={ErrorPage} />          
