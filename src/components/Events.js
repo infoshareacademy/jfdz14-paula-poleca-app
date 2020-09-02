@@ -135,7 +135,7 @@ class Events extends React.Component {
                                 </p>
 
 
-                            <Card.Text style={{height: "20px"}}>
+                            <Card.Text style={{height: "20px", textAlign: "center"}}>
                                 {event.place.name}
                             </Card.Text> 
                             {/* <Card.Text style={{text: "bold"}}> 

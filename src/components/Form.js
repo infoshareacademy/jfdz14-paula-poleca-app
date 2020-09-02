@@ -4,13 +4,20 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import style from '../styles/Form.css';
 import {DATABASE_URL} from "../index";
+import firebase from 'firebase';
 
 
 const initialState = {
     name: "",
-    place: {name: ""},
-    attachments: "",
-    descShort: ""
+    place : {
+        id: Math.floor(Math.random*100),
+        name : ""
+      },
+    attachments : [ {
+        fileName : ""
+      } ],
+    descLong: "",
+    urls: ""
 }
 
 class Forms extends React.Component {
@@ -27,20 +34,37 @@ class Forms extends React.Component {
             })
         }
 
+        handleOnChangeSelect = (event) =>{
+            this.setState({
+                place: {
+                    name : event.target.value
+                }
+            })
+        }
+
         handleOnSubmit = (event) => {
-           const newEvent = {
+            const newEvent = {
                 name : "",
                 place : {
-                    name : ""
+                    id: Math.floor(Math.random*100),
+                    name : "",
                   },
-                attachments : [ {
-                    fileName : ""
-                  } ],
-        
-                  descShort : ""
+                attachments : [{
+                    fileName : "",
+                  }],
+                descLong: "",
+                urls: "",
+
         
         }
 
+        // imgHandleOnChange = (event) => {
+        //     this.setState({
+        //         attachments: event.target.files[0]
+        //     })
+
+            
+        // }
             event.preventDefault();
             fetch(`${DATABASE_URL}/events.json`, {
                 method: 'POST',
@@ -75,20 +99,19 @@ class Forms extends React.Component {
                     <Form.Control 
                     value={this.state.place.name}
                     as="select" 
-                    name="place"
-                    onChange={this.handleOnChange}>
+                    onChange={this.handleOnChangeSelect}>
                     <option>Miasto</option>
                     <option>Gdańsk</option>
                     <option>Gdynia</option>
                     <option>Sopot</option>
                     </Form.Control>
                 </Form.Group>
-    
+                
                 <Form.Group >
                     <Form.Label>Opis wydarzenia: </Form.Label>
                     <Form.Control 
-                    value={this.state.descShort}
-                    name="descShort"
+                    value={this.state.descLong}
+                    name="descLong"
                     as="textarea" 
                     rows="3" 
                     onChange={this.handleOnChange}/>
@@ -96,7 +119,8 @@ class Forms extends React.Component {
                 <Form.Group>
                 <Form.Label>Link do wydarzenia</Form.Label>
                     <Form.Control 
-                    name= "link"
+                    name= "urls"
+                    id= "urls"
                     type="text" 
                     placeholder="Link do wydarzenia"
                     onChange={this.handleOnChange}
@@ -104,9 +128,10 @@ class Forms extends React.Component {
                 </Form.Group>
                 <Form.Group style={{display:"flex"}}>
                     <Form.File
-                        // name="attachments"
-                        id="event_img"
-                        onChange={this.handleOnChange}
+                        name="attachments"
+                        id="attachments"
+                        type='file' 
+                        // onChange={this.imgHandleOnChange}/>
                         />
                 </Form.Group>
                 </div>
