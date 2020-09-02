@@ -22,9 +22,9 @@ import firebase from 'firebase';
 
 
 ReactDOM.render(
-  <React.StrictMode>
+  <div>
     <Router />
-  </React.StrictMode>,
+  </div>,
   document.getElementById('root')
 );
 

@@ -10,7 +10,7 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button';
 import EventModal from './Modal.js'
 import gdansk from './gdansk1.jpg'
-
+import firebase from 'firebase';
 
 class Events extends React.Component {
     
@@ -18,7 +18,8 @@ class Events extends React.Component {
         filter: '',
         more: 20,
         // add : 0,
-        city: ''
+        city: '',
+        user: null,
     }
 
     addNumber = parseInt(this.state.add)
@@ -45,23 +46,24 @@ class Events extends React.Component {
             city: cityFilter
         })
     }
+
+    logFavourite = (evnt) => {
+        console.log('Musisz być zalogowany');
+        evnt.target.textContent = 'Musisz być zalogowany';
+    }    
     
-    // showMore = () => {
-    //     let eventslength = this.props.events.length;
-    //     let maxLoad = this.state.more + 20;
-    //     if(maxLoad < eventslength) {
-    //         this.setState({
-    //             more: maxLoad,
-    //         });            
-    //     } else {
-    //         while(maxLoad > eventslength ) {
-    //             maxLoad = maxLoad - 1;
-    //         }
-    //         this.setState({
-    //             more: maxLoad,
-    //         });   
-    //     }
-    // }
+    componentDidMount() {
+        const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+            this.setState({
+                user, unsubscribe,
+            })
+        });
+    } 
+    
+    componentWillUnmount() {
+        console.log('componentWillUnmount')
+        this.state.unsubscribe();
+      }    
 
     render() {
        
@@ -127,12 +129,37 @@ class Events extends React.Component {
  
                             <Card.Body key={event.id}>
                             <Card.Title style={{ height: "50px", textTransform: "UPPERCASE", textAlign:"center"}}>{event.name}</Card.Title>
-                                <p className="addFavourite" 
+                                
+                                {/* <p className="addFavourite" 
                                     onClick={() => this.addFavourite(event.id)}>Ulubione  
                                     <span className={event.favourite ? "starColorActive" : "starColor"}>
                                     <i className="fa fa-heart fa-lg"></i>
                                     </span>
-                                </p>
+                                </p> */}
+
+                            {this.state.user 
+                            ? (
+                            <div>
+                                <p className="addFavourite"
+                                    onClick={() => this.addFavourite(event.id)}>Dodaj do ulubionych   
+                                    <span className={event.favourite ? "starColorActive" : "starColor"}>
+                                        <i className="fa fa-heart fa-lg"></i>
+                                    </span>
+                                </p>                            
+                            </div>
+                            )
+                            : (
+                            <div>
+                                <p className="addFavourite"
+                                    onClick={this.logFavourite}>Dodaj do ulubionych   
+                                    <span className={event.favourite ? "starColorActive" : "starColor"}>
+                                        <i className="fa fa-heart fa-lg"></i>
+                                    </span>
+                                </p>                            
+                            </div>
+                            )
+                            } 
+
 
                             <Card.Text style={{height: "20px"}}>
                                 {event.place.name}

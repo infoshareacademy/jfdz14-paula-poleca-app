@@ -16,14 +16,22 @@ nav{
 }
 
 .text button {
-    
     color:white;
     letter-spacing: 2px;
     border: 1px solid white;
     border-radius: 8px;
     padding: 8px;
-    background-color: green;
-    
+    background-color: green; 
+}
+.account {
+    color:white;
+    letter-spacing: 2px;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding-top: 16px;
+    background-color: green; 
+    text-transform: none;
+    text-decoration: none;
 }
 
 .right {

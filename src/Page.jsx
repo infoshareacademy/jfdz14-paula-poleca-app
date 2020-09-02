@@ -11,10 +11,9 @@ const Page = () => {
         <Jumbotron>
          <h1>Paula Poleca!</h1>
         <p>
-        Zbiór  największych i najciekawszych imprezy oraz wydarzeń w Trójmieście!
+         Zbiór największych i najciekawszych imprezy oraz wydarzeń w Trójmieście!
          Na bieżąco zapewniamy użytkownikom informacje na temat najnowszych wydarzeń kulturalnych i rozrywkowych.
          Zapoznaj się z nadchodzącycmi wydarzeniami w Twojej okolicy!
-
 
         </p>
         <p>

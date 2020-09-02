@@ -48,9 +48,9 @@ class Favourites extends Component {
                             {event.place.name}
                         </Card.Text>
 
-                        <Card.Text>
+                        {/* <Card.Text>
                             {event.startDate.slice(0, 10)}
-                        </Card.Text>
+                        </Card.Text> */}
                         </Card.Body>
                         <Card.Footer>
                         {/* <small className="text-muted"><a href={event.urls.www} target="_blank">Zobacz link</a> */}

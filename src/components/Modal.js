@@ -14,7 +14,6 @@ class EventModal extends Component {
         }
     }
 
-
     showModal = () => {
         this.setState({
             isOpen: true
@@ -45,7 +44,7 @@ class EventModal extends Component {
                         ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" />
                         : <Card.Img variant="top" src={gdansk} alt="imgEvent" />
                         }   
-                        <div>{event.startDate.slice(0, 10)}</div>
+                        {/* <div>{event.startDate.slice(0, 10)}</div> */}
                         <div> {event.descLong} </div>
 
                     </Modal.Body>

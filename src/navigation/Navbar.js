@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import Navbar from "react-bootstrap/Navbar";
 import '../styles/Navbar.css';
 import logo from "./logo-white.png";
@@ -33,8 +33,13 @@ class AppNavbar extends React.Component {
                 {/* <p>{this.props.user && `Hello ${this.props.user.email}`}</p> */}
                 {
                     this.props.user ?
-                    <Navbar.Brand className='right' as={NavLink} to='/'>
+
+                    // <Navbar.Brand className='right' as={NavLink} to='/'>
+                    <Navbar.Brand className='right'>
                         <p className='email'>Hello {this.props.user.email}</p>
+
+                        <Link to="/account" className="account">Account</Link>
+
                         <button onClick={this.props.handleOnSignOutClick}>Sign out</button>
                     </Navbar.Brand>
                     : 
