@@ -77,7 +77,7 @@ class Forms extends React.Component {
         
     render(){
         return (
-            <div  style={{marginLeft: 16, marginTop: 16}}>
+            <div  style={{marginLeft: 16, marginTop: 16, marginBottom: 100}}>
                 <Form noValidate autoComplete="off" onSubmit={this.handleOnSubmit}>
                     <h2>Dodaj nowe wydarzenie</h2>
                     <p>Chcesz się podzielić z innymi nadchodzącycm wydarzeniem? Znasz miejsce, cene i godzinę? Dodaj nowe wydarzenie do PaulaPoleca!</p>
@@ -91,7 +91,8 @@ class Forms extends React.Component {
                     name="name"
                     type="text" 
                     onChange={this.handleOnChange}
-                    placeholder={"Tytuł" } />
+                    placeholder={"Tytuł" } 
+                    required/>
                 </Form.Group>
     
                 <Form.Group>
@@ -99,7 +100,8 @@ class Forms extends React.Component {
                     <Form.Control 
                     value={this.state.place.name}
                     as="select" 
-                    onChange={this.handleOnChangeSelect}>
+                    onChange={this.handleOnChangeSelect}
+                    required>
                     <option>Miasto</option>
                     <option>Gdańsk</option>
                     <option>Gdynia</option>
@@ -114,7 +116,8 @@ class Forms extends React.Component {
                     name="descLong"
                     as="textarea" 
                     rows="3" 
-                    onChange={this.handleOnChange}/>
+                    onChange={this.handleOnChange}
+                    required/>
                 </Form.Group>
                 <Form.Group>
                 <Form.Label>Link do wydarzenia</Form.Label>
@@ -124,6 +127,7 @@ class Forms extends React.Component {
                     type="text" 
                     placeholder="Link do wydarzenia"
                     onChange={this.handleOnChange}
+                    required
                     />
                 </Form.Group>
                 <Form.Group style={{display:"flex"}}>
