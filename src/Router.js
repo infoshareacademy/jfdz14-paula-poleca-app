@@ -30,9 +30,6 @@ componentDidMount() {
             user
         })
     });
-
-
-
     this.setState({
         unsubscribe 
     })
@@ -52,23 +49,21 @@ componentWillUnmount() {
               <Col>
                 <AppNavbar 
                 user = {this.state.user}
-                handleOnSignOutClick = {this.handleOnSignOutClick}
+                // handleOnSignOutClick = {this.handleOnSignOutClick}
                 />
                 <Row>
                   <div className="col-3">
                     <Sidebar user = {this.state.user}/>
                   </div>
                   <div className="col-9">
-                    <App />
+                    <App 
+                    user = {this.state.user}/>
                   </div>             
                 </Row>
 
               </Col>
             </Row>
             <Row>
-                 {/* <div className="col"> */}
-                 {/* <nav class="navbar navbar-expand navbar-dark bg-secondary">Footer</nav> */}
-                 {/* </div> */}
                  <div className="footer">
                     <div align="center" margin='200'>
                       <Share />

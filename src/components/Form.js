@@ -78,8 +78,13 @@ class Forms extends React.Component {
     render(){
         return (
             <div  style={{marginLeft: 16, marginTop: 16, marginBottom: 100}}>
-                <Form noValidate autoComplete="off" onSubmit={this.handleOnSubmit}>
-                    <h2>Dodaj nowe wydarzenie</h2>
+            <h2>Dodaj nowe wydarzenie</h2>
+            {
+            this.props.user 
+            ?
+            <>
+            <Form noValidate autoComplete="off" onSubmit={this.handleOnSubmit}>
+                    
                     <p>Chcesz się podzielić z innymi nadchodzącycm wydarzeniem? Znasz miejsce, cene i godzinę? Dodaj nowe wydarzenie do PaulaPoleca!</p>
                 <div className="form-wrapper">
                 <Form.Group>
@@ -143,7 +148,11 @@ class Forms extends React.Component {
                 <Button className="button" type="submit">
                 Zapisz
                 </Button>
-            </Form>
+             </Form>
+             </>
+              :
+              <h4>Zaloguj się aby dodać Event!</h4>
+              }
             </div>
         
             );

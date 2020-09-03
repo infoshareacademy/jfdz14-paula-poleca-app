@@ -3,16 +3,27 @@ import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import {Redirect, Link} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
-import firebase from 'firebase'
+import firebase from 'firebase';
+import Modal from 'react-bootstrap/Modal';
+import ButtonBoot from 'react-bootstrap/Button';
+import { Form } from 'react-bootstrap';
+import {DATABASE_URL} from '..';
+import { connect } from 'react-redux';
+import { addAvatar } from '../state/reducer';
 
 class SignIn extends React.Component {
 
     state = {
-        emial: '',
+        email: '',
         password: '',
         redirect: false,
+        isModalOpen: false,
+        name: undefined,
+        surname: undefined,
+        city: undefined,
+        user: null,
+        url: '',
     }
-
 
     handleOnChange = (event) => {
         this.setState({
@@ -20,18 +31,21 @@ class SignIn extends React.Component {
         })
     }
 
-
     handleOnSubmit = (event) => {
         event.preventDefault();
 
         if (this.props.isSignUp) {
             firebase.auth()
                 .createUserWithEmailAndPassword(this.state.email, this.state.password)
-                .then(() => {
-                    console.log('utowrozno konto')
+                .then((data) => {
+                    console.log('utowrozno konto');
+                    this.setState({user: data.user});
+                    
                     this.setState({
-                        redirect: true
-                    })
+                        email: '',
+                        password: '',
+                    });
+                    this.handleShowModal();
                 })
                 .catch((error) => {
                     alert(error.message);
@@ -39,11 +53,26 @@ class SignIn extends React.Component {
         } else {
             firebase.auth()
                 .signInWithEmailAndPassword(this.state.email, this.state.password)
-                .then(() => {
-                    console.log('zalogowano')
+                .then((data) => {
+                    console.log('zalogowano');
+                    // this.fetchAvatar();
                     this.setState({
-                        redirect: true
-                    })
+                        user: data.user,
+                        // redirect: true,
+                    }, () => {
+                        this.fetchAvatar();
+                        // this.setState({
+                        //     redirect: true,
+                        // })
+                    });
+                    // this.setState({
+                    //     redirect: true
+                    // })
+                })
+                .then(() => {
+                    // this.setState({
+                    //     redirect: true,
+                    // })
                 })
                 .catch((error) => {
                     alert(error.message);
@@ -51,19 +80,71 @@ class SignIn extends React.Component {
         }
     }
 
-    render() {
+    handleShowModal = () => {
+        this.setState({
+            isModalOpen: true,
+        });
+    }
+    handleOnHide = () => {
+        this.setState({
+            isModalOpen: false,
+        });
+    }
+    handleChangeForm = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value,
+        })        
+    }
+    handleModalForm = () => {
 
+        const {name = 'brak', surname = 'brak', city = 'brak'} = this.state;
+        const form = {name: name, surname: surname, city: city};
+
+        // fetch(`${DATABASE_URL}/Users/${this.state.user.uid}.json`, {
+        //     method: 'POST', 
+        //     body: JSON.stringify(form)
+        //   });
+
+        var rootRef = firebase.database().ref().child('Users');
+        var userRef = rootRef.child(this.state.user.uid);
+		userRef.set(form, function(error) {
+			if(error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                console.error('Message: ' + errorMessage + ' ' + errorCode);
+			} else {
+				console.log('Success');
+			}
+        });
+        this.handleOnHide();
+    } 
+
+    fetchAvatar = () => {
+        firebase.storage().ref('avatars/' + this.state.user.uid)
+            .getDownloadURL()
+            .then(url => {
+                console.log(url);
+                this.setState({
+                    url,
+                }, () => {
+                    this.props.addNewAvatar(this.state.url);
+                    this.setState({
+                        redirect: true,
+                    });
+                })
+            });
+    }     
+
+    render() {
 
         if (this.state.redirect) {
             return <Redirect to='/'/>
         }
 
         return(
-            
-             
-
+            <>
              <Container component="main" maxWidth="xs">
-                    <form noValidate onSubmit={this.handleOnSubmit}>
+                    <form onSubmit={this.handleOnSubmit}>
                         <TextField
                             variant="outlined"
                             margin="normal"
@@ -76,8 +157,6 @@ class SignIn extends React.Component {
                             autoFocus
                             value = {this.state.email}
                             onChange = {this.handleOnChange}
-                            onSubmit = {this.handleOnSubmit}
-                        
                         />
                         <TextField
                             variant="outlined"
@@ -91,8 +170,6 @@ class SignIn extends React.Component {
                             autoComplete="current-password"
                             value = {this.state.password}
                             onChange = {this.handleOnChange}
-                            onSubmit = {this.handleOnSubmit}
-                  
                         />
                         <Button
                             type="submit"
@@ -110,10 +187,59 @@ class SignIn extends React.Component {
                         </div>
                     </form>
                 </Container>
-            
+
+                <div className="text-left my-3" >
+                    <Modal show={this.state.isModalOpen} onHide={this.handleOnHide}>
+                        <Modal.Header><h2>Dodatkowe dane do konta</h2></Modal.Header>
+                        <Modal.Body>
+                            <Form>
+                                <Form.Group>
+                                <Form.Label>Imię</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    // {this.state.name === undefined 
+                                    //     ? value='' 
+                                    //     : value=this.state.name}  
+                                    value={this.state.name === undefined ? '' : this.state.name} 
+                                    name="name" onChange={this.handleChangeForm}
+                                />
+                                </Form.Group>
+
+                                <Form.Group>
+                                <Form.Label>Nazwisko</Form.Label>
+                                <Form.Control 
+                                    value={this.state.surname === undefined ? '' : this.state.surname} 
+                                    name="surname" onChange={this.handleChangeForm}
+                                />
+                                </Form.Group>
+
+                                <Form.Group>
+                                <Form.Label>Miasto</Form.Label>
+                                <Form.Control 
+                                    value={this.state.city === undefined ? '' : this.state.city} 
+                                    name="city" onChange={this.handleChangeForm}
+                                />
+                                </Form.Group>
+                            </Form>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <ButtonBoot variant="primary" onClick={this.handleModalForm}>Add</ButtonBoot>
+                            <ButtonBoot onClick={this.handleOnHide}>Close</ButtonBoot>
+                        </Modal.Footer>
+                    </Modal>    
+                </div>
+            </>
             
         );
     }
 }
 
-export default SignIn
+// export default SignIn
+
+const mapStateToProps = (state) => {
+    return {state: state};
+}
+const mapDispatchToProps = {
+    addNewAvatar: addAvatar
+}
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

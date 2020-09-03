@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import Router from './Router';
 import firebase from 'firebase';
-
+import {Provider} from 'react-redux';
+import store from './store';
 
   var firebaseConfig = {
     apiKey: "AIzaSyARBazq6RwkjdurMOTneqvPgnRhfE4YIIE",
@@ -22,9 +23,11 @@ import firebase from 'firebase';
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router />
-  </React.StrictMode>,
+  <div>
+    <Provider store={store}>
+    <Router />      
+    </Provider>
+  </div>,
   document.getElementById('root')
 );
 

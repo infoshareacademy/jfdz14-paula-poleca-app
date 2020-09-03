@@ -21,6 +21,8 @@ class Favourites extends Component {
             <h2>Ulubione</h2>
             <div className="cardsContainer">
                 {
+                this.props.user 
+                ?
                 this.props.events
                 .map((event) => {
                     // console.log(event.favourite);
@@ -48,9 +50,9 @@ class Favourites extends Component {
                             {event.place.name}
                         </Card.Text>
 
-                        <Card.Text style={{height: "20px", textAlign: "center"}}>
+                        {/* <Card.Text>
                             {event.startDate.slice(0, 10)}
-                        </Card.Text>
+                        </Card.Text> */}
                         </Card.Body>
                         <Card.Footer style={{display:"block", margin:"0px"}}>
                         {/* <small className="text-muted"><a href={event.urls.www} target="_blank">Zobacz link</a> */}
@@ -61,9 +63,11 @@ class Favourites extends Component {
                     </CardDeck>   
                     );
                 })
+                :
+                <h4>Zaloguj się aby dodać Eventy do ulubionych!!</h4>
             }
             {
-            !chosenFavourites && (
+            !chosenFavourites && this.props.user &&(
                 <h4>Brak dodanych wydarzeń </h4>
                 )                           
             }            

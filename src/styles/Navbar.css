@@ -1,5 +1,5 @@
 img {
-    margin-right: 8px;
+    /* margin-right: 8px; */
 }
 
 .text{
@@ -8,43 +8,69 @@ img {
     text-transform: uppercase;
     font-weight: 8px;
     color: white;
-
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 nav{
     background-color :#008000;
     color: white
 }
 
-
-.navbar-light .navbar-brand{
-    color: white
-}
-
 .text button {
-    
     color:white;
     letter-spacing: 2px;
     border: 1px solid white;
     border-radius: 8px;
     padding: 8px;
-    background-color: green;
-    
+    background-color: green; 
+}
+.email {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+.account {
+    color:white;
+    letter-spacing: 2px;
+    border: 1px solid white;
+    border-radius: 8px;
+    /* padding-top: 16px; */
+    background-color: green; 
+    text-transform: none;
+    text-decoration: none;
+    display: flex;
+    align-self: center;
+    /* padding-top: 10px; */
+    padding: 15px 0 15px 0;    
 }
 
 .right {
     display: flex;
 }
 
-.text p{
+.text p {
     color: white;
     letter-spacing: 2px;
-    border-bottom: 1px solid white;
-    padding: 8px;
+    /* border-bottom: 1px solid white; */
+    /* padding: 8px; */
     text-transform: none;
-    margin: 10px 20px;
+    /* margin: 10px 20px; */
 
 }
-
+.pImg {
+    margin: 0;
+    padding: 0;
+}
+.imgAvatar {
+    max-height: 60px;
+    /* max-height: 100%; */
+    margin-right: 10px;
+}
+.navbar-light .navbar-brand{
+    color: white
+}
 
 @media screen and (max-width: 767px) {
    

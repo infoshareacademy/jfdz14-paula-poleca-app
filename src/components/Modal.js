@@ -14,7 +14,6 @@ class EventModal extends Component {
         }
     }
 
-
     showModal = () => {
         this.setState({
             isOpen: true
