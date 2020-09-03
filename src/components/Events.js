@@ -148,7 +148,8 @@ class Events extends React.Component {
                             )
                             } 
 
-                            <Card.Text style={{height: "20px"}}>
+
+                            <Card.Text style={{height: "40px", textAlign: "center"}}>
                                 {event.place.name}
                             </Card.Text> 
                         </Card.Body>

@@ -14,7 +14,15 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
+<<<<<<< HEAD
   "/jfdz14-paula-poleca-app/precache-manifest.3f617e73d0ec407c31b7449bae286d54.js"
+=======
+<<<<<<< HEAD
+  "/jfdz14-paula-poleca-app/precache-manifest.f7a4920c5c55f575546c92218f5f12ac.js"
+=======
+  "/jfdz14-paula-poleca-app/precache-manifest.8816efebe40cbdb3fe7152bff373d731.js"
+>>>>>>> master
+>>>>>>> Forms-save-in-firebase
 );
 
 self.addEventListener('message', (event) => {

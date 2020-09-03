@@ -46,7 +46,7 @@ class Favourites extends Component {
                                 </span>
                             </p>
 
-                        <Card.Text>
+                        <Card.Text  style={{height: "40px", textAlign: "center"}}>
                             {event.place.name}
                         </Card.Text>
 
@@ -54,7 +54,7 @@ class Favourites extends Component {
                             {event.startDate.slice(0, 10)}
                         </Card.Text> */}
                         </Card.Body>
-                        <Card.Footer>
+                        <Card.Footer style={{display:"block", margin:"0px"}}>
                         {/* <small className="text-muted"><a href={event.urls.www} target="_blank">Zobacz link</a> */}
                         <EventModal event={event} />
                     {/* </small> */}

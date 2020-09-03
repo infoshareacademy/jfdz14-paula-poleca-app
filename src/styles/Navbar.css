@@ -75,3 +75,7 @@ nav{
         display: none;
     }
 }
+.navbar-light .navbar-brand{
+    color: white
+
+}

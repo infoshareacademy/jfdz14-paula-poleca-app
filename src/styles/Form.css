@@ -1,14 +1,14 @@
 .form-wrapper{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    max-width: 500px;
 
 }
 
 
 p{
-    text-align: center;
-    max-width: 400px;
+    text-align: left;
+    max-width: 600px;
 }
 
 input, textarea{
@@ -19,7 +19,16 @@ input, textarea{
 
 }
 
+.button:hover, .button:active{
+    border:#008000!important;
+    box-shadow:#008000!important;
+    outline: none;
+}
 
-.button{
-    background-color:#008000; 
+.button {
+    border-color:#008000!important;
+    box-shadow:#008000!important;
+    background-color:#008000!important; 
+    width: 200px;
+    outline: none;
 }

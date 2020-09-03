@@ -120,7 +120,7 @@ class App extends Component {
               />
           </Route>
           <Route exact path="/addEvent" >
-              <Form user={this.props.user} />
+              <Form user={this.props.user} onAdd={this.getFetch} />
           </Route>
           <Route exact path="/favourite">
               <Favourites 
