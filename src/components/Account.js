@@ -109,7 +109,7 @@ class Account extends Component {
     render() { 
         return (
             <div className="AccountContainer">
-                <h2>Konto &nbsp;
+                <h2>Konto {this.props.user ? <span> - {this.props.user.email}</span>  : null}
 
                 </h2>
                 {
@@ -118,9 +118,7 @@ class Account extends Component {
                 (
                 <>
                     {
-                    this.state.user 
-                    ? - this.state.user.email 
-                    : null
+                    // this.props.user.email 
                     }                
                     <br/>
                     {
