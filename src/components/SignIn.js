@@ -8,6 +8,8 @@ import Modal from 'react-bootstrap/Modal';
 import ButtonBoot from 'react-bootstrap/Button';
 import { Form } from 'react-bootstrap';
 import {DATABASE_URL} from '..';
+import { connect } from 'react-redux';
+import { addAvatar } from '../state/reducer';
 
 class SignIn extends React.Component {
 
@@ -20,6 +22,7 @@ class SignIn extends React.Component {
         surname: undefined,
         city: undefined,
         user: null,
+        url: '',
     }
 
     handleOnChange = (event) => {
@@ -52,10 +55,24 @@ class SignIn extends React.Component {
                 .signInWithEmailAndPassword(this.state.email, this.state.password)
                 .then((data) => {
                     console.log('zalogowano');
-                    this.setState({user: data.user});
+                    // this.fetchAvatar();
                     this.setState({
-                        redirect: true
-                    })
+                        user: data.user,
+                        // redirect: true,
+                    }, () => {
+                        this.fetchAvatar();
+                        // this.setState({
+                        //     redirect: true,
+                        // })
+                    });
+                    // this.setState({
+                    //     redirect: true
+                    // })
+                })
+                .then(() => {
+                    // this.setState({
+                    //     redirect: true,
+                    // })
                 })
                 .catch((error) => {
                     alert(error.message);
@@ -101,6 +118,22 @@ class SignIn extends React.Component {
         });
         this.handleOnHide();
     } 
+
+    fetchAvatar = () => {
+        firebase.storage().ref('avatars/' + this.state.user.uid)
+            .getDownloadURL()
+            .then(url => {
+                console.log(url);
+                this.setState({
+                    url,
+                }, () => {
+                    this.props.addNewAvatar(this.state.url);
+                    this.setState({
+                        redirect: true,
+                    });
+                })
+            });
+    }     
 
     render() {
 
@@ -201,4 +234,12 @@ class SignIn extends React.Component {
     }
 }
 
-export default SignIn
+// export default SignIn
+
+const mapStateToProps = (state) => {
+    return {state: state};
+}
+const mapDispatchToProps = {
+    addNewAvatar: addAvatar
+}
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

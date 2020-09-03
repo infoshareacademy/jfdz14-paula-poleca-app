@@ -7,7 +7,7 @@ import Favourites from './components/Favourites';
 import Statistics from './components/Statistics';
 import ErrorPage from './components/ErrorPage';
 //import Share from './components/Share/Share';
-import SignInn from './components/SignIn';
+import SignIn from './components/SignIn';
 import Account from './components/Account';
 
 import {DATABASE_URL} from './index';
@@ -25,7 +25,7 @@ class App extends Component {
   getFetch = () => {
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       this.setState({
-        unsubscribe,
+        // unsubscribe,
         user,   
       }, () => {
         fetch(`${DATABASE_URL}/events.json`)
@@ -135,11 +135,11 @@ class App extends Component {
           </Route>
 
           <Route path="/sign-in">
-            <SignInn />
+            <SignIn />
           </Route>
 
           <Route path="/sign-up">
-            <SignInn isSignUp/>
+            <SignIn isSignUp/>
           </Route>
 
           <Route path="/account">

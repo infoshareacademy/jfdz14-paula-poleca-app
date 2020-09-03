@@ -14,11 +14,23 @@ class AccountItemEdit extends React.Component  {
     }
 
     componentDidMount() {
+        // if(this.props.user) {
+        //     this.setState({
+        //       user: this.props.user,
+        //       uid: this.props.user.uid,
+        //     });                
+        //     }   
+
+            let user = firebase.auth().currentUser;
         // firebase.auth().onAuthStateChanged(user => {
-            if(this.props.user) {
+            if(user) {
             this.setState({
-              user: this.props.user,
-              uid: this.props.user.uid,
+              user: user,
+            //   uid: useruid,
+            }, () => {
+                this.setState({
+                    uid: this.state.user.uid,
+                })
             });                
             }
         // });
