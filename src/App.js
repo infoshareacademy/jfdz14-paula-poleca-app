@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './styles/App.css';
 import Events from './components/Events';
-import Form from './components/Form';
+import Forms from './components/Form';
 import Favourites from './components/Favourites';
 import Statistics from './components/Statistics';
 import ErrorPage from './components/ErrorPage';
@@ -14,6 +14,27 @@ class App extends Component {
   state = {
     events: [],
     loading: true,
+  }
+
+  fetchData = () => {
+    fetch('https://paulapoleca-vamp.firebaseio.com/events.json')
+    .then(response => { 
+      return response.json()})
+    .then(data => {
+        let events = Object.keys(data).map(key => ({ ...data[key], id: key}));
+        const newEvents = events.map(event => {
+          event.favourite = false;
+          let idFromStorage = this.readLocalStorage(event.id);
+          if(idFromStorage === event.id) {
+            event.favourite = true;
+          }
+          return event;
+        });
+        this.setState({
+            events: newEvents,
+            loading: false,
+        });
+    });
   }
 
   addFavourite = (id) => {
@@ -60,25 +81,26 @@ class App extends Component {
   }
 
   componentDidMount() {
-      fetch('https://paulapoleca-vamp.firebaseio.com/events.json')
-          .then(response => { 
-            return response.json()})
-          .then(data => {
-              let events = Object.keys(data).map(key => ({ ...data[key], id: key}));
-              console.log(events);
-              const newEvents = events.map(event => {
-                event.favourite = false;
-                let idFromStorage = this.readLocalStorage(event.id);
-                if(idFromStorage === +event.id) {
-                  event.favourite = true;
-                }
-                return event;
-              });
-              this.setState({
-                  events: newEvents,
-                  loading: false,
-              });
-          });
+    this.fetchData()
+      // fetch('https://paulapoleca-vamp.firebaseio.com/events.json')
+      //     .then(response => { 
+      //       return response.json()})
+      //     .then(data => {
+      //         let events = Object.keys(data).map(key => ({ ...data[key], id: key}));
+      //         console.log(events);
+      //         const newEvents = events.map(event => {
+      //           event.favourite = false;
+      //           let idFromStorage = this.readLocalStorage(event.id);
+      //           if(idFromStorage === +event.id) {
+      //             event.favourite = true;
+      //           }
+      //           return event;
+      //         });
+      //         this.setState({
+      //             events: newEvents,
+      //             loading: false,
+      //         });
+      //     });
   }
 
   render() {
@@ -90,8 +112,8 @@ class App extends Component {
           <Route exact path="/">
               <Events events={this.state.events} loading={this.state.loading} addFavourite={this.addFavourite} />
           </Route>
-          <Route exact path="/addEvent" component={Form}>
-              {/* <Form /> */}
+          <Route exact path="/addEvent">
+              <Forms onAdd={this.fetchData} />
           </Route>
           <Route exact path="/favourite">
               <Favourites events={this.state.events} addFavourite={this.addFavourite} />

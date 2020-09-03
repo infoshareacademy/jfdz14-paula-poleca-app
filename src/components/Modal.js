@@ -45,13 +45,19 @@ class EventModal extends Component {
                         ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" />
                         : <Card.Img variant="top" src={gdansk} alt="imgEvent" />
                         }   
-                        <div>{event.startDate.slice(0, 10)}</div>
+                        <div>{event.startDate && event.startDate.slice(0, 10)}</div>
                         <div> {event.descLong} </div>
 
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="danger" onClick={this.hideModal}>Zamknij</Button>
-                        <Button variant="success" onClick={this.hideModal}><a href={event.urls.www} style={{color:"white"}} target="_blank">Przejdz do Wydarzenia</a></Button>
+                        <Button variant="success" onClick={this.hideModal}>
+                            <a href={event.urls && event.urls.www } 
+                            style={{color:"white"}} 
+                            target="_blank"
+                            >
+                                Przejdz do Wydarzenia</a>
+                                </Button>
 
                     </Modal.Footer>
                 </Modal>

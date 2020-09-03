@@ -7,6 +7,7 @@
 .addFavourite {
     cursor: pointer;
     color: grey;
+    text-align: center
 }
 .addFavourite:hover {
     /* font-weight: bold; */
