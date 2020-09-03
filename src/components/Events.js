@@ -58,6 +58,8 @@ class Events extends React.Component {
     render() {
        
         const events = this.props.events;
+        let filteredEvents = null
+        // const events = this.props.events.slice(0,this.state.more);
 
         return (
         <>
@@ -72,8 +74,11 @@ class Events extends React.Component {
                 />
              
             </div>
-
+      
+        
+         
         <h2>Nadchodzące wydarzenia</h2>
+
 
         {
         this.props.loading && <div style={{fontSize: '30px', textAlign: 'center'}}>
@@ -86,21 +91,23 @@ class Events extends React.Component {
 
             events
             .filter((event) => {
-                return event.place.name.toLocaleLowerCase()
-                .includes(this.state.filter.toLocaleLowerCase()) || 
+                return event.place.name.toLowerCase()
+                .includes(this.state.filter.toLowerCase()) || 
                 event.name.toLocaleLowerCase()
-                .includes(this.state.filter.toLocaleLowerCase()) ||
-                event.descShort.toLocaleLowerCase()
-                .includes(this.state.filter.toLocaleLowerCase()) ||
-                event.startDate.includes(this.state.filter)
+                .includes(this.state.filter.toLowerCase()) 
+                
+                // event.descShort.toLowerCase()
+                // .includes(this.state.filter.toLowerCase()) ||
+                // event.startDate.includes(this.state.filter)
             })
             .filter((event) => {
-                return event.place.name.toLocaleLowerCase()
-                .includes(this.state.city.toLocaleLowerCase())
+                return event.place.name.toLowerCase()
+                .includes(this.state.city.toLowerCase())
             })            
             .map((event) => {
                 return (
-                    <CardDeck key={event.id} style={{margin:"4px"}}>
+                        <CardDeck key={event.id} style={{margin:"4px"}}>
+                            {filteredEvents = true}
                         <Card className="text-center" style={{ width: '14rem' }}>
                         {
                         event.attachments && event.attachments[0] !== undefined 
@@ -150,10 +157,36 @@ class Events extends React.Component {
                             <EventModal event={event} />
                         </Card.Footer>
                         </Card>
-                    </CardDeck>
+                        </CardDeck>
+                        
                 );
             })
         }
+
+        {
+            !filteredEvents && !this.props.loading &&  
+            <CardDeck style={{margin:"4px", width: '400px'}}>
+                            
+                        <Card className="text-center" style={{ width: '14rem' }}>
+        
+                           
+ 
+                            <Card.Body >
+                            <Card.Title style={{ height: "50px", textTransform: "UPPERCASE", textAlign:"center"}}>Brak dostępnych Eventów</Card.Title>
+
+                            <Card.Text style={{height: "40px", color: 'red'}}>
+                                Brak Eventu o podanej nazwie!
+                            </Card.Text> 
+                            </Card.Body>
+                            
+                           
+                      
+                        </Card>
+                        </CardDeck>
+        }
+        
+        
+        
         </div>
         
         {/* {this.state.more < this.props.events.length &&

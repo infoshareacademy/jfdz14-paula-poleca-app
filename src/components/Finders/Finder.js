@@ -14,9 +14,9 @@ class Finder extends React.Component {
                 <Form.Group controlId="formBasicEmail">
                    
                     <Form.Control 
-                    style = {{maxWidth: "160px", marginRight:"16px", borderColor: "#008000"}} 
+                    style = {{maxWidth: "200px", marginRight:"16px", borderColor: "#008000"}} 
                     type="text" 
-                    placeholder="Znajdź swój Event!"
+                    placeholder="Wpisz nazwę Eventu!"
                     value={this.props.filterValue}
                     onChange={this.handleOnChange}
                     />

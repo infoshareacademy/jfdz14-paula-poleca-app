@@ -56,7 +56,8 @@ componentWillUnmount() {
                     <Sidebar user = {this.state.user}/>
                   </div>
                   <div className="col-9">
-                    <App />
+                    <App 
+                    user = {this.state.user}/>
                   </div>             
                 </Row>
 

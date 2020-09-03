@@ -109,57 +109,70 @@ class Account extends Component {
     render() { 
         return (
             <div className="AccountContainer">
-                <h2>Konto - &nbsp;
+                <h2>Konto &nbsp;
+
+                </h2>
+                {
+                this.props.user 
+                ?
+                (
+                <>
                     {
                     this.state.user 
-                    ? this.state.user.email 
+                    ? - this.state.user.email 
                     : null
-                    }
-                </h2>
-                <br/>
-
-                {
-                this.state.userData ?
-                <>
-                    {this.state.editId
-                    ?
-                    (
-                    <AccountItemEdit 
-                        name={this.state.userData.name}
-                        surname={this.state.userData.surname}
-                        city={this.state.userData.city}
-                        onSave={this.handleSave}
-                        onClose={this.handleClose}
-                        // user={this.state.user}
-                    />
-                     )
+                    }                
+                    <br/>
+                    {
+                    this.state.userData ?
+                    <>
+                        {this.state.editId
+                        ?
+                        (
+                        <AccountItemEdit 
+                            name={this.state.userData.name}
+                            surname={this.state.userData.surname}
+                            city={this.state.userData.city}
+                            onSave={this.handleSave}
+                            onClose={this.handleClose}
+                            // user={this.state.user}
+                        />
+                        )
+                        : 
+                        (
+                        <AccountItem 
+                            name={this.state.userData.name}
+                            surname={this.state.userData.surname}
+                            city={this.state.userData.city}
+                            onEdit={this.handleEdit}
+                        />
+                        )
+                        }
+                    </>
                     : 
-                    (
-                    <AccountItem 
-                        name={this.state.userData.name}
-                        surname={this.state.userData.surname}
-                        city={this.state.userData.city}
-                        onEdit={this.handleEdit}
-                    />
-                    )
+                    <>
+                        <h4>Brak danych</h4> 
+                    </>
                     }
-                </>
+
+                    <div>
+                        <hr/>
+                        <h2>Dodaj/Zmień swój avatar</h2>
+                        <input type='file' onChange={this.handleOnChange}/>
+                        <Button onClick={this.handleSaveAvatar}>Add</Button>
+                        <div className="avatarDiv">
+                            <img className="avatarImg" src={this.state.url} />     
+                        </div> 
+                        <br/> 
+                    </div>                 
+                    </>
+                )
                 : 
-                <>
-                    <h4>Brak danych</h4> 
-                </>
+                (
+                    <h4>Musisz być zalogowany aby mieć dostęp do opcji konta</h4>    
+                )
                 }
 
-                <div>
-                    <hr/>
-                    <h2>Dodaj/Zmień swój avatar</h2>
-                    <input type='file' onChange={this.handleOnChange}/>
-                    <Button onClick={this.handleSaveAvatar}>Add</Button>
-                    <div className="avatarDiv">
-                        <img className="avatarImg" src={this.state.url} />     
-                    </div> 
-                    <br/> 
-                </div>                 
 
             </div>
         );

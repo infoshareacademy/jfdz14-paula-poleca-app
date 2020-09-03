@@ -23,7 +23,7 @@ const Sidebar = (props) => {
             </Nav.Item>
             :
             <Nav.Item>
-            <Nav.Link disabled as={NavLink} to="/addEvent"> <img src={addNew} height="25"/><span>Nowe wydarzenie</span></Nav.Link>
+            <Nav.Link as={NavLink} to="/addEvent"> <img src={addNew} height="25"/><span>Nowe wydarzenie</span></Nav.Link>
             </Nav.Item>
         }
         {
@@ -33,7 +33,7 @@ const Sidebar = (props) => {
             </Nav.Item>
             :
             <Nav.Item>
-                <Nav.Link disabled as={NavLink} to="/favourite"> <img src={favourite} height="25"/><span>Ulubione</span></Nav.Link>
+                <Nav.Link as={NavLink} to="/favourite"> <img src={favourite} height="25"/><span>Ulubione</span></Nav.Link>
             </Nav.Item>
         }
         <Nav.Item>

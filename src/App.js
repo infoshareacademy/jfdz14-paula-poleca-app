@@ -119,13 +119,14 @@ class App extends Component {
                 addFavourite={this.addFavourite} 
               />
           </Route>
-          <Route exact path="/addEvent" component={Form}>
-              {/* <Form /> */}
+          <Route exact path="/addEvent" >
+              <Form user={this.props.user} />
           </Route>
           <Route exact path="/favourite">
               <Favourites 
                 events={this.state.events} 
-                addFavourite={this.addFavourite} 
+                addFavourite={this.addFavourite}
+                user={this.state.user} 
               />
           </Route>
 
