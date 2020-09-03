@@ -21,6 +21,7 @@ class Favourites extends Component {
             <h2>Ulubione</h2>
             <div className="cardsContainer">
                 {
+                this.props.user ?
                 this.props.events
                 .map((event) => {
                     // console.log(event.favourite);
@@ -61,9 +62,11 @@ class Favourites extends Component {
                     </CardDeck>   
                     );
                 })
+                :
+                <h4>Zaloguj się aby dodać Eventy do ulubionych!!</h4>
             }
             {
-            !chosenFavourites && (
+            !chosenFavourites && this.props.user &&(
                 <h4>Brak dodanych wydarzeń </h4>
                 )                           
             }            

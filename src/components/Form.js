@@ -51,6 +51,7 @@ class Forms extends React.Component {
     render(){
         return (
             <div style={{marginLeft: 16, marginTop: 16}}>
+            {this.props.user ?
             <Form className="form-wrapper">
                     <h2>Dodaj nowe wydarzenie</h2>
                     <p>Chcesz się podzielić z innymi nadchodzącycm wydarzeniem? Znasz miejsce, cene i godzinę? Dodaj nowe wydarzenie do PaulaPoleca!</p>
@@ -85,8 +86,12 @@ class Forms extends React.Component {
                 <Button className="button " type="submit" onClick={this.saveDataInLolcalStorage}>
                 Zapisz
                 </Button>
-            </Form>
+             </Form>
+              :
+              <h4>Zaloguj się aby dodać Event!</h4>
+              }
             </div>
+          
         
             );
           }

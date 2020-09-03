@@ -90,11 +90,11 @@ class App extends Component {
           <Route exact path="/">
               <Events events={this.state.events} loading={this.state.loading} addFavourite={this.addFavourite} />
           </Route>
-          <Route exact path="/addEvent" component={Form}>
-              {/* <Form /> */}
+          <Route exact path="/addEvent" >
+              <Form user={this.props.user} />
           </Route>
           <Route exact path="/favourite">
-              <Favourites events={this.state.events} addFavourite={this.addFavourite} />
+              <Favourites user={this.props.user} events={this.state.events} addFavourite={this.addFavourite} />
           </Route>
 
           {/* SideBar */}
