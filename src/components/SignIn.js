@@ -98,12 +98,13 @@ class SignIn extends React.Component {
     handleModalForm = () => {
 
         const {name = 'brak', surname = 'brak', city = 'brak'} = this.state;
-        const form = {name: name, surname: surname, city: city};
+        
+        let data = new Date();
+        console.log(data);
+        let day = data.getDay();
+        console.log(day);
 
-        // fetch(`${DATABASE_URL}/Users/${this.state.user.uid}.json`, {
-        //     method: 'POST', 
-        //     body: JSON.stringify(form)
-        //   });
+        const form = {name: name, surname: surname, city: city, day: day};
 
         var rootRef = firebase.database().ref().child('Users');
         var userRef = rootRef.child(this.state.user.uid);
@@ -190,7 +191,9 @@ class SignIn extends React.Component {
 
                 <div className="text-left my-3" >
                     <Modal show={this.state.isModalOpen} onHide={this.handleOnHide}>
-                        <Modal.Header><h2>Dodatkowe dane do konta</h2></Modal.Header>
+                        <Modal.Header>
+                            <h2>Dodatkowe dane do konta</h2>
+                        </Modal.Header>
                         <Modal.Body>
                             <Form>
                                 <Form.Group>
@@ -223,8 +226,9 @@ class SignIn extends React.Component {
                             </Form>
                         </Modal.Body>
                         <Modal.Footer>
-                            <ButtonBoot variant="primary" onClick={this.handleModalForm}>Add</ButtonBoot>
-                            <ButtonBoot onClick={this.handleOnHide}>Close</ButtonBoot>
+                            <div>Pola nie są obowiązkowe - wypełnić można później</div>
+                            <ButtonBoot variant="primary" onClick={this.handleModalForm}>Dodaj dane</ButtonBoot>
+                            {/* <ButtonBoot onClick={this.handleOnHide}>Close</ButtonBoot> */}
                         </Modal.Footer>
                     </Modal>    
                 </div>

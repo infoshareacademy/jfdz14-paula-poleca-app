@@ -26,8 +26,6 @@ class EventModal extends Component {
         })
     };
 
-
-
     render() {
         const { event } = this.props;
 

@@ -109,7 +109,7 @@ class Account extends Component {
     render() { 
         return (
             <div className="AccountContainer">
-                <h2>Konto &nbsp;
+                <h2>Konto {this.props.user ? <span> - {this.props.user.email}</span>  : null}
 
                 </h2>
                 {
@@ -118,9 +118,7 @@ class Account extends Component {
                 (
                 <>
                     {
-                    this.state.user 
-                    ? - this.state.user.email 
-                    : null
+                    // this.props.user.email 
                     }                
                     <br/>
                     {
@@ -159,7 +157,7 @@ class Account extends Component {
                         <hr/>
                         <h2>Dodaj/Zmień swój avatar</h2>
                         <input type='file' onChange={this.handleOnChange}/>
-                        <Button onClick={this.handleSaveAvatar}>Add</Button>
+                        <Button onClick={this.handleSaveAvatar} style={{marginLeft: '10px'}}>Add</Button>
                         <div className="avatarDiv">
                             <img className="avatarImg" src={this.state.url} />     
                         </div> 

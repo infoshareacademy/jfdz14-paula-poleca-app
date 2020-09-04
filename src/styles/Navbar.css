@@ -36,13 +36,12 @@ nav{
     letter-spacing: 2px;
     border: 1px solid white;
     border-radius: 8px;
-    /* padding-top: 16px; */
     background-color: green; 
     text-transform: none;
     text-decoration: none;
     display: flex;
     align-self: center;
-    /* padding-top: 10px; */
+    margin-right: 5px;
     padding: 15px 0 15px 0;    
 }
 
