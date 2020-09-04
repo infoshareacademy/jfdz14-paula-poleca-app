@@ -118,7 +118,7 @@ class Events extends React.Component {
                     }   
  
                     <Card.Body key={event.id}>
-                        <Card.Title style={{ textTransform: "UPPERCASE", textAlign:"center"}}>{event.name}</Card.Title>
+                        <Card.Title style={{ textTransform: "UPPERCASE", textAlign:"center", height:"55px"}}>{event.name}</Card.Title>
 
                         {this.state.user 
                         ? (

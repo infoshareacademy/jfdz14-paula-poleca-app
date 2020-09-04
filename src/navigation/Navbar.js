@@ -68,17 +68,17 @@ class AppNavbar extends React.Component {
 
                     // <Navbar.Brand className='right' as={NavLink} to='/'>
                     <Navbar.Brand className='right'>
-                        <p className='email'>Hello {this.props.user.email}</p>
+                        <p className='email'>Witaj, {this.props.user.email}</p>
                         {/* <p className="pImg"><img className="imgAvatar" src={avatar} alt="avatar"/></p> */}
                         <p className="pImg"><img className="imgAvatar" src={this.props.img} alt="avatar"/></p>
 
-                        <Link to="/account" className="account">Account</Link>
+                        <Link to="/account" className="account">Profil</Link>
 
-                        <button onClick={this.handleOnSignOutClick}>Sign out</button>
+                        <button onClick={this.handleOnSignOutClick}>Wyloguj</button>
                     </Navbar.Brand>
                     : 
                     <Navbar.Brand as={NavLink} to='sign-in'>
-                        <button>Sign in</button>
+                        <button>Zaloguj</button>
                     </Navbar.Brand>
                 }
             </Navbar>                                       

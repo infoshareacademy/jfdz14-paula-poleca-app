@@ -178,6 +178,7 @@ class SignIn extends React.Component {
                             fullWidth
                             variant="contained"
                             color="primary"
+                            style={{backgroundColor:"#008000", borderColor:"#008000"}}
                         >
                             {this.props.isSignUp ? 'Zarejestruj się!' : 'Zaloguj się!'}
                         </Button>
