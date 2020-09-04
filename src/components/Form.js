@@ -95,6 +95,8 @@ class Forms extends React.Component {
                     value={this.state.name}
                     name="name"
                     type="text" 
+                    placeholder="Tytuł" 
+                    min="4" max="100" 
                     onChange={this.handleOnChange}
                     placeholder={"Tytuł" } 
                     required/>
@@ -106,7 +108,8 @@ class Forms extends React.Component {
                     value={this.state.place.name}
                     as="select" 
                     onChange={this.handleOnChangeSelect}
-                    required>
+                    required
+                    >
                     <option>Miasto</option>
                     <option>Gdańsk</option>
                     <option>Gdynia</option>
@@ -120,6 +123,8 @@ class Forms extends React.Component {
                     value={this.state.descLong}
                     name="descLong"
                     as="textarea" 
+                    placeholder="Opis wydarzenia" 
+                    min="10" max="100" 
                     rows="3" 
                     onChange={this.handleOnChange}
                     required/>
@@ -129,7 +134,8 @@ class Forms extends React.Component {
                     <Form.Control 
                     name= "urls"
                     id= "urls"
-                    type="text" 
+                    type="url" 
+                    min="5" max="100" 
                     placeholder="Link do wydarzenia"
                     onChange={this.handleOnChange}
                     required

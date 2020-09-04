@@ -87,11 +87,11 @@ class AccountItemEdit extends React.Component  {
                     </Card><br/>
                     <Button variant="success" 
                         onClick={this.handleItemSave}
-                        style={{marginRight: '5px'}}
-                    >SAVE</Button>                
+                        style={{marginRight: '5px', backgroundColor:"#008000", borderColor:"#008000"}}
+                    >Zapisz</Button>                
                     <Button variant="secondary" 
                         onClick={this.handleItemClose}
-                    >CLOSE</Button>                
+                    >Zamknij</Button>                
                 </Form>
 
             </div>

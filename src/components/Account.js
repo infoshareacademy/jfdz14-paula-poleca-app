@@ -157,7 +157,7 @@ class Account extends Component {
                         <hr/>
                         <h2>Dodaj/Zmień swój avatar</h2>
                         <input type='file' onChange={this.handleOnChange}/>
-                        <Button onClick={this.handleSaveAvatar} style={{marginLeft: '10px'}}>Add</Button>
+                        <Button onClick={this.handleSaveAvatar} style={{marginLeft: '10px', backgroundColor:"#008000", borderColor:"#008000"}}>Dodaj</Button>
                         <div className="avatarDiv">
                             <img className="avatarImg" src={this.state.url} />     
                         </div> 

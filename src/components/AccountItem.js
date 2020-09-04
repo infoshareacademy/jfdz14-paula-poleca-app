@@ -20,7 +20,7 @@ const AccountItem = (props) => {
                 <Card.Header as="h5">Miasto</Card.Header>
                 <Card.Body>{props.city}</Card.Body>
             </Card><br/>
-            <Button variant="primary" onClick={handleItemEdit}>EDIT</Button>
+            <Button variant="primary" onClick={handleItemEdit} style={{backgroundColor:"#008000", borderColor:"#008000"}}>Edytuj</Button>
         </div>
     );
 }
