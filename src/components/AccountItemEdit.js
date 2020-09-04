@@ -14,12 +14,7 @@ class AccountItemEdit extends React.Component  {
     }
 
     componentDidMount() {
-        // if(this.props.user) {
-        //     this.setState({
-        //       user: this.props.user,
-        //       uid: this.props.user.uid,
-        //     });                
-        //     }   
+
 
             let user = firebase.auth().currentUser;
         // firebase.auth().onAuthStateChanged(user => {
@@ -90,8 +85,13 @@ class AccountItemEdit extends React.Component  {
                                 value={this.state.city} onChange={this.handleChange} />
                         </Card.Body>
                     </Card><br/>
-                    <Button variant="success" onClick={this.handleItemSave}>SAVE</Button>                
-                    <Button variant="secondary" onClick={this.handleItemClose}>CLOSE</Button>                
+                    <Button variant="success" 
+                        onClick={this.handleItemSave}
+                        style={{marginRight: '5px'}}
+                    >SAVE</Button>                
+                    <Button variant="secondary" 
+                        onClick={this.handleItemClose}
+                    >CLOSE</Button>                
                 </Form>
 
             </div>

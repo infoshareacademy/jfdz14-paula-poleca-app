@@ -7,8 +7,6 @@ import Button from 'react-bootstrap/Button';
 import EventModal from './Modal.js'
 import gdansk from './gdansk1.jpg'
 
-
-
 class Favourites extends Component {
     constructor(props) {
         super(props);
@@ -29,9 +27,12 @@ class Favourites extends Component {
 
                     return (
                     event.favourite &&
-                    <CardDeck key={event.id}>
+                    <CardDeck key={event.id} style={{margin:"4px"}}>
+
                     {chosenFavourites = true}
-                    <Card  className="text-center" style={{ width: '14rem' }}>
+                    <Card className="text-center" 
+                        style={{ width: '14rem', padding: '5px', margin: '0' }}
+                    >
                     {
                         event.attachments && event.attachments[0] !== undefined 
                         ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" style={{height:"150px"}} />

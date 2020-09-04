@@ -106,59 +106,53 @@ class Events extends React.Component {
             })            
             .map((event) => {
                 return (
-                        <CardDeck key={event.id} style={{margin:"4px"}}>
-                            {filteredEvents = true}
-                        <Card className="text-center" style={{ width: '14rem' }}>
-                        {
-                        event.attachments && event.attachments[0] !== undefined 
-                        ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" style={{height:"150px"}} />
-                        : <Card.Img variant="top" src={gdansk} alt="imgEvent" style={{height:"150px"}} />
-                        }   
+                    <CardDeck key={event.id} style={{margin:"4px"}}>
+                        {filteredEvents = true}
+                    <Card className="text-center" 
+                        style={{ width: '14rem', padding: '5px', margin: '0' }}
+                    >
+                    {
+                    event.attachments && event.attachments[0] !== undefined 
+                    ? <Card.Img variant="top" src={event.attachments[0].fileName} alt="imgEvent" style={{height:"150px"}} />
+                    : <Card.Img variant="top" src={gdansk} alt="imgEvent" style={{height:"150px"}} />
+                    }   
  
-                        <Card.Body key={event.id}>
-                            <Card.Title style={{ height: "50px", textTransform: "UPPERCASE", textAlign:"center"}}>{event.name}</Card.Title>
-                                
-                                {/* <p className="addFavourite" 
-                                    onClick={() => this.addFavourite(event.id)}>Ulubione  
-                                    <span className={event.favourite ? "starColorActive" : "starColor"}>
+                    <Card.Body key={event.id}>
+                        <Card.Title style={{ textTransform: "UPPERCASE", textAlign:"center"}}>{event.name}</Card.Title>
+
+                        {this.state.user 
+                        ? (
+                        <div>
+                            <p className="addFavourite"
+                                onClick={() => this.addFavourite(event.id)}>Dodaj do ulubionych   
+                                <span className={event.favourite ? "starColorActive" : "starColor"}>
                                     <i className="fa fa-heart fa-lg"></i>
-                                    </span>
-                                </p> */}
+                                </span>
+                            </p>                            
+                        </div>
+                        )
+                        : (
+                        <div>
+                            <p className="addFavourite"
+                                onClick={this.logFavourite}>Dodaj do ulubionych   
+                                <span className={event.favourite ? "starColorActive" : "starColor"}>
+                                    <i className="fa fa-heart fa-lg"></i>
+                                </span>
+                            </p>                            
+                        </div>
+                        )
+                        } 
 
-                            {this.state.user 
-                            ? (
-                            <div>
-                                <p className="addFavourite"
-                                    onClick={() => this.addFavourite(event.id)}>Dodaj do ulubionych   
-                                    <span className={event.favourite ? "starColorActive" : "starColor"}>
-                                        <i className="fa fa-heart fa-lg"></i>
-                                    </span>
-                                </p>                            
-                            </div>
-                            )
-                            : (
-                            <div>
-                                <p className="addFavourite"
-                                    onClick={this.logFavourite}>Dodaj do ulubionych   
-                                    <span className={event.favourite ? "starColorActive" : "starColor"}>
-                                        <i className="fa fa-heart fa-lg"></i>
-                                    </span>
-                                </p>                            
-                            </div>
-                            )
-                            } 
-
-
-                            <Card.Text style={{height: "40px", textAlign: "center"}}>
-                                {event.place.name}
-                            </Card.Text> 
-                        </Card.Body>
+                        <Card.Text style={{ textAlign: "center" }}>
+                            {event.place.name}
+                        </Card.Text> 
+                    </Card.Body>
                             
-                        <Card.Footer style={{display:"block", margin:"0px"}}>
-                            <EventModal event={event} />
-                        </Card.Footer>
-                        </Card>
-                        </CardDeck>
+                    <Card.Footer style={{display:"block", margin:"0px"}}>
+                        <EventModal event={event} />
+                    </Card.Footer>
+                    </Card>
+                    </CardDeck>
                         
                 );
             })
@@ -166,24 +160,28 @@ class Events extends React.Component {
 
         {
             !filteredEvents && !this.props.loading &&  
-            <CardDeck style={{margin:"4px", width: '400px'}}>
+            <CardDeck style={{margin:"4px"}}>
                             
-                        <Card className="text-center" style={{ width: '14rem' }}>
-        
-                           
- 
-                            <Card.Body >
-                            <Card.Title style={{ height: "50px", textTransform: "UPPERCASE", textAlign:"center"}}>Brak dostępnych Eventów</Card.Title>
+                <Card className="text-center" style={{ width: '13rem', margin: '0px' }}>
 
-                            <Card.Text style={{height: "40px", color: 'red'}}>
-                                Brak Eventu o podanej nazwie!
-                            </Card.Text> 
-                            </Card.Body>
-                            
-                           
-                      
-                        </Card>
-                        </CardDeck>
+                    <Card.Body style={{padding: '10px'}}>
+                    <Card.Title 
+                        style={{ 
+                            textTransform: "UPPERCASE", 
+                            textAlign: "center",
+                            paddingTop: "10px"
+                        }}
+                    >Brak dostępnych Eventów</Card.Title>
+
+                    <Card.Text style={{height: "40px", color: 'red'}}>
+                        Brak Eventu o podanej nazwie!
+                    </Card.Text> 
+                    </Card.Body>
+                    
+                    
+                
+                </Card>
+                </CardDeck>
         }
         
         
