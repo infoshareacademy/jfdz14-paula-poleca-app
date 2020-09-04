@@ -98,7 +98,13 @@ class SignIn extends React.Component {
     handleModalForm = () => {
 
         const {name = 'brak', surname = 'brak', city = 'brak'} = this.state;
-        const form = {name: name, surname: surname, city: city};
+        
+        let data = new Date();
+        console.log(data);
+        let day = data.getDay();
+        console.log(day);
+
+        const form = {name: name, surname: surname, city: city, day: day};
 
         var rootRef = firebase.database().ref().child('Users');
         var userRef = rootRef.child(this.state.user.uid);
