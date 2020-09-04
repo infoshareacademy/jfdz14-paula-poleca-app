@@ -10,6 +10,7 @@ import { Form } from 'react-bootstrap';
 import {DATABASE_URL} from '..';
 import { connect } from 'react-redux';
 import { addAvatar } from '../state/reducer';
+import '../styles/SignIn.css'
 
 class SignIn extends React.Component {
 
@@ -144,8 +145,8 @@ class SignIn extends React.Component {
 
         return(
             <>
-             <Container component="main" maxWidth="xs">
-                    <form onSubmit={this.handleOnSubmit}>
+             <Container style={{marginLeft:'10%',marginTop:'3%', width: 'auto'}} component="main" maxWidth="xs">
+                    <form  onSubmit={this.handleOnSubmit}>
                         <TextField
                             variant="outlined"
                             margin="normal"
