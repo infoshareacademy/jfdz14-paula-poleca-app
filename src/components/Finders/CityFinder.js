@@ -11,20 +11,15 @@ class CityFinder extends React.Component {
     } 
 
     cityGdansk = () => {
-        return this.props.onFormChange('Gdań')
+        return this.props.onFormChange('Gdańsk')
     } 
     citySopot = () => {
-        return this.props.onFormChange('Sop')
+        return this.props.onFormChange('Sopot')
     } 
     cityGdynia = () => {
-        return this.props.onFormChange('Gdy')
+        return this.props.onFormChange('Gdynia')
     }
-    cityMalbork = () => {
-        return this.props.onFormChange('Malbo')
-    } 
-    cityPuck = () => {
-        return this.props.onFormChange('Puck')
-    }  
+
 
 
     render() {
@@ -46,12 +41,6 @@ class CityFinder extends React.Component {
                     </Dropdown.Item>
                     <Dropdown.Item onSelect={this.cityGdynia}>
                          Gdynia
-                    </Dropdown.Item>
-                    <Dropdown.Item onSelect={this.cityMalbork}>
-                         Malbork
-                    </Dropdown.Item>
-                    <Dropdown.Item onSelect={this.cityPuck}>
-                         Puck
                     </Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
