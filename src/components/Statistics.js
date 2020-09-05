@@ -1,22 +1,17 @@
 import React from 'react';
 import SimplePieChart from './Charts/PieChart';
 import SimpleBarChart from './Charts/BarChartNoPadding';
-import SimpleAreaCharts from './Charts/AreaChart';
 
 const Statistics = () => {
     return (
-        <div align="center">
+        <div>
             <h2>Statystyki</h2>
-            <div align="center">Wydarzenia w Trójmieście
-                <SimplePieChart />
+            <div align="center"><h5>Wydarzenia w Trójmieście</h5>
+                <SimplePieChart style={{align: 'center'}}/>
             </div>
             <hr/>
-            <div align="center">Ilość dodanych wydarzeń
-                <SimpleAreaCharts />
-            </div>
-            <hr/>
-            <div align="center">Ilość zarejestrowanych użytkowników
-                <SimpleBarChart />
+            <div align="center"><h5>Ilość zarejestrowanych użytkowników</h5>
+                <SimpleBarChart/>
             </div>
         </div>
     );
