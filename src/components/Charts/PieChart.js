@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import {
-  PieChart, Pie, Cell, Legend
-} from 'recharts';
+  PieChart,
+  Pie, 
+  Cell, 
+  Legend, 
+  } from 'recharts';
 import styles from './Recharts.module.css';
 const DATABASE_URL = 'https://paulapoleca-vamp.firebaseio.com/events.json';
 
@@ -23,7 +26,6 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
     </text>
   );
 };
-
 export default class SimplePieChart extends Component {
   constructor(props) {
     super(props);
@@ -37,9 +39,9 @@ export default class SimplePieChart extends Component {
       .then(data => {
         const formattedData = Object.keys(data).map(key => ({ ...data[key], id: key}));
         
-        const gdansk = formattedData.filter(data => data.place.name == "Gdańsk");
-        const sopot = formattedData.filter(data => data.place.name == "Sopot");
-        const gdynia = formattedData.filter(data => data.place.name == "Gdynia");
+        const gdansk = formattedData.filter(data => data.place.name === "Gdańsk");
+        const sopot = formattedData.filter(data => data.place.name === "Sopot");
+        const gdynia = formattedData.filter(data => data.place.name === "Gdynia");
         
         this.setState({ 
           data: [
@@ -63,25 +65,24 @@ export default class SimplePieChart extends Component {
   render() {
 
     return (
-    	<PieChart width={600} height={400} className={styles.pieChart} dataKey="index">
-      
-        <Pie dataKey="value"
+      <div style={{ width: '100%', height: 270}}>
+    	<PieChart width={200} height={250} className={styles.pieChart} dataKey="index" >
+        <Pie dataKey="value" 
           data={this.state.data}
-          cx={300} 
-          cy={165} 
+          cx={90} 
+          cy={100} 
           labelLine={false}
           label={renderCustomizedLabel}
-          outerRadius={120} 
+          outerRadius={80} 
           fill="#8884d8"
         >
-      
         	{
           	this.state.data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>)
           }
-          
         </Pie>
-        <Legend/>
+        <Legend align='center'/>
       </PieChart>
+      </div>
     );
   }
 }
