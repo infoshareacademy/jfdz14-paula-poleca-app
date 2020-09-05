@@ -17,7 +17,9 @@ const initialState = {
         fileName : ""
       } ],
     descLong: "",
-    urls: "",
+    urls: {
+        www: " ",
+    } ,
     file: null,
 
 }
@@ -61,7 +63,7 @@ class Forms extends React.Component {
                                 fileName : url,
                               }],
                             descLong: this.state.descLong,
-                            urls: this.state.urls,        
+                            urls: this.state.urls.www,        
                             }
             
                         fetch(`${DATABASE_URL}/events.json`, {
@@ -81,18 +83,6 @@ class Forms extends React.Component {
             })
         }
 
-        // fetchImg = () => {
-
-        //     firebase.storage().ref('img/')
-        //     .getDownloadURL()
-        //     .then(url => {
-        //         this.setState({
-        //             url,
-        //         }, () => {
-        //             this.props.addNewAvatar(this.state.url);
-        //         }) 
-        //     })           
-        // }
                 
     render(){
         return (
@@ -151,8 +141,8 @@ class Forms extends React.Component {
                 <Form.Group>
                 <Form.Label>Link do wydarzenia</Form.Label>
                     <Form.Control 
-                    name= "urls"
-                    id= "urls"
+                    name= "urls.www"
+                    id= "urls.www"
                     type="url" 
                     min="5" max="100" 
                     placeholder="Link do wydarzenia"
