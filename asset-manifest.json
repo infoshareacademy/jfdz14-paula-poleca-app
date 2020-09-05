@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/jfdz14-paula-poleca-app/static/css/main.25b46cda.chunk.css",
-    "main.js": "/jfdz14-paula-poleca-app/static/js/main.2bc7110e.chunk.js",
-    "main.js.map": "/jfdz14-paula-poleca-app/static/js/main.2bc7110e.chunk.js.map",
+    "main.js": "/jfdz14-paula-poleca-app/static/js/main.3f3753a3.chunk.js",
+    "main.js.map": "/jfdz14-paula-poleca-app/static/js/main.3f3753a3.chunk.js.map",
     "runtime-main.js": "/jfdz14-paula-poleca-app/static/js/runtime-main.29aed46b.js",
     "runtime-main.js.map": "/jfdz14-paula-poleca-app/static/js/runtime-main.29aed46b.js.map",
-    "static/js/2.17b2f0fd.chunk.js": "/jfdz14-paula-poleca-app/static/js/2.17b2f0fd.chunk.js",
-    "static/js/2.17b2f0fd.chunk.js.map": "/jfdz14-paula-poleca-app/static/js/2.17b2f0fd.chunk.js.map",
+    "static/js/2.c5111278.chunk.js": "/jfdz14-paula-poleca-app/static/js/2.c5111278.chunk.js",
+    "static/js/2.c5111278.chunk.js.map": "/jfdz14-paula-poleca-app/static/js/2.c5111278.chunk.js.map",
     "index.html": "/jfdz14-paula-poleca-app/index.html",
-    "precache-manifest.1deb372331ffb32994d23075bea9d0f2.js": "/jfdz14-paula-poleca-app/precache-manifest.1deb372331ffb32994d23075bea9d0f2.js",
+    "precache-manifest.95e63960f02f11f3010525230724eaa7.js": "/jfdz14-paula-poleca-app/precache-manifest.95e63960f02f11f3010525230724eaa7.js",
     "service-worker.js": "/jfdz14-paula-poleca-app/service-worker.js",
     "static/css/main.25b46cda.chunk.css.map": "/jfdz14-paula-poleca-app/static/css/main.25b46cda.chunk.css.map",
-    "static/js/2.17b2f0fd.chunk.js.LICENSE.txt": "/jfdz14-paula-poleca-app/static/js/2.17b2f0fd.chunk.js.LICENSE.txt",
+    "static/js/2.c5111278.chunk.js.LICENSE.txt": "/jfdz14-paula-poleca-app/static/js/2.c5111278.chunk.js.LICENSE.txt",
     "static/media/gdansk.jpg": "/jfdz14-paula-poleca-app/static/media/gdansk.8f2c3aec.jpg",
     "static/media/gdansk1.jpg": "/jfdz14-paula-poleca-app/static/media/gdansk1.8f2c3aec.jpg",
     "static/media/logo-white.png": "/jfdz14-paula-poleca-app/static/media/logo-white.395935ed.png"
   },
   "entrypoints": [
     "static/js/runtime-main.29aed46b.js",
-    "static/js/2.17b2f0fd.chunk.js",
+    "static/js/2.c5111278.chunk.js",
     "static/css/main.25b46cda.chunk.css",
-    "static/js/main.2bc7110e.chunk.js"
+    "static/js/main.3f3753a3.chunk.js"
   ]
 }
