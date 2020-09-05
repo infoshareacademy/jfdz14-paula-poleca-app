@@ -6,7 +6,6 @@ import style from '../styles/Form.css';
 import {DATABASE_URL} from "../index";
 import firebase from 'firebase';
 
-
 const initialState = {
     name: "",
     place : {
@@ -17,11 +16,10 @@ const initialState = {
         fileName : ""
       } ],
     descLong: "",
-    urls: {
+    urls: { 
         www: " ",
     } ,
     file: null,
-
 }
 
 class Forms extends React.Component {
@@ -43,6 +41,15 @@ class Forms extends React.Component {
                     name : event.target.value
                 }
             })
+        }
+
+        handleOnChangeLink = (event) => {
+            this.setState({
+                urls: {
+                    www : event.target.value
+                }
+            })
+
         }
 
         handleOnSubmit = (event) => {
@@ -141,12 +148,12 @@ class Forms extends React.Component {
                 <Form.Group>
                 <Form.Label>Link do wydarzenia</Form.Label>
                     <Form.Control 
-                    name= "urls.www"
+                    value={this.state.urls.www}
                     id= "urls.www"
                     type="url" 
                     min="5" max="100" 
                     placeholder="Link do wydarzenia"
-                    onChange={this.handleOnChange}
+                    onChange={this.handleOnChangeLink}
                     required
                     />
                 </Form.Group>
