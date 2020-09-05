@@ -17,14 +17,17 @@ const initialState = {
         fileName : ""
       } ],
     descLong: "",
-    urls: ""
+    urls: {
+        www: " ",
+    } ,
+    file: null,
+
 }
 
 class Forms extends React.Component {
         state = initialState
 
         resetForm = () => {
-            console.log(initialState)
             this.setState(initialState)
         }
 
@@ -43,38 +46,44 @@ class Forms extends React.Component {
         }
 
         handleOnSubmit = (event) => {
-            const newEvent = {
-                name : "",
-                place : {
-                    id: Math.floor(Math.random*100),
-                    name : "",
-                  },
-                attachments : [{
-                    fileName : "",
-                  }],
-                descLong: "",
-                urls: "",
 
-        
+            event.preventDefault();
+
+            firebase.storage().ref('events/' + Math.floor(Math.random()*100))
+                .put(this.state.file)
+                .then(snapshot => {
+                    snapshot.ref.getDownloadURL().then(url => {
+                        const newEvent = {
+                            name : this.state.name,
+                            place : {
+                                id: Math.floor(Math.random()*100),
+                                name : this.state.place.name,
+                              },
+                            attachments : [{
+                                fileName : url,
+                              }],
+                            descLong: this.state.descLong,
+                            urls: this.state.urls.www,        
+                            }
+            
+                        fetch(`${DATABASE_URL}/events.json`, {
+                            method: 'POST',
+                            body: JSON.stringify(newEvent)
+                        }).then(() => {
+                            this.props.onAdd();
+                            this.resetForm();
+                        })
+                    })
+                })
         }
 
-        // imgHandleOnChange = (event) => {
-        //     this.setState({
-        //         attachments: event.target.files[0]
-        //     })
-
-            
-        // }
-            event.preventDefault();
-            fetch(`${DATABASE_URL}/events.json`, {
-                method: 'POST',
-                body: JSON.stringify(this.state)
-            }).then(() => {
-                this.props.onAdd();
-                this.resetForm();
+        imgHandleOnChange = (event) => {
+            this.setState({
+                file: event.target.files[0]
             })
         }
-        
+
+                
     render(){
         return (
             <div  style={{marginLeft: 16, marginTop: 16, marginBottom: 100}}>
@@ -132,8 +141,8 @@ class Forms extends React.Component {
                 <Form.Group>
                 <Form.Label>Link do wydarzenia</Form.Label>
                     <Form.Control 
-                    name= "urls"
-                    id= "urls"
+                    name= "urls.www"
+                    id= "urls.www"
                     type="url" 
                     min="5" max="100" 
                     placeholder="Link do wydarzenia"
@@ -146,8 +155,9 @@ class Forms extends React.Component {
                         name="attachments"
                         id="attachments"
                         type='file' 
-                        // onChange={this.imgHandleOnChange}/>
-                        />
+                        onChange={this.imgHandleOnChange}
+                    />
+
                 </Form.Group>
                 </div>
             

@@ -74,8 +74,7 @@ class Account extends Component {
     // }
 
     fetchAvatar = () => {
-
-            firebase.storage().ref('avatars/' + this.state.uid)
+        firebase.storage().ref('avatars/' + this.state.uid)
             .getDownloadURL()
             .then(url => {
                 this.setState({
