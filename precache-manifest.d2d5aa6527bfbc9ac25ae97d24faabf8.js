@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2d585cbf392d9b039e60bf72e19afece",
+    "revision": "6b13550f95f019c92b71169f9a03e42e",
     "url": "/jfdz14-paula-poleca-app/index.html"
   },
   {
-    "revision": "ac6c6e0bc3199d54b374",
+    "revision": "53ba161c6691794cfe41",
     "url": "/jfdz14-paula-poleca-app/static/css/main.25b46cda.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/jfdz14-paula-poleca-app/static/js/2.c5111278.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ac6c6e0bc3199d54b374",
-    "url": "/jfdz14-paula-poleca-app/static/js/main.6bc7bf47.chunk.js"
+    "revision": "53ba161c6691794cfe41",
+    "url": "/jfdz14-paula-poleca-app/static/js/main.f965416c.chunk.js"
   },
   {
     "revision": "bfe53469c176f22cf9c9",
