@@ -24,7 +24,7 @@ export default class SimpleBarChart extends Component {
         const Thursday = formattedData.filter(data => data.day == 4);
         const Friday = formattedData.filter(data => data.day == 5);
         const Saturday = formattedData.filter(data => data.day == 6);
-        const Sunday = formattedData.filter(data => data.day == 7);
+        const Sunday = formattedData.filter(data => data.day == 0);
 
         this.setState({ 
             data: [
