@@ -65,11 +65,15 @@ class Favourites extends Component {
                     );
                 })
                 :
-                <h4>Zaloguj się aby dodać Eventy do ulubionych!!</h4>
+                <div style={{marginTop:'40px'}}>
+                    <h4>Zaloguj się aby dodać wydarzenia do ulubionych!</h4>
+                </div>
             }
             {
             !chosenFavourites && this.props.user &&(
-                <h4>Brak dodanych wydarzeń </h4>
+                <div style={{marginTop:'40px'}}>
+                    <h4>Brak dodanych wydarzeń </h4>
+                </div>
                 )                           
             }            
             </div>

@@ -153,7 +153,7 @@ class SignIn extends React.Component {
                             required
                             fullWidth
                             id="email"
-                            label="Email Address"
+                            label="Email"
                             name="email"
                             autoComplete="email"
                             autoFocus
@@ -166,7 +166,7 @@ class SignIn extends React.Component {
                             required
                             fullWidth
                             name="password"
-                            label="Password"
+                            label="Hasło"
                             type="password"
                             id="password"
                             autoComplete="current-password"
