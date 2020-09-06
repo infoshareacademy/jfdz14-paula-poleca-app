@@ -160,28 +160,9 @@ class Events extends React.Component {
 
         {
             !filteredEvents && !this.props.loading &&  
-            <CardDeck style={{margin:"4px"}}>
-                            
-                <Card className="text-center" style={{ width: '13rem', margin: '0px' }}>
-
-                    <Card.Body style={{padding: '10px'}}>
-                    <Card.Title 
-                        style={{ 
-                            textTransform: "UPPERCASE", 
-                            textAlign: "center",
-                            paddingTop: "10px"
-                        }}
-                    >Brak dostępnych Eventów</Card.Title>
-
-                    <Card.Text style={{height: "40px", color: 'red'}}>
-                        Brak Eventu o podanej nazwie!
-                    </Card.Text> 
-                    </Card.Body>
-                    
-                    
-                
-                </Card>
-                </CardDeck>
+            <div style={{marginTop:'40px'}}>
+                <h4>Brak wydarzeń o podanej nazwie</h4>    
+            </div>
         }
         
         

@@ -167,7 +167,9 @@ class Forms extends React.Component {
              </Form>
              </>
               :
-              <h4>Zaloguj się aby dodać Event!</h4>
+              <div style={{marginTop:'40px'}}>
+                    <h4>Zaloguj się aby dodać wydarzenie!</h4>
+                </div>
               }
             </div>
         
